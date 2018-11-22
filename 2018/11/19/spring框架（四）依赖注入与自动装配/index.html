@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="依赖注入与自动装配 [TOC]  一、依赖注入1. 通过xml配置的依赖注入1234567891011121314151617181920212223242526272829303132&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;&amp;lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2018/11/19/spring框架（四）依赖注入与自动装配/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="依赖注入与自动装配 [TOC]  一、依赖注入1. 通过xml配置的依赖注入1234567891011121314151617181920212223242526272829303132&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;&amp;lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-11-20T05:36:05.577Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="依赖注入与自动装配 [TOC]  一、依赖注入1. 通过xml配置的依赖注入1234567891011121314151617181920212223242526272829303132&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;&amp;lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-spring框架（四）依赖注入与自动装配" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/11/19/spring框架（四）依赖注入与自动装配/" class="article-date">
+  <time datetime="2018-11-19T11:38:39.118Z" itemprop="datePublished">2018-11-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>依赖注入与自动装配</p>
+<p>[TOC]</p>
+<hr>
+<h1 id="一、依赖注入"><a href="#一、依赖注入" class="headerlink" title="一、依赖注入"></a>一、依赖注入</h1><h2 id="1-通过xml配置的依赖注入"><a href="#1-通过xml配置的依赖注入" class="headerlink" title="1. 通过xml配置的依赖注入"></a>1. 通过xml配置的依赖注入</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"thingOne"</span> <span class="attr">class</span>=<span class="string">"com.jacky.springframework.dependency.inject.ThingOne"</span> <span class="attr">lazy-init</span>=<span class="string">"true"</span> &gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">value</span>=<span class="string">"thingOne"</span> <span class="attr">type</span>=<span class="string">"java.lang.String"</span>/&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--&lt;constructor-arg name="date" value="2018-11-19" type="java.util.Date"/&gt;</span></span><br><span class="line"><span class="comment">		直接付string需要做类型转换，自定义类型转换器--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">name</span>=<span class="string">"date"</span> <span class="attr">ref</span>=<span class="string">"date"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"date"</span> <span class="attr">class</span>=<span class="string">"java.util.Date"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">name</span>=<span class="string">"year"</span> <span class="attr">value</span>=<span class="string">"2018"</span>&gt;</span><span class="tag">&lt;/<span class="name">constructor-arg</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">name</span>=<span class="string">"month"</span> <span class="attr">value</span>=<span class="string">"9"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">name</span>=<span class="string">"date"</span> <span class="attr">value</span>=<span class="string">"6"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"thingThree"</span> <span class="attr">class</span>=<span class="string">"com.jacky.springframework.dependency.inject.ThingThree"</span> <span class="attr">lazy-init</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">value</span>=<span class="string">"thingThree"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"date"</span> <span class="attr">value</span>=<span class="string">"2018/11/19"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--注册类型转换--&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"conversionService"</span></span></span><br><span class="line"><span class="tag">          <span class="attr">class</span>=<span class="string">"org.springframework.context.support.ConversionServiceFactoryBean"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"converters"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">set</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- 自定义的类型转换器，将String转换为date类型--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"com.jacky.springframework.dependency.inject.MyConverter"</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">set</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="2-通过-Value注解的注入"><a href="#2-通过-Value注解的注入" class="headerlink" title="2. 通过@Value注解的注入"></a>2. 通过@Value注解的注入</h2><p>@Value 的值为属性值，可以用于构建函数注入和setter注入</p>
+<p>构造函数注入如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThingOne</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> Date date;</span><br><span class="line"><span class="comment">//构造函数注入</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ThingOne</span><span class="params">(@Value(<span class="string">"thingOne"</span>)</span> String name, @<span class="title">Value</span><span class="params">(<span class="string">"#&#123;date&#125;"</span>)</span> Date date)</span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name=name;</span><br><span class="line">        <span class="keyword">this</span>.date=date;</span><br><span class="line">        System.out.println(<span class="string">"===========通过有参构造器依赖注入==========="</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"> ........</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThingThree</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> Date date;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ThingThree</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"===========通过无参构造器创建==========="</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//setter注入</span></span><br><span class="line">    <span class="meta">@Value</span>(<span class="string">"thingThree"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"===========通过Setter方法注入name属性==========="</span>);</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Date <span class="title">getDate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> date;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Value</span>(<span class="string">"#&#123;date&#125;"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setDate</span><span class="params">(Date date)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.date = date;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-延迟加载属性设置和dependOn属性设置"><a href="#3-延迟加载属性设置和dependOn属性设置" class="headerlink" title="3. 延迟加载属性设置和dependOn属性设置"></a>3. 延迟加载属性设置和dependOn属性设置</h3><p>   ​    延迟加载属性为true的bean在获取时才进行加载，属性为false且为scope属性为singleton的在容器初始化的时候创建。dependOn的bean或者是属性依赖的bean优先于被依赖的bean（即本bean）实例化。</p>
+   <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"thingThree"</span> <span class="attr">class</span>=<span class="string">"com.jacky.springframework.dependency.inject.ThingThree"</span> <span class="attr">lazy-init</span>=<span class="string">"true"</span> <span class="attr">dependOn</span>=<span class="string">"environment"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">value</span>=<span class="string">"thingThree"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"date"</span> <span class="attr">value</span>=<span class="string">"2018/11/19"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="二、自动装配"><a href="#二、自动装配" class="headerlink" title="二、自动装配"></a>二、自动装配</h2><h3 id="1-自动装配类型"><a href="#1-自动装配类型" class="headerlink" title="1. 自动装配类型"></a>1. 自动装配类型</h3><table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>no</code></td>
+<td>(Default) No autowiring. Bean references must be defined by <code>ref</code> elements. Changing the default setting is not recommended for larger deployments, because specifying collaborators explicitly gives greater control and clarity. To some extent, it documents the structure of a system.</td>
+</tr>
+<tr>
+<td><code>byName</code></td>
+<td>Autowiring by property name. Spring looks for a bean with the same name as the property that needs to be autowired. For example, if a bean definition is set to autowire by name and it contains a <code>master</code> property (that is, it has a <code>setMaster(..)</code> method), Spring looks for a bean definition named <code>master</code> and uses it to set the property.</td>
+</tr>
+<tr>
+<td><code>byType</code></td>
+<td>Lets a property be autowired if exactly one bean of the property type exists in the container. If more than one exists, a fatal exception is thrown, which indicates that you may not use <code>byType</code>autowiring for that bean. If there are no matching beans, nothing happens (the property is not set).</td>
+</tr>
+<tr>
+<td><code>constructor</code></td>
+<td>Analogous to <code>byType</code> but applies to constructor arguments. If there is not exactly one bean of the constructor argument type in the container, a fatal error is raised.</td>
+</tr>
+</tbody>
+</table>
+<p>通过xml配置自动装配</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"thingOne"</span> <span class="attr">class</span>=<span class="string">"com.jacky.springframework.dependency.inject.ThingOne"</span> <span class="attr">lazy-init</span>=<span class="string">"true"</span> <span class="attr">autowire</span>=<span class="string">"constructor"</span> <span class="attr">dependOn</span>=<span class="string">"date"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">value</span>=<span class="string">"thingOne"</span>/&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--&lt;constructor-arg name="date" value="2018-11-19"/&gt;--&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--&lt;constructor-arg name="date" ref="date"/&gt;--&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"date"</span> <span class="attr">class</span>=<span class="string">"java.util.Date"</span> <span class="attr">autowire-candidate</span>=<span class="string">"true"</span> &gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">name</span>=<span class="string">"year"</span> <span class="attr">value</span>=<span class="string">"2018"</span>&gt;</span><span class="tag">&lt;/<span class="name">constructor-arg</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">name</span>=<span class="string">"month"</span> <span class="attr">value</span>=<span class="string">"9"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">constructor-arg</span> <span class="attr">name</span>=<span class="string">"date"</span> <span class="attr">value</span>=<span class="string">"6"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-byType自动装配与primary属性"><a href="#2-byType自动装配与primary属性" class="headerlink" title="2. byType自动装配与primary属性"></a>2. byType自动装配与primary属性</h3><p>byType自动装配：按类型自动装配，如果找不到适配的bean则报错，如果有多个且没有唯一一个设置primary属性则报错，有唯一一个设置了primary属性则装配primary属性为true的bean。</p>
+<p>primay属性默认为false</p>
+<ul>
+<li>xml配置如下：</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"demo1"</span> <span class="attr">class</span>=<span class="string">"com.jacky.springframework.dependency.inject.DemoImpl1"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"demo2"</span> <span class="attr">class</span>=<span class="string">"com.jacky.springframework.dependency.inject.DemoImpl2"</span> <span class="attr">primary</span>=<span class="string">"true"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"demoUser"</span> <span class="attr">class</span>=<span class="string">"com.jacky.springframework.dependency.inject.DemoUser"</span> <span class="attr">autowire</span>=<span class="string">"byType"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>java配置：@Autowire注解和@Primary注解</p>
+<p>@Autowire注解可以注释属性及setter方法。注解属性则通过反射直接给属性赋值，注释方法（构造函数）则通过反射调用setter方法（构造函数）注入。</p>
+<p>@Autowire注解有require属性默认为true:为true时，必须赋值；false时可以不赋值，即找不到对应的bean时不赋值</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DemoImpl1</span> <span class="keyword">implements</span> <span class="title">Demo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">DemoImpl1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"================demoImpl1============"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@Primary</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DemoImpl2</span> <span class="keyword">implements</span> <span class="title">Demo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">DemoImpl2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"================demoImpl2:primay============"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DemoUser</span> </span>&#123;</span><br><span class="line">    <span class="comment">//@Autowired 通过反射直接复制</span></span><br><span class="line">    <span class="keyword">private</span> Demo demo;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">DemoUser</span><span class="params">()</span></span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Demo <span class="title">getDemo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> demo;</span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="comment">//通过setter方法复制</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setDemo</span><span class="params">(Demo demo)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.demo = demo;</span><br><span class="line">        System.out.println(<span class="string">"DemoUser use:"</span>+demo.getClass().getSimpleName());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</span><br><span class="line"><span class="comment">// 通过xml创建容器  ApplicationContext applicationContext = new ClassPathXmlApplicationContext("dependency.xml");</span></span><br><span class="line">        ApplicationContext applicationContext = <span class="keyword">new</span> AnnotationConfigApplicationContext(Config.class);</span><br><span class="line">        DemoUser demoUser = (DemoUser) applicationContext.getBean(<span class="string">"demoUser"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;~</span><br><span class="line">================demoImpl1============</span><br><span class="line">================demoImpl2:primay============</span><br><span class="line">DemoUser use:DemoImpl2</span><br></pre></td></tr></table></figure>
+<h3 id="3-Qualifier注解"><a href="#3-Qualifier注解" class="headerlink" title="3. Qualifier注解"></a>3. Qualifier注解</h3><p>Qualifier 只有value属性：用于@Autowire 自动装配</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DemoUser</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Demo demo;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">DemoUser</span><span class="params">()</span></span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Demo <span class="title">getDemo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> demo;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="comment">//限定装配的对象</span></span><br><span class="line">    <span class="meta">@Qualifier</span>(<span class="string">"demoImpl1"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setDemo</span><span class="params">(Demo demo)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.demo = demo;</span><br><span class="line">        System.out.println(<span class="string">"DemoUser use:"</span>+demo.getClass().getSimpleName());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</span><br><span class="line"><span class="comment">//        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("dependency.xml");</span></span><br><span class="line">        ApplicationContext applicationContext = <span class="keyword">new</span> AnnotationConfigApplicationContext(Config.class);</span><br><span class="line">        DemoUser demoUser = (DemoUser) applicationContext.getBean(<span class="string">"demoUser"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;~~~</span><br><span class="line">================demoImpl1============</span><br><span class="line">================demoImpl2:primay============</span><br><span class="line">DemoUser use:DemoImpl1</span><br></pre></td></tr></table></figure>
+<h3 id="4-JSR-305注解-Nullable注解"><a href="#4-JSR-305注解-Nullable注解" class="headerlink" title="4. JSR 305注解@Nullable注解"></a>4. JSR 305注解@Nullable注解</h3><h3 id="三、Method-Injection"><a href="#三、Method-Injection" class="headerlink" title="三、Method Injection"></a>三、Method Injection</h3><p>产生原因：解决singleton bean 依赖prototype bean的问题。</p>
+<p>###　方案一：ApplicationContext获取</p>
+<p>​    通过ApplicationContextAware 接口注入ApplicationContext，每次使用时通过ApplicationContext的getBean()方法获取prototype 的bean</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//命令执行器，prototype类型，每次执行时获取最新</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Command</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> seed;</span><br><span class="line">    <span class="keyword">private</span> Map&lt;String,String&gt; commandState;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Command</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.seed = (<span class="keyword">int</span>) (Math.random()*<span class="number">100</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCommandState</span><span class="params">(Map commandState)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.commandState = commandState;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Command <span class="title">execude</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"======execude seed:"</span>+seed+<span class="string">"========"</span>);</span><br><span class="line">        <span class="keyword">for</span>(String key: commandState.keySet())&#123;</span><br><span class="line">            System.out.println(<span class="string">"======"</span>+key+<span class="string">" execude :"</span>+commandState.get(key)+<span class="string">"========"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Command&#123;"</span> +</span><br><span class="line">                <span class="string">"seed="</span> + seed +</span><br><span class="line">                <span class="string">'&#125;'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//CommandManager </span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">CommandManager</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Command command;</span><br><span class="line">	......</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">process</span><span class="params">(Map commondState)</span></span>&#123;</span><br><span class="line">        command = createCommand();</span><br><span class="line">        command.setCommandState(commondState);</span><br><span class="line">        <span class="keyword">return</span> command.execude();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> Command <span class="title">createCommand</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//CommandManager 实现类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CommandManagerImpl</span> <span class="keyword">extends</span> <span class="title">CommandManager</span> <span class="keyword">implements</span> <span class="title">ApplicationContextAware</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> ApplicationContext applicationContext;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Command <span class="title">createCommand</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> applicationContext.getBean(<span class="string">"command"</span>,Command.class);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setApplicationContext</span><span class="params">(ApplicationContext applicationContext)</span> <span class="keyword">throws</span> BeansException </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.applicationContext= applicationContext;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>xml配置如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"command"</span> <span class="attr">class</span>=<span class="string">"com.jacky.springframework.dependency.inject.command.Command"</span> <span class="attr">scope</span>=<span class="string">"prototype"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"commandManager"</span> <span class="attr">class</span>=<span class="string">"com.jacky.springframework.dependency.inject.command.CommandManagerImpl"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p>执行类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MethodInject</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</span><br><span class="line">        ConfigurableApplicationContext applicationContext = <span class="keyword">new</span> ClassPathXmlApplicationContext(<span class="string">"command.xml"</span>);</span><br><span class="line">        CommandManager commandManager= (CommandManager) applicationContext.getBean(<span class="string">"commandManager"</span>);</span><br><span class="line">        Map commandState = <span class="keyword">new</span> HashMap&lt;String,String&gt;();</span><br><span class="line">        commandState.put(<span class="string">"jacky"</span>,<span class="string">"up"</span>);</span><br><span class="line">        commandState.put(<span class="string">"zhang"</span>,<span class="string">"down"</span>);</span><br><span class="line">        System.out.println(<span class="string">"第一次获取执行"</span>);</span><br><span class="line">        System.out.println( commandManager.process(commandState));</span><br><span class="line">        commandManager= (CommandManager) applicationContext.getBean(<span class="string">"commandManager"</span>);</span><br><span class="line">        System.out.println(<span class="string">"第二次获取执行"</span>);</span><br><span class="line">        System.out.println( commandManager.process(commandState));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;~~~</span><br><span class="line">第一次获取执行</span><br><span class="line">======execude seed:<span class="number">87</span>========</span><br><span class="line">======jacky execude :up========</span><br><span class="line">======zhang execude :down========</span><br><span class="line">Command&#123;seed=<span class="number">87</span>&#125;</span><br><span class="line">第二次获取执行</span><br><span class="line">======execude seed:<span class="number">71</span>========</span><br><span class="line">======jacky execude :up========</span><br><span class="line">======zhang execude :down========</span><br><span class="line">Command&#123;seed=<span class="number">71</span>&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="方案二：Method-Injection"><a href="#方案二：Method-Injection" class="headerlink" title="方案二：Method Injection"></a>方案二：Method Injection</h3><ul>
+<li>xml配置</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"command"</span> <span class="attr">class</span>=<span class="string">"com.jacky.springframework.dependency.inject.command.Command"</span> <span class="attr">scope</span>=<span class="string">"prototype"</span>/&gt;</span></span><br><span class="line"><span class="comment">&lt;!--&lt;bean id="commandManager" class="com.jacky.springframework.dependency.inject.command.CommandManagerImpl"/&gt;--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"commandManager"</span> <span class="attr">class</span>=<span class="string">"com.jacky.springframework.dependency.inject.command.CommandManager"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">lookup-method</span> <span class="attr">name</span>=<span class="string">"createCommand"</span> <span class="attr">bean</span>=<span class="string">"command"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>执行结果如上.</p>
+<ul>
+<li>注解@LookUp</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">CommandManager</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Command command;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">process</span><span class="params">(Map commondState)</span></span>&#123;</span><br><span class="line">        command = createCommand();</span><br><span class="line">        command.setCommandState(commondState);</span><br><span class="line">        <span class="keyword">return</span> command.execude();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// @Lookup如果不设置值则按方法返回类型查找，设置则按bean名称查找</span></span><br><span class="line">    <span class="meta">@Lookup</span>(<span class="string">"command"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> Command <span class="title">createCommand</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/11/19/spring框架（四）依赖注入与自动装配/" data-id="cjosk44mu0002igla4w1tw9ia" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/11/22/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Hello World
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/11/14/spring框架（三）Bean定义及创建/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/11/22/spring框架（六）@Profile与@PropertySource/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/22/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/19/spring框架（四）依赖注入与自动装配/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/14/spring框架（三）Bean定义及创建/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
