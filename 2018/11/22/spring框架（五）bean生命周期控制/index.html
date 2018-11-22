@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>spring框架（五）Bean的生命周期 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="[TOC]  1. bean的生命周期 As you can see, a bean factory performs several setup steps before a bean is ready touse. Let’s break down figure 1.5 in more detail:1 Spring instantiates the bean.2 Spring injects">
+<meta name="keywords" content="spring,java框架">
+<meta property="og:type" content="article">
+<meta property="og:title" content="spring框架（五）Bean的生命周期">
+<meta property="og:url" content="http://yoursite.com/2018/11/22/spring框架（五）bean生命周期控制/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="[TOC]  1. bean的生命周期 As you can see, a bean factory performs several setup steps before a bean is ready touse. Let’s break down figure 1.5 in more detail:1 Spring instantiates the bean.2 Spring injects">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2018/11/22/Bean_lifecircle.jpg">
+<meta property="og:updated_time" content="2018-11-22T12:36:02.352Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="spring框架（五）Bean的生命周期">
+<meta name="twitter:description" content="[TOC]  1. bean的生命周期 As you can see, a bean factory performs several setup steps before a bean is ready touse. Let’s break down figure 1.5 in more detail:1 Spring instantiates the bean.2 Spring injects">
+<meta name="twitter:image" content="http://yoursite.com/2018/11/22/Bean_lifecircle.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-spring框架（五）bean生命周期控制" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/11/22/spring框架（五）bean生命周期控制/" class="article-date">
+  <time datetime="2018-11-22T12:09:00.000Z" itemprop="datePublished">2018-11-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      spring框架（五）Bean的生命周期
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>[TOC]</p>
+<hr>
+<h2 id="1-bean的生命周期"><a href="#1-bean的生命周期" class="headerlink" title="1. bean的生命周期"></a>1. bean的生命周期</h2><p><img src="../Bean_lifecircle.jpg" alt="bean生命周期"></p>
+<p>As you can see, a bean factory performs several setup steps before a bean is ready to<br>use. Let’s break down figure 1.5 in more detail:<br>1 Spring instantiates the bean.<br>2 Spring injects values and bean references into the bean’s properties.<br>3 If the bean implements <strong>BeanNameAware,</strong> Spring passes the bean’s ID to the <strong>setBeanName()</strong> method.<br>4 If the bean implements <strong>BeanFactoryAware,</strong> Spring calls the <strong>setBeanFactory()</strong><br>method, passing in the bean factory itself.<br>5 If the bean implements <strong>ApplicationContextAware</strong>, Spring calls the <strong>setApplicationContext()</strong> method, passing in a reference to the enclosing application context.<br>6 If the bean implements the <strong>BeanPostProcessor</strong> interface, Spring calls its <strong>postProcessBeforeInitialization()</strong> method.<br>7 If the bean implements the <strong>InitializingBean</strong> interface, Spring calls its <strong>afterPropertiesSet()</strong> method. Similarly, if the bean was declared with an <strong>initmethod</strong>, then the specified initialization method is called.<br>8 If the bean implements <strong>BeanPostProcessor</strong>, Spring calls its <strong>postProcessAfterInitialization()</strong> method.<br>9 At this point, the bean is ready to be used by the application and remains in the<br>application context until the application context is destroyed.<br>10 If the bean implements the <strong>DisposableBean</strong> interface, Spring calls its<br>method. Likewise, if the bean was declared with a destroy-method,<br>the specified method is called</p>
+<h2 id="2-生命周期的回调函数"><a href="#2-生命周期的回调函数" class="headerlink" title="2. 生命周期的回调函数"></a>2. 生命周期的回调函数</h2><ul>
+<li><p>InitializingBean和<code>DisposableBean</code> </p>
+<p>InitializingBean的afterPropertiesSet()方法</p>
+<p><code>DisposableBean</code> 的destroy()方法</p>
+</li>
+<li><p>初始化方法和销毁方法：@Bean指定或者xml配置指定</p>
+<p>@Bean(initMethod = “beanInit”,destroyMethod = “beanDestroy”)</p>
+<p>xml</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">init-method</span>=<span class="string">"init"</span> <span class="attr">destroy-method</span>=<span class="string">"destroy"</span> <span class="attr">class</span>=<span class="string">"..."</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>@PostConstruct和@PreDestroy方法</p>
+</li>
+<li><p>BeanPostProcessor</p>
+</li>
+<li><p>Aware接口</p>
+<p>| Name                             | Injected Dependency                                          | Explained in…                                                |<br>| ——————————– | ———————————————————— | ———————————————————— |<br>| <code>ApplicationContextAware</code>        | Declaring <code>ApplicationContext</code>.                              | <a href="https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/core.html#beans-factory-aware" target="_blank" rel="noopener"><code>ApplicationContextAware</code> and <code>BeanNameAware</code></a> |<br>| <code>ApplicationEventPublisherAware</code> | Event publisher of the enclosing <code>ApplicationContext</code>.       | <a href="https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/core.html#context-introduction" target="_blank" rel="noopener">Additional Capabilities of the <code>ApplicationContext</code></a> |<br>| <code>BeanClassLoaderAware</code>           | Class loader used to load the bean classes.                  | <a href="https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/core.html#beans-factory-class" target="_blank" rel="noopener">Instantiating Beans</a> |<br>| <code>BeanFactoryAware</code>               | Declaring <code>BeanFactory</code>.                                     | <a href="https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/core.html#beans-factory-aware" target="_blank" rel="noopener"><code>ApplicationContextAware</code> and <code>BeanNameAware</code></a> |<br>| <code>BeanNameAware</code>                  | Name of the declaring bean.                                  | <a href="https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/core.html#beans-factory-aware" target="_blank" rel="noopener"><code>ApplicationContextAware</code> and <code>BeanNameAware</code></a> |<br>| <code>BootstrapContextAware</code>          | Resource adapter <code>BootstrapContext</code>the container runs in. Typically available only in JCA aware <code>ApplicationContext</code>instances. | <a href="https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/integration.html#cci" target="_blank" rel="noopener">JCA CCI</a> |<br>| <code>LoadTimeWeaverAware</code>            | Defined weaver for processing class definition at load time. | <a href="https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/core.html#aop-aj-ltw" target="_blank" rel="noopener">Load-time Weaving with AspectJ in the Spring Framework</a> |<br>| <code>MessageSourceAware</code>             | Configured strategy for resolving messages (with support for parametrization and internationalization). | <a href="https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/core.html#context-introduction" target="_blank" rel="noopener">Additional Capabilities of the <code>ApplicationContext</code></a> |<br>| <code>NotificationPublisherAware</code>     | Spring JMX notification publisher.                           | <a href="https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/integration.html#jmx-notifications" target="_blank" rel="noopener">Notifications</a> |<br>| <code>ResourceLoaderAware</code>            | Configured loader for low-level access to resources.         | <a href="https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/core.html#resources" target="_blank" rel="noopener">Resources</a> |<br>| <code>ServletConfigAware</code>             | Current <code>ServletConfig</code> the container runs in. Valid only in a web-aware Spring <code>ApplicationContext</code>. | <a href="https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/web.html#mvc" target="_blank" rel="noopener">Spring MVC</a> |<br>| <code>ServletContextAware</code>            | Current <code>ServletContext</code> the container runs in. Valid only in a web-aware Spring <code>ApplicationContext</code>. | <a href="https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/web.html#mvc" target="_blank" rel="noopener">Spring MVC</a> |</p>
+</li>
+</ul>
+<p>测试bean</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BeanLifeCircleTest</span> <span class="keyword">implements</span> <span class="title">InitializingBean</span>,<span class="title">DisposableBean</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">BeanLifeCircleTest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"==============BeanLifeCircleTest:create================"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">destroy</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"==============DisposableBean:destroy================"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">   <span class="meta">@PostConstruct</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">myInit</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"==============@PostConstruct:MyInit================"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@PreDestroy</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">myDestroy</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"==============@PreDestroy:myDestroy================"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterPropertiesSet</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;        System.out.println(<span class="string">"==============InitializingBean:afterPropertiesSet================"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">beanInit</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"==============BeanLifeCircleTest:beanInit================"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">beanDestroy</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"==============BeanLifeCircleTest:beanDestroy================"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"==============BeanLifeCircleTest:defaultInit================"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>BeanPostProcessor</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyBeanPostProcessor</span> <span class="keyword">implements</span> <span class="title">BeanPostProcessor</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">postProcessBeforeInitialization</span><span class="params">(Object bean, String beanName)</span> <span class="keyword">throws</span> BeansException </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(bean.getClass().isAssignableFrom(BeanLifeCircleTest.class))&#123;</span><br><span class="line">            System.out.println(<span class="string">"==============BeanLifeCircleTest:postProcessBeforeInitialization================"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">postProcessAfterInitialization</span><span class="params">(Object bean, String beanName)</span> <span class="keyword">throws</span> BeansException </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(bean.getClass().isAssignableFrom(BeanLifeCircleTest.class))&#123;</span><br><span class="line">            System.out.println(<span class="string">"==============BeanLifeCircleTest:postProcessAfterInitialization================"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>配置及执行代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Config</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span>(initMethod = <span class="string">"beanInit"</span>,destroyMethod = <span class="string">"beanDestroy"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> BeanLifeCircleTest <span class="title">beanLifeCircleTest</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> BeanLifeCircleTest();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> SmartLifecycleTest <span class="title">lifeCircleTest</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> SmartLifecycleTest();</span><br><span class="line">    &#125;</span><br><span class="line">        <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> MyBeanPostProcessor <span class="title">myBeanPostProcessor</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> MyBeanPostProcessor();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//测试代码需要应用spring-test和junit依赖包</span></span><br><span class="line"><span class="meta">@RunWith</span>(SpringRunner.class)</span><br><span class="line"><span class="meta">@SpringJUnitConfig</span>(config.class)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyBeanLifeCircleTest</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    ConfigurableApplicationContext app;</span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span>&#123;</span><br><span class="line">        BeanLifeCircleTest beanLifeCircleTest = (BeanLifeCircleTest) app.getBean(<span class="string">"beanLifeCircleTest"</span>);</span><br><span class="line">        app.stop();</span><br><span class="line">        app.start();</span><br><span class="line">        app.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;~~~</span><br><span class="line">==============BeanLifeCircleTest:create================</span><br><span class="line">==============BeanLifeCircleTest:postProcessBeforeInitialization================</span><br><span class="line">==============InitializingBean:afterPropertiesSet================</span><br><span class="line">==============BeanLifeCircleTest:beanInit================</span><br><span class="line">==============BeanLifeCircleTest:postProcessAfterInitialization================</span><br><span class="line">    =================SmartLifecycleTest start================</span><br><span class="line">    =================SmartLifecycleTest stop with call================</span><br><span class="line">    =================SmartLifecycleTest start================</span><br><span class="line">    =================SmartLifecycleTest stop with call================</span><br><span class="line">==============<span class="meta">@PreDestroy</span>:myDestroy================</span><br><span class="line">==============DisposableBean:destroy================</span><br><span class="line">==============BeanLifeCircleTest:beanDestroy================</span><br></pre></td></tr></table></figure>
+<h2 id="3-总结"><a href="#3-总结" class="headerlink" title="3.总结"></a>3.总结</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1.先创建Bean实例</span><br><span class="line">2.执行BeanNameAware、BeanClassLoaderAware、BeanFactoryAware等Aware方法</span><br><span class="line">3.执行BeanPostProcessor的postProcessBeforeInitialization方法</span><br><span class="line">4.InitializingBean的afterPropertiesSet</span><br><span class="line">5.执行自定义的初始化方法invokeCustomInitMethod如：@Bean（initMethod=““）、xml配置</span><br><span class="line">6.执行BeanPostProcessor后置处理器的postProcessAfterInitialization方法</span><br><span class="line">7.==============@PreDestroy:myDestroy================</span><br><span class="line">8.==============DisposableBean:destroy================</span><br><span class="line">9.==============BeanLifeCircleTest:beanDestroy================</span><br></pre></td></tr></table></figure>
+<p>从以下文档可以看出Prototype的类不注册destroy方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">registerDisposableBeanIfNecessary</span><span class="params">(String beanName, Object bean, RootBeanDefinition mbd)</span> </span>&#123;</span><br><span class="line">   AccessControlContext acc = (System.getSecurityManager() != <span class="keyword">null</span> ? getAccessControlContext() : <span class="keyword">null</span>);</span><br><span class="line">   <span class="keyword">if</span> (!mbd.isPrototype() &amp;&amp; requiresDestruction(bean, mbd)) &#123;</span><br><span class="line">      <span class="keyword">if</span> (mbd.isSingleton()) &#123;</span><br><span class="line">         <span class="comment">// Register a DisposableBean implementation that performs all destruction</span></span><br><span class="line">         <span class="comment">// work for the given bean: DestructionAwareBeanPostProcessors,</span></span><br><span class="line">         <span class="comment">// DisposableBean interface, custom destroy method.</span></span><br><span class="line">         registerDisposableBean(beanName,</span><br><span class="line">               <span class="keyword">new</span> DisposableBeanAdapter(bean, beanName, mbd, getBeanPostProcessors(), acc));</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">else</span> &#123;</span><br><span class="line">         <span class="comment">// A bean with a custom scope...</span></span><br><span class="line">         Scope scope = <span class="keyword">this</span>.scopes.get(mbd.getScope());</span><br><span class="line">         <span class="keyword">if</span> (scope == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalStateException(<span class="string">"No Scope registered for scope name '"</span> + mbd.getScope() + <span class="string">"'"</span>);</span><br><span class="line">         &#125;</span><br><span class="line">         scope.registerDestructionCallback(beanName,</span><br><span class="line">               <span class="keyword">new</span> DisposableBeanAdapter(bean, beanName, mbd, getBeanPostProcessors(), acc));</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>​    </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/11/22/spring框架（五）bean生命周期控制/" data-id="cjoskzrot000664layroqo3x1" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java框架/">java框架</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring/">spring</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/11/22/spring框架（二）IOC容器/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          spring框架（二）IOC容器
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/11/22/spring框架（六）@Profile与@PropertySource/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">spring框架（六）@Profile与@PropertySource</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/java框架/">java框架</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/java框架/" style="font-size: 10px;">java框架</a> <a href="/tags/spring/" style="font-size: 10px;">spring</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/11/22/spring框架（三）Bean定义及创建/">spring框架（三）Bean的定义及创建</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/22/spring框架（一）简介/">spring框架（一）简介</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/22/spring框架（二）IOC容器/">spring框架（二）IOC容器</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/22/spring框架（五）bean生命周期控制/">spring框架（五）Bean的生命周期</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/22/spring框架（六）@Profile与@PropertySource/">spring框架（六）@Profile与@PropertySource</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
