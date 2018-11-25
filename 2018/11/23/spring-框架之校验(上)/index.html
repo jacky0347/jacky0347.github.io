@@ -12,11 +12,11 @@
 <meta name="keywords" content="spring校验,validation">
 <meta property="og:type" content="article">
 <meta property="og:title" content="spring 框架之校验-JSR303与JSR349">
-<meta property="og:url" content="http://yoursite.com/2018/11/23/spring-框架之校验-JSR303与JSR349/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/11/23/spring-框架之校验(上)/index.html">
 <meta property="og:site_name" content="历萧尘的博客">
 <meta property="og:description" content="一、为什么要进行校验？参考Wikipedia对数据校验的说明，数据校验主要用于以下几个目的：  确保数据准确性：如用户的生日信息，如果输入的是“sss”一串无效字符，对程序是无意义的。提前识别，降低风险。 确保数据可用性：如注册时输入用户的生日信息为“1099-09-03”这样的信息，虽然是日期格式，但是在做分析时为无效数据。 确保数据安全性：如用户注册时填写密码，出于安全考虑一般都需要对密码的复">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-23T10:25:27.747Z">
+<meta property="og:updated_time" content="2018-11-25T06:47:18.752Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="spring 框架之校验-JSR303与JSR349">
 <meta name="twitter:description" content="一、为什么要进行校验？参考Wikipedia对数据校验的说明，数据校验主要用于以下几个目的：  确保数据准确性：如用户的生日信息，如果输入的是“sss”一串无效字符，对程序是无意义的。提前识别，降低风险。 确保数据可用性：如注册时输入用户的生日信息为“1099-09-03”这样的信息，虽然是日期格式，但是在做分析时为无效数据。 确保数据安全性：如用户注册时填写密码，出于安全考虑一般都需要对密码的复">
@@ -171,7 +171,7 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-spring-框架之校验-JSR303与JSR349" class="article article-type-post " itemscope="" itemprop="blogPost">
+            <article id="post-spring-框架之校验(上)" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -183,7 +183,7 @@ var _hmt = _hmt || [];
   
 
         
-        <a href="/2018/11/23/spring-框架之校验-JSR303与JSR349/" class="archive-article-date">
+        <a href="/2018/11/23/spring-框架之校验(上)/" class="archive-article-date">
   	<time datetime="2018-11-23T03:14:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-23</time>
 </a>
         
@@ -197,6 +197,7 @@ var _hmt = _hmt || [];
 <li>确保数据可用性：如注册时输入用户的生日信息为“1099-09-03”这样的信息，虽然是日期格式，但是在做分析时为无效数据。</li>
 <li>确保数据安全性：如用户注册时填写密码，出于安全考虑一般都需要对密码的复杂度进行校验。数据传输过程中的防窜改。</li>
 </ol>
+<a id="more"></a>
 <h2 id="二、数据校验的类型"><a href="#二、数据校验的类型" class="headerlink" title="二、数据校验的类型"></a>二、数据校验的类型</h2><ol>
 <li>数据类型的校验</li>
 <li>数据范围和约束的校验，如年龄：0~150</li>
@@ -205,22 +206,22 @@ var _hmt = _hmt || [];
 <li>数据安全校验：如md5值</li>
 <li>一致性校验：如city和zipcode的一致性。</li>
 </ol>
-<h2 id="三、如何进行校验"><a href="#三、如何进行校验" class="headerlink" title="三、如何进行校验"></a>三、如何进行校验</h2><p>​    JAVA EE对数据校验定义了相应标准，目前常用的为：JSR303（Bean Validation 1.0）<a href="\asserts\bean_validation-1_0-final-spec.pdf"> 参考文件</a> 和<a href="\asserts\bean-validation-specification.pdf">JSR349（Bean Validation 1.1）</a>等标准，目前最新标准为JSR360(Bean Validation 2.0 )。hibernate-validator实现了JSR303标准。</p>
-<p>​    Bean Validation标准采用通过领域模型（Model对象）进行注解的方式对领域对象进行校验。这样model可以在应用的各层（展示层、持久化层）都能被校验。详细的参见规范文档。以下为JSR303标准简介</p>
-<p>约束注解注释的对象：</p>
+<h2 id="三、如何进行校验"><a href="#三、如何进行校验" class="headerlink" title="三、如何进行校验"></a>三、如何进行校验</h2><p>​    JAVA EE对数据校验定义了相应标准，目前常用的为：JSR303（Bean Validation 1.0）<a href="\asserts\bean_validation-1_0-final-spec.pdf"> 参考文件</a> 和<a href="\asserts\bean-validation-specification.pdf">JSR349（Bean Validation 1.1）</a>标准，目前最新标准为JSR360(Bean Validation 2.0 )。hibernate-validator5实现了JSR349标准。</p>
+<p>​    Bean Validation标准采用通过领域模型（Model对象）进行注解的方式对领域对象进行校验。这样model可以在应用的各层（展示层、持久化层）都能被校验。详细的参见规范文档。</p>
+<h3 id="3-1-SR303标准简介"><a href="#3-1-SR303标准简介" class="headerlink" title="3.1 SR303标准简介:"></a>3.1 SR303标准简介:</h3><p><strong>约束注解注释的对象：</strong></p>
 <ul>
 <li>属性或字段：</li>
 <li>静态属性方法：将被校验器忽略</li>
 <li>接口或者父类：注释接口，实现类将被校验。校验的注释将被继承。</li>
 </ul>
-<p>约束定义的属性，一般主要关注点在message属性：</p>
+<p><strong>约束定义的属性</strong>，一般主要关注点在message属性：</p>
 <ul>
 <li>message：校验不通过时产生的异常信息</li>
 <li>groups：定于约束所属的组（决定执行顺序），实际开发一般用默认组（空数组）</li>
-<li>payload：约定约束所关联的payload(一般用于区分严重程度)</li>
+<li>payload：约定约束所关联的payload(例如用于区分严重程度)</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//zipcode和city的数据严重级别不一样。</span></span><br><span class="line"><span class="keyword">package</span> com.acme.severity;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Severity</span> </span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Info</span> <span class="keyword">implements</span> <span class="title">Payload</span> </span>&#123;&#125;;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Error</span> <span class="keyword">implements</span> <span class="title">Payload</span> </span>&#123;&#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Address</span> </span>&#123;</span><br><span class="line">    <span class="meta">@NotNull</span>(message=<span class="string">"would be nice if we had one"</span>, payload=Severity.Info.class)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getZipCode</span><span class="params">()</span> </span>&#123;...&#125;</span><br><span class="line">    <span class="meta">@NotNull</span>(message=<span class="string">"the city is mandatory"</span>, payload=Severity.Error.class)</span><br><span class="line">    <span class="function">String <span class="title">getCity</span><span class="params">()</span> </span>&#123;...&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>校验的启动流程，摘自<a href="\asserts\bean_validation-1_0-final-spec.pdf">JSR303 参考文件</a> The main artifacts involved in the bootstrap process are:</p>
+<p><strong>校验的启动流程</strong>，摘自<a href="\asserts\bean_validation-1_0-final-spec.pdf">JSR303 参考文件</a> The main artifacts involved in the bootstrap process are:</p>
 <ul>
 <li>Validation: API entry point. Lets you optionally define the Bean Validation provider targeted as well as a provider resolution strategy. Validation generates Configuration objects and can bootstrap any provider implementation.</li>
 <li>ValidationProvider: contract between the bootstrap procedure and a Bean Validation provider implementation.</li>
@@ -229,11 +230,128 @@ var _hmt = _hmt || [];
 <li>ValidatorFactory: result of the bootstrap process. Build Validator instances from a given Bean Validation<br>provider.</li>
 <li>META-INF/validation.xml: a configuration file, Bean Validation users can use to customize the configuration<br>of the default ValidatorFactory.</li>
 </ul>
-<p>示例：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@NotNull</span>(message = <span class="string">"姓名不能为空"</span>)</span><br><span class="line">    <span class="meta">@Size</span>(max = <span class="number">10</span>,message = <span class="string">"姓名长度不能超过10个字符"</span>)</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@NotNull</span>(message = <span class="string">"年龄不能为空"</span>)</span><br><span class="line">    <span class="meta">@Max</span>(value = <span class="number">120</span>,message = <span class="string">"年龄最大不能超过120"</span>)</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line"></span><br><span class="line">	 <span class="meta">@PastOrPresent</span></span><br><span class="line">    <span class="keyword">private</span> Date birthday;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">User</span><span class="params">()</span> </span>&#123;  &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">User</span><span class="params">(@NotNull(message = <span class="string">"姓名不能为空"</span>)</span> @<span class="title">Size</span><span class="params">(max = <span class="number">10</span>)</span> String name,</span></span><br><span class="line"><span class="function">                @<span class="title">NotNull</span><span class="params">(message = <span class="string">"年龄不能为空"</span>)</span> @<span class="title">Max</span><span class="params">(value = <span class="number">120</span>, message = <span class="string">"年龄最大不能超过120"</span>)</span> <span class="keyword">int</span> age,</span></span><br><span class="line"><span class="function">                @PastOrPresent Date date) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">        <span class="keyword">this</span>.birthday=date;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</span><br><span class="line">      User user = <span class="keyword">new</span> User(<span class="string">"namemorethanlimitlongth"</span>,<span class="number">150</span>,</span><br><span class="line">                           <span class="keyword">new</span> GregorianCalendar(<span class="number">1989</span>,<span class="number">3</span>,<span class="number">11</span>).getTime());</span><br><span class="line">        <span class="comment">//构建校验默认工厂</span></span><br><span class="line">        ValidatorFactory validatorFactory= Validation.buildDefaultValidatorFactory();</span><br><span class="line">        <span class="comment">//获取校验器，一般一个应用一个</span></span><br><span class="line">        Validator validator = validatorFactory.getValidator();</span><br><span class="line">        <span class="comment">//获取校验结果</span></span><br><span class="line">        Set&lt;ConstraintViolation&lt;User&gt;&gt; constraintViolations= validator.validate(user);</span><br><span class="line">        <span class="comment">//打印校验结果</span></span><br><span class="line">        <span class="keyword">for</span>(ConstraintViolation constraintViolation:constraintViolations)&#123;</span><br><span class="line">            <span class="comment">//校验的失败信息+失效的值</span></span><br><span class="line">            System.out.println(constraintViolation.getMessage()+<span class="string">":"</span></span><br><span class="line">                               +constraintViolation.getInvalidValue());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;~~~</span><br><span class="line">年龄最大不能超过<span class="number">120</span>:<span class="number">150</span></span><br><span class="line">姓名长度不能超过<span class="number">10</span>个字符:namemorethanlimitlongth</span><br></pre></td></tr></table></figure>
+<p><strong>示例</strong>：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@NotNull</span>(message = <span class="string">"姓名不能为空"</span>)</span><br><span class="line">    <span class="meta">@Size</span>(max = <span class="number">10</span>,message = <span class="string">"姓名长度不能超过10个字符"</span>)</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@NotNull</span>(message = <span class="string">"年龄不能为空"</span>)</span><br><span class="line">    <span class="meta">@Max</span>(value = <span class="number">120</span>,message = <span class="string">"年龄最大不能超过120"</span>)</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line"></span><br><span class="line">	 <span class="meta">@PastOrPresent</span></span><br><span class="line">    <span class="keyword">private</span> Date birthday;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">User</span><span class="params">()</span> </span>&#123;  &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">User</span><span class="params">(@NotNull(message = <span class="string">"姓名不能为空"</span>)</span> @<span class="title">Size</span><span class="params">(max = <span class="number">10</span>)</span> String name,</span></span><br><span class="line"><span class="function">                @<span class="title">NotNull</span><span class="params">(message = <span class="string">"年龄不能为空"</span>)</span> @<span class="title">Max</span><span class="params">(value = <span class="number">120</span>, message = <span class="string">"年龄最大不能超过120"</span>)</span> <span class="keyword">int</span> age,</span></span><br><span class="line"><span class="function">                @PastOrPresent Date date) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">        <span class="keyword">this</span>.birthday=date;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</span><br><span class="line">      User user = <span class="keyword">new</span> User(<span class="string">"namemorethanlimitlength"</span>,<span class="number">150</span>,</span><br><span class="line">                           <span class="keyword">new</span> GregorianCalendar(<span class="number">1989</span>,<span class="number">3</span>,<span class="number">11</span>).getTime());</span><br><span class="line">        <span class="comment">//构建校验默认工厂</span></span><br><span class="line">        ValidatorFactory validatorFactory= Validation.buildDefaultValidatorFactory();</span><br><span class="line">        <span class="comment">//获取校验器，一般一个应用一个</span></span><br><span class="line">        Validator validator = validatorFactory.getValidator();</span><br><span class="line">        <span class="comment">//获取校验结果</span></span><br><span class="line">        Set&lt;ConstraintViolation&lt;User&gt;&gt; constraintViolations= validator.validate(user);</span><br><span class="line">        <span class="comment">//打印校验结果</span></span><br><span class="line">        <span class="keyword">for</span>(ConstraintViolation constraintViolation:constraintViolations)&#123;</span><br><span class="line">            <span class="comment">//校验的失败信息+失效的值</span></span><br><span class="line">            System.out.println(constraintViolation.getMessage()+<span class="string">":"</span></span><br><span class="line">                               +constraintViolation.getInvalidValue());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;~~~</span><br><span class="line">年龄最大不能超过<span class="number">120</span>:<span class="number">150</span></span><br><span class="line">姓名长度不能超过<span class="number">10</span>个字符:namemorethanlimitlength</span><br></pre></td></tr></table></figure>
 <p>自定义消息解析器、校验工厂类、转换解析器</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//some customization from a container</span></span><br><span class="line">ValidatorFactory factory = Validation</span><br><span class="line">			.byDefaultProvider().configure()</span><br><span class="line">				.messageInterpolator( <span class="keyword">new</span> ContainerMessageInterpolator() )</span><br><span class="line">				.constraintValidatorFactory( </span><br><span class="line">    			<span class="keyword">new</span> ContainerComponentConstraintValidatorFactory() )</span><br><span class="line">				.traversableResolver( <span class="keyword">new</span> JPAAwareTraversableResolver() )</span><br><span class="line">				.buildValidatorFactory();</span><br><span class="line"><span class="comment">//cache the factory somewhere</span></span><br><span class="line">Validator validator = factory.getValidator();</span><br></pre></td></tr></table></figure>
-<h2 id="四、spring-校验的支持"><a href="#四、spring-校验的支持" class="headerlink" title="四、spring 校验的支持"></a>四、spring 校验的支持</h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//some customization from a container</span></span><br><span class="line">ValidatorFactory factory = Validation</span><br><span class="line">			.byDefaultProvider().configure()</span><br><span class="line">    <span class="comment">//消息拦截器</span></span><br><span class="line">				.messageInterpolator( <span class="keyword">new</span> ContainerMessageInterpolator() )</span><br><span class="line">				.constraintValidatorFactory( </span><br><span class="line">    <span class="comment">//约束校验工厂</span></span><br><span class="line">    			<span class="keyword">new</span> ContainerComponentConstraintValidatorFactory() )</span><br><span class="line">    <span class="comment">//持久化对象转化器</span></span><br><span class="line">				.traversableResolver( <span class="keyword">new</span> JPAAwareTraversableResolver() )</span><br><span class="line">				.buildValidatorFactory();</span><br><span class="line"><span class="comment">//cache the factory somewhere</span></span><br><span class="line">Validator validator = factory.getValidator();</span><br></pre></td></tr></table></figure>
+<h3 id="3-2-内置的校验注解"><a href="#3-2-内置的校验注解" class="headerlink" title="3.2 内置的校验注解"></a>3.2 内置的校验注解</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">注解名称</th>
+<th style="text-align:left">修饰类型</th>
+<th style="text-align:left">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">AssertFalse/AssertTrue</td>
+<td style="text-align:left">boolean/Boolean</td>
+<td style="text-align:left">被修饰对象值为false/true</td>
+</tr>
+<tr>
+<td style="text-align:left">DecimalMax</td>
+<td style="text-align:left">BigDecimal/BigInteger/CharSequence；byte/short/int/long/double 及其包装类型</td>
+<td style="text-align:left">不超过注释的最大值</td>
+</tr>
+<tr>
+<td style="text-align:left">DecimalMin</td>
+<td style="text-align:left">BigDecimal/BigInteger/CharSequence；byte/short/int/long/double 及其包装类型</td>
+<td style="text-align:left">不超过注释的最小值</td>
+</tr>
+<tr>
+<td style="text-align:left">Digits</td>
+<td style="text-align:left">BigDecimal/BigInteger/CharSequence；byte/short/int/long/double 及其包装类型</td>
+<td style="text-align:left">不超过注释的整数位和小数位</td>
+</tr>
+<tr>
+<td style="text-align:left">Email</td>
+<td style="text-align:left">CharSequence</td>
+<td style="text-align:left">指定格式的邮件地址</td>
+</tr>
+<tr>
+<td style="text-align:left">Future</td>
+<td style="text-align:left">Date、Calendar、Instant、LocalDate、LocalDateTime、LocalTime、MonthDay、OffsetDateTime、OffsetTime、Year、YearMonth、ZonedDate、TimeHijrahDate等</td>
+<td style="text-align:left">必须是未来的日期、时间Instant</td>
+</tr>
+<tr>
+<td style="text-align:left">FutureOrPresent</td>
+<td style="text-align:left">Date、Calendar、Instant、LocalDate、LocalDateTime、LocalTime、MonthDay、OffsetDateTime、OffsetTime、Year、YearMonth、ZonedDate、TimeHijrahDate等</td>
+<td style="text-align:left">必须是未来或当前的日期、时间Instant</td>
+</tr>
+<tr>
+<td style="text-align:left">Max</td>
+<td style="text-align:left">BigDecimal/BigInteger；byte/short/int/long/double 及其包装类型</td>
+<td style="text-align:left">不超过注释的最大值</td>
+</tr>
+<tr>
+<td style="text-align:left">Min</td>
+<td style="text-align:left">BigDecimal/BigInteger；byte/short/int/long/double 及其包装类型</td>
+<td style="text-align:left">不超过注释的最小值</td>
+</tr>
+<tr>
+<td style="text-align:left">Negative</td>
+<td style="text-align:left">BigDecimal/BigInteger；byte/short/int/long/double 及其包装类型</td>
+<td style="text-align:left">负数</td>
+</tr>
+<tr>
+<td style="text-align:left">NegativeOrZero</td>
+<td style="text-align:left">BigDecimal/BigInteger；byte/short/int/long/double 及其包装类型</td>
+<td style="text-align:left">非正数</td>
+</tr>
+<tr>
+<td style="text-align:left">NotBlank</td>
+<td style="text-align:left">CharSequence</td>
+<td style="text-align:left">非空且包含至少一个non-whitespace Char</td>
+</tr>
+<tr>
+<td style="text-align:left">NotEmpty</td>
+<td style="text-align:left">CharSequence、Collection、Map、Array</td>
+<td style="text-align:left">非空串；集合（Map、数组）至少要包含一个元素</td>
+</tr>
+<tr>
+<td style="text-align:left">NotNull</td>
+<td style="text-align:left">any</td>
+<td style="text-align:left">非空</td>
+</tr>
+<tr>
+<td style="text-align:left">Null</td>
+<td style="text-align:left">any</td>
+<td style="text-align:left">空</td>
+</tr>
+<tr>
+<td style="text-align:left">Past</td>
+<td style="text-align:left">Date、Calendar、Instant、LocalDate、LocalDateTime、LocalTime、MonthDay、OffsetDateTime、OffsetTime、Year、YearMonth、ZonedDate、TimeHijrahDate等</td>
+<td style="text-align:left">必须是过去的日期、时间Instant</td>
+</tr>
+<tr>
+<td style="text-align:left">PastOrPresent</td>
+<td style="text-align:left">Date、Calendar、Instant、LocalDate、LocalDateTime、LocalTime、MonthDay、OffsetDateTime、OffsetTime、Year、YearMonth、ZonedDate、TimeHijrahDate等</td>
+<td style="text-align:left">必须是过去或者当前的日期、时间Instant</td>
+</tr>
+<tr>
+<td style="text-align:left">Pattern</td>
+<td style="text-align:left">CharSequence</td>
+<td style="text-align:left">满足正则表达式</td>
+</tr>
+<tr>
+<td style="text-align:left">Positive</td>
+<td style="text-align:left">BigDecimal/BigInteger；byte/short/int/long/double 及其包装类型</td>
+<td style="text-align:left">正数</td>
+</tr>
+<tr>
+<td style="text-align:left">PositiveOrZero</td>
+<td style="text-align:left">BigDecimal/BigInteger；byte/short/int/long/double 及其包装类型</td>
+<td style="text-align:left">非负数</td>
+</tr>
+<tr>
+<td style="text-align:left">Size</td>
+<td style="text-align:left">CharSequence、Collection、Map、Array</td>
+<td style="text-align:left">字符串、集合、Map、数组的大小大于1</td>
+</tr>
+</tbody>
+</table>
+<p>注：hibernate-validation也内置了部分校验注释详细可参见包：org.hibernate.validator.constrains</p>
+<h3 id="JSR349-新特性"><a href="#JSR349-新特性" class="headerlink" title="JSR349 新特性"></a>JSR349 新特性</h3><h2 id="四、spring-校验的支持"><a href="#四、spring-校验的支持" class="headerlink" title="四、spring 校验的支持"></a>四、spring 校验的支持</h2>
       
 
       
@@ -327,7 +445,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACsElEQVR42u3a0W7CMAwFUP7/p7fXSVC4tmNA0+kTmkqbk0lxuPHtFl8/f677vyf3XF35e5P7mxceHh7eYOhXj7v6y/3nK/zzbyWAq/tfTAEeHh7eGi95XG86eozk+cmE4uHh4X0D73mpSDbW1e0yHh4e3v/j5a8/mx7g4eHhfZaXPy7ZXlcD2TwOXsxa8PDw8PqnTre8SHzq88r5Hh4eHt548zoPC6qRxKQF4cFo8fDw8BZ4+YKbxAGTYeXxR7k5DA8PD+8or3dMlUerkyEeaAjDw8PDW+b1lukeqRfalqMKPDw8vDVesgmeHPBXj6Z6UcUDJB4eHt4Crxc3JMOat21NnoyHh4f3Hl7+yupEVBfxXntWVITw8PDwjvKq29bqcVdeHhLG4dwFDw8Pr8jLC0A+rDwg7rUFJOUBDw8Pb4NXPow/FMJWw4i8PIz+A3h4eHitnLN6xJWUkOqyPikezdwaDw8Pr8XrbYvzhX7SplCdsgP9CHh4eHhPT4WqP/LzqxoQ5/cnx2N4eHh4G7xqrNALeXuFZJ4t4OHh4b2TN9/mJst0b5Pd7IzAw8PDO8RL4tS9qLc394VWBjw8PLwFXvLlfON7quFgEmHg4eHhbfPygW6XhGrjV9RkgIeHh7fAS76WvyZvQejFuL3ihIeHh7fNS37wTw6oqot+fnjW3K3j4eHhLfAmUe8kGk427slGHA8PD2+bV/iRH8QW1cOqanQ76mXAw8PDG8Cqi28ev+bBbu8oDg8PD+/9vL01thoBz+PjUTnBw8PDK/Kqw0oemoS2vRauaqHCw8PD2+NVQ4pkCvJpWklZ8PDw8L6MVw0I8vCiGhC/GAMeHh7e1/DyklCFjTBn6x4eHh5eK6LtHWtVD8yeF4NqLIKHh4e3zTvVmJVHt9Xw93CjAB4eHl6f9wvq83OolPeYcAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACHUlEQVR42u3aS47CMBAFQO5/aWY70ijhPduMFLuyQigoriya/r1e8fX+c/3+/upzcufVU17fuDAwMB7LeN9eLeP+V1cHzZ97ScXAwDiAcRXB7o/b3nN/uDY0Y2BgYMwndi0AAwMDYxVj/p6ZF4GBgXEyI0/XkgfnITVnL6vFMTAwHsjIu+7///kr8w0MDIxHMd7llSd8SSnbhtfLU2FgYGzNyAPczJrFTBDPz4OBgXEOI1+DyIvYsSFovSiGgYFxMCPHrH1NORIDA2NvRpLStd+MpYYzkRMDA2NvRj50HCtr26I3efqHdhsGBsZ2jLGjjDX622SxaMNhYGBszcgbYW1zLS9x2/NcwjAwMLZmtLnkWLu/BSd3YmBgnMNom/J5A64dM8wMUzEwMHZltD9LrjylGyuSF8xIMTAwHsVIjjuYV5brFDNLYxgYGCcw2oZaXli2I4H5V4aBgXEOI0/IkgA99rLGnoiBgbErYyzIjpW1bcpYBH0MDIwDGG17qx03ji1hJMEXAwPjHMaqoJmHznY4MTUYwMDA2Joxk8aNrVkMVuEYGBibMlYtUrTJYr5SFlExMDC2ZqwabebF6tr7axgGBsZjGW352q6RtesUgwEXAwPjAMbY4sWqg+b/ANGeCAYGxvGMdvFi7QvCwMDAyB82X462LbkPrwkDA+MARrs2sWrM0DbvLs+DgYGxNWOqdCyHly1mhoqBgbEF4we8Z/oI+dVuCwAAAABJRU5ErkJggg==" alt="微信分享二维码">
     </div>
 </div>
 
@@ -370,7 +488,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、为什么要进行校验？"><span class="toc-number">1.</span> <span class="toc-text">一、为什么要进行校验？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、数据校验的类型"><span class="toc-number">2.</span> <span class="toc-text">二、数据校验的类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、如何进行校验"><span class="toc-number">3.</span> <span class="toc-text">三、如何进行校验</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、spring-校验的支持"><span class="toc-number">4.</span> <span class="toc-text">四、spring 校验的支持</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、为什么要进行校验？"><span class="toc-number">1.</span> <span class="toc-text">一、为什么要进行校验？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、数据校验的类型"><span class="toc-number">2.</span> <span class="toc-text">二、数据校验的类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、如何进行校验"><span class="toc-number">3.</span> <span class="toc-text">三、如何进行校验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-SR303标准简介"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 SR303标准简介:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-内置的校验注解"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 内置的校验注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JSR349-新特性"><span class="toc-number">3.3.</span> <span class="toc-text">JSR349 新特性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、spring-校验的支持"><span class="toc-number">4.</span> <span class="toc-text">四、spring 校验的支持</span></a></li></ol>
                     </div>
                 </span>
             </div>
