@@ -17,7 +17,7 @@
 <meta property="og:description" content="hibernate-validation介绍">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/images/validation-dog.jpg">
-<meta property="og:updated_time" content="2018-11-25T14:07:55.372Z">
+<meta property="og:updated_time" content="2018-11-26T03:47:21.461Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="spring框架（七）校验（中）">
 <meta name="twitter:description" content="hibernate-validation介绍">
@@ -48,7 +48,7 @@ var _hmt = _hmt || [];
 
 
   <!-- import busuanzi-->
-  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
 </head>
 </html>
 <body>
@@ -241,7 +241,7 @@ var _hmt = _hmt || [];
 <h3 id="5-3-级联校验和-Valid"><a href="#5-3-级联校验和-Valid" class="headerlink" title="5.3 级联校验和@Valid"></a>5.3 级联校验和@Valid</h3><p>字段、属性的级联校验和方法一致</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line"><span class="comment">//其它方法、属性略过</span></span><br><span class="line">		....</span><br><span class="line">    <span class="meta">@Valid</span></span><br><span class="line">    <span class="keyword">private</span> Address address;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Address</span> </span>&#123;</span><br><span class="line">    <span class="meta">@NotEmpty</span></span><br><span class="line">    <span class="keyword">private</span> String city;</span><br><span class="line">    <span class="meta">@NotEmpty</span></span><br><span class="line">    <span class="keyword">private</span> String addressName;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Address</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>(<span class="keyword">null</span>,<span class="keyword">null</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Address</span><span class="params">(@NotEmpty String city)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>(city,<span class="keyword">null</span>);        </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Address</span><span class="params">(String addressName, String city)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.addressName = addressName;</span><br><span class="line">        <span class="keyword">this</span>.city = city;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testCascadeValidate</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Person person = <span class="keyword">new</span> Person(<span class="string">"张三"</span>,<span class="number">18</span>,<span class="string">"zhangsan@gmail.com"</span>);</span><br><span class="line">    person.addHobby(<span class="string">"running"</span>);</span><br><span class="line">    person.setAddress(<span class="keyword">new</span> Address(<span class="string">"wuhan"</span>));</span><br><span class="line">    Set&lt;ConstraintViolation&lt;Person&gt;&gt; constraintViolations = validator.validate(person);</span><br><span class="line">    Assert.assertEquals(<span class="number">1</span>,constraintViolations.size());</span><br><span class="line">    printValidateResult(constraintViolations);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="7-类级别校验"><a href="#7-类级别校验" class="headerlink" title="7.类级别校验"></a>7.类级别校验</h2><ul>
+<h2 id="6-类级别校验"><a href="#6-类级别校验" class="headerlink" title="6.类级别校验"></a>6.类级别校验</h2><ul>
 <li>领域类</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ValidPassengerCount</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Car</span> </span>&#123;</span><br><span class="line">    <span class="meta">@NotEmpty</span></span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="meta">@Max</span>(<span class="number">6</span>)</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> seatCount;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> passengers;</span><br><span class="line"><span class="comment">//其它方法、属性略过</span></span><br><span class="line">		....</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -257,8 +257,8 @@ var _hmt = _hmt || [];
 </li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CarTest</span> </span>&#123;</span><br><span class="line"><span class="comment">//其它方法、属性略过</span></span><br><span class="line">		....</span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testFieldsValidate</span><span class="params">()</span></span>&#123;</span><br><span class="line">        Car car = <span class="keyword">new</span> Car(<span class="string">"jili"</span>,<span class="number">4</span>,<span class="number">5</span>);</span><br><span class="line">        Set&lt;ConstraintViolation&lt;Car&gt;&gt; constraintViolations = validator.validate(car);</span><br><span class="line">        Assert.assertEquals(<span class="number">1</span>,constraintViolations.size());</span><br><span class="line">        printValidateResult(constraintViolations);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="8-校验继承"><a href="#8-校验继承" class="headerlink" title="8. 校验继承"></a>8. 校验继承</h2><p>子类继承父类（接口）的校验逻辑</p>
-<h2 id="9-自定义校验（类校验举例）"><a href="#9-自定义校验（类校验举例）" class="headerlink" title="9.自定义校验（类校验举例）"></a>9.自定义校验（类校验举例）</h2><p>参照类校验，其它参照<a href="https://docs.jboss.org/hibernate/validator/5.4/reference/en-US/pdf/hibernate_validator_reference.pdf" target="_blank" rel="noopener">hibernate-validation</a>官方文档</p>
+<h2 id="7-校验继承"><a href="#7-校验继承" class="headerlink" title="7. 校验继承"></a>7. 校验继承</h2><p>子类继承父类（接口）的校验逻辑</p>
+<h2 id="8-自定义校验（类校验举例）"><a href="#8-自定义校验（类校验举例）" class="headerlink" title="8.自定义校验（类校验举例）"></a>8.自定义校验（类校验举例）</h2><p>参照类校验，其它参照<a href="https://docs.jboss.org/hibernate/validator/5.4/reference/en-US/pdf/hibernate_validator_reference.pdf" target="_blank" rel="noopener">hibernate-validation</a>官方文档</p>
 <h2 id="9-跨方法参数校验"><a href="#9-跨方法参数校验" class="headerlink" title="9. 跨方法参数校验"></a>9. 跨方法参数校验</h2><p>script校验参照<a href="https://docs.jboss.org/hibernate/validator/5.4/reference/en-US/pdf/hibernate_validator_reference.pdf" target="_blank" rel="noopener">hibernate-validation</a>官方文档</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">    <span class="meta">@NotNull</span></span><br><span class="line">    <span class="keyword">private</span> Date birthday;</span><br><span class="line">    <span class="meta">@ValidBirthdayAndAge</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span>  <span class="title">Dog</span><span class="params">(String name, Integer age, Date birthday)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">        <span class="keyword">this</span>.birthday = birthday;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Dog</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>(<span class="string">"zhangsan"</span>,<span class="number">10</span>,<span class="keyword">new</span> Date());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target</span>(&#123; METHOD, CONSTRUCTOR&#125;)</span><br><span class="line"><span class="meta">@Retention</span>(RUNTIME)</span><br><span class="line"><span class="meta">@Constraint</span>(validatedBy = &#123; ValidBirthdayAndAgeValidator.class &#125;)</span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> ValidBirthdayAndAge &#123;</span><br><span class="line">    <span class="function">String <span class="title">message</span><span class="params">()</span> <span class="keyword">default</span></span></span><br><span class="line"><span class="function">            "</span>&#123;classlevel.<span class="string">" +</span></span><br><span class="line"><span class="string">                    "</span>crossargs.message&#125;<span class="string">";</span></span><br><span class="line"><span class="string">    Class&lt;?&gt;[] groups() default &#123; &#125;;</span></span><br><span class="line"><span class="string">    Class&lt;? extends Payload&gt;[] payload() default &#123; &#125;;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
@@ -319,6 +319,7 @@ var _hmt = _hmt || [];
       		
 		</ul>
 	</div>
+
 
       
 
@@ -413,7 +414,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-搭建hibernate-validation-校验"><span class="toc-number">1.</span> <span class="toc-text">1. 搭建hibernate-validation 校验</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-字段（field）校验"><span class="toc-number">2.</span> <span class="toc-text">2. 字段（field）校验</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-属性-property-校验"><span class="toc-number">3.</span> <span class="toc-text">3. 属性(property)校验</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-参数校验"><span class="toc-number">4.</span> <span class="toc-text">4. 参数校验</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-方法校验"><span class="toc-number">5.</span> <span class="toc-text">5. 方法校验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-方法参数校验"><span class="toc-number">5.1.</span> <span class="toc-text">5.1 方法参数校验</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-方法返回值校验"><span class="toc-number">5.2.</span> <span class="toc-text">5.2 方法返回值校验</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-级联校验和-Valid"><span class="toc-number">5.3.</span> <span class="toc-text">5.3 级联校验和@Valid</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-类级别校验"><span class="toc-number">6.</span> <span class="toc-text">7.类级别校验</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-校验继承"><span class="toc-number">7.</span> <span class="toc-text">8. 校验继承</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-自定义校验（类校验举例）"><span class="toc-number">8.</span> <span class="toc-text">9.自定义校验（类校验举例）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-跨方法参数校验"><span class="toc-number">9.</span> <span class="toc-text">9. 跨方法参数校验</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-错误消息解释器"><span class="toc-number">10.</span> <span class="toc-text">10. 错误消息解释器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-分组校验"><span class="toc-number">11.</span> <span class="toc-text">11.分组校验</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-搭建hibernate-validation-校验"><span class="toc-number">1.</span> <span class="toc-text">1. 搭建hibernate-validation 校验</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-字段（field）校验"><span class="toc-number">2.</span> <span class="toc-text">2. 字段（field）校验</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-属性-property-校验"><span class="toc-number">3.</span> <span class="toc-text">3. 属性(property)校验</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-参数校验"><span class="toc-number">4.</span> <span class="toc-text">4. 参数校验</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-方法校验"><span class="toc-number">5.</span> <span class="toc-text">5. 方法校验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-方法参数校验"><span class="toc-number">5.1.</span> <span class="toc-text">5.1 方法参数校验</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-方法返回值校验"><span class="toc-number">5.2.</span> <span class="toc-text">5.2 方法返回值校验</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-级联校验和-Valid"><span class="toc-number">5.3.</span> <span class="toc-text">5.3 级联校验和@Valid</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-类级别校验"><span class="toc-number">6.</span> <span class="toc-text">6.类级别校验</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-校验继承"><span class="toc-number">7.</span> <span class="toc-text">7. 校验继承</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-自定义校验（类校验举例）"><span class="toc-number">8.</span> <span class="toc-text">8.自定义校验（类校验举例）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-跨方法参数校验"><span class="toc-number">9.</span> <span class="toc-text">9. 跨方法参数校验</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-错误消息解释器"><span class="toc-number">10.</span> <span class="toc-text">10. 错误消息解释器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-分组校验"><span class="toc-number">11.</span> <span class="toc-text">11.分组校验</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -444,10 +445,11 @@ var _hmt = _hmt || [];
     	<div class="footer-left">
     		&copy; 2018 jacky
     	</div>
-      	<div class="footer-right">
+      	<!--<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
-      	</div>
+      	</div>-->
     </div>
+    <!--
     <div calss="count-span">
      <span id="busuanzi_container_site_pv">
        总访问量: <span id="busuanzi_value_site_pv"></span>|
@@ -459,6 +461,7 @@ var _hmt = _hmt || [];
 	本文总阅读量<span id="busuanzi_value_page_pv"></span>次
 	</span>
    </div>
+   -->
   </div>
 </footer>
 
@@ -537,19 +540,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">java框架</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">spring校验</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">validation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">java框架</a>
               </li>
              
               <li class="article-tag-list-item">

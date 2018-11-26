@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>spring框架（五）Bean的生命周期 | 历萧尘的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="[TOC]  1. bean的生命周期 As you can see, a bean factory performs several setup steps before a bean is ready touse. Let’s break down figure 1.5 in more detail:1 Spring instantiates the bean.2 Spring injects">
+  <meta name="description" content="1. bean的生命周期">
 <meta name="keywords" content="spring,java框架">
 <meta property="og:type" content="article">
 <meta property="og:title" content="spring框架（五）Bean的生命周期">
 <meta property="og:url" content="http://yoursite.com/2018/11/22/spring框架（五）bean生命周期控制/index.html">
 <meta property="og:site_name" content="历萧尘的博客">
-<meta property="og:description" content="[TOC]  1. bean的生命周期 As you can see, a bean factory performs several setup steps before a bean is ready touse. Let’s break down figure 1.5 in more detail:1 Spring instantiates the bean.2 Spring injects">
+<meta property="og:description" content="1. bean的生命周期">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/images/Bean_lifecircle.jpg">
-<meta property="og:updated_time" content="2018-11-23T02:26:12.076Z">
+<meta property="og:updated_time" content="2018-11-26T03:50:51.174Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="spring框架（五）Bean的生命周期">
-<meta name="twitter:description" content="[TOC]  1. bean的生命周期 As you can see, a bean factory performs several setup steps before a bean is ready touse. Let’s break down figure 1.5 in more detail:1 Spring instantiates the bean.2 Spring injects">
+<meta name="twitter:description" content="1. bean的生命周期">
 <meta name="twitter:image" content="http://yoursite.com/images/Bean_lifecircle.jpg">
   
     <link rel="alternative" href="/atom.xml" title="历萧尘的博客" type="application/atom+xml">
@@ -48,7 +48,7 @@ var _hmt = _hmt || [];
 
 
   <!-- import busuanzi-->
-  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
 </head>
 </html>
 <body>
@@ -193,11 +193,10 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>[TOC]</p>
-<hr>
-<h2 id="1-bean的生命周期"><a href="#1-bean的生命周期" class="headerlink" title="1. bean的生命周期"></a>1. bean的生命周期</h2><p><img src="\images\Bean_lifecircle.jpg"></p>
+        <h2 id="1-bean的生命周期"><a href="#1-bean的生命周期" class="headerlink" title="1. bean的生命周期"></a>1. bean的生命周期</h2><p><img src="\images\Bean_lifecircle.jpg"></p>
+<a id="more"></a>
 <p>As you can see, a bean factory performs several setup steps before a bean is ready to<br>use. Let’s break down figure 1.5 in more detail:<br>1 Spring instantiates the bean.<br>2 Spring injects values and bean references into the bean’s properties.<br>3 If the bean implements <strong>BeanNameAware,</strong> Spring passes the bean’s ID to the <strong>setBeanName()</strong> method.<br>4 If the bean implements <strong>BeanFactoryAware,</strong> Spring calls the <strong>setBeanFactory()</strong><br>method, passing in the bean factory itself.<br>5 If the bean implements <strong>ApplicationContextAware</strong>, Spring calls the <strong>setApplicationContext()</strong> method, passing in a reference to the enclosing application context.<br>6 If the bean implements the <strong>BeanPostProcessor</strong> interface, Spring calls its <strong>postProcessBeforeInitialization()</strong> method.<br>7 If the bean implements the <strong>InitializingBean</strong> interface, Spring calls its <strong>afterPropertiesSet()</strong> method. Similarly, if the bean was declared with an <strong>initmethod</strong>, then the specified initialization method is called.<br>8 If the bean implements <strong>BeanPostProcessor</strong>, Spring calls its <strong>postProcessAfterInitialization()</strong> method.<br>9 At this point, the bean is ready to be used by the application and remains in the<br>application context until the application context is destroyed.<br>10 If the bean implements the <strong>DisposableBean</strong> interface, Spring calls its<br>method. Likewise, if the bean was declared with a destroy-method,<br>the specified method is called</p>
- <a id="more"></a>
+ <!-- more -->
 <h2 id="2-生命周期的回调函数"><a href="#2-生命周期的回调函数" class="headerlink" title="2. 生命周期的回调函数"></a>2. 生命周期的回调函数</h2><ul>
 <li><p>InitializingBean和<code>DisposableBean</code> </p>
 <p>InitializingBean的afterPropertiesSet()方法</p>
@@ -271,6 +270,7 @@ var _hmt = _hmt || [];
 		</ul>
 	</div>
 
+
       
 
       
@@ -335,18 +335,18 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2018/11/22/spring框架（三）Bean定义及创建/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/11/22/spring框架（一）简介/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          spring框架（三）Bean的定义及创建
+          spring框架（一）简介
         
       </div>
     </a>
   
   
-    <a href="/2018/11/22/spring框架（二）IOC容器/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">spring框架（二）IOC容器</div>
+    <a href="/2018/11/22/spring框架（三）Bean定义及创建/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">spring框架（三）Bean的定义及创建</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -404,10 +404,11 @@ var _hmt = _hmt || [];
     	<div class="footer-left">
     		&copy; 2018 jacky
     	</div>
-      	<div class="footer-right">
+      	<!--<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
-      	</div>
+      	</div>-->
     </div>
+    <!--
     <div calss="count-span">
      <span id="busuanzi_container_site_pv">
        总访问量: <span id="busuanzi_value_site_pv"></span>|
@@ -419,6 +420,7 @@ var _hmt = _hmt || [];
 	本文总阅读量<span id="busuanzi_value_page_pv"></span>次
 	</span>
    </div>
+   -->
   </div>
 </footer>
 
@@ -497,19 +499,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">spring</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">java框架</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">spring校验</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">validation</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">java框架</a>
               </li>
              
               <li class="article-tag-list-item">
