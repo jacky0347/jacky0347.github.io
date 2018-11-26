@@ -17,7 +17,7 @@
 <meta property="og:description" content="hibernate-validation介绍">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/images/validation-dog.jpg">
-<meta property="og:updated_time" content="2018-11-26T03:47:21.461Z">
+<meta property="og:updated_time" content="2018-11-26T05:38:32.535Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="spring框架（七）校验（中）">
 <meta name="twitter:description" content="hibernate-validation介绍">
@@ -271,7 +271,8 @@ var _hmt = _hmt || [];
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DogTest</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> ExecutableValidator validator;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@BeforeClass</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">setValidator</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        ValidatorFactory validatorFactory = Validation.byDefaultProvider()</span><br><span class="line">                .configure().messageInterpolator(</span><br><span class="line">                <span class="comment">//初始化国际化信息</span></span><br><span class="line">                        <span class="keyword">new</span> ResourceBundleMessageInterpolator(</span><br><span class="line">                                <span class="keyword">new</span> PlatformResourceBundleLocator(<span class="string">"message"</span>)</span><br><span class="line">                        )</span><br><span class="line">                ).buildValidatorFactory();</span><br><span class="line">        <span class="comment">//方法校验需要用forExecutables</span></span><br><span class="line">        validator = validatorFactory.getValidator().forExecutables();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">printValidateResult</span><span class="params">( Set&lt;ConstraintViolation&lt;Dog&gt;&gt; constraintViolations)</span></span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(ConstraintViolation constraintViolation:constraintViolations)&#123;</span><br><span class="line">            System.out.println(constraintViolation.getMessage());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testPropertiesValidate</span><span class="params">()</span> <span class="keyword">throws</span> NoSuchMethodException </span>&#123;</span><br><span class="line">        Object[] args=<span class="keyword">new</span> Object[]&#123;<span class="string">"zhangsan"</span>,<span class="number">12</span>,<span class="keyword">new</span> Date()&#125;;</span><br><span class="line">        Constructor dagConstructor=Dog.class.getConstructor(String.class,Integer.class,Date.class);</span><br><span class="line">        Set&lt;ConstraintViolation&lt;Dog&gt;&gt; constraintViolations = validator.validateConstructorParameters( dagConstructor ,args);</span><br><span class="line">        Assert.assertEquals(<span class="number">2</span>,constraintViolations.size());</span><br><span class="line">        printValidateResult(constraintViolations);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>配置文件</p>
 <p><img src="/images/validation-dog.jpg" alt="配置文件"></p>
-<h2 id="11-分组校验"><a href="#11-分组校验" class="headerlink" title="11.分组校验"></a>11.分组校验</h2><p>参考<a href="http://jinnianshilongnian.iteye.com/blog/1990081" target="_blank" rel="noopener">Spring4新特性——集成Bean Validation 1.1(JSR-349)到SpringMVC</a>及<a href="https://docs.jboss.org/hibernate/validator/5.4/reference/en-US/pdf/hibernate_validator_reference.pdf" target="_blank" rel="noopener">hibernate-validation</a>官方文档</p>
+<h2 id="11-分组校验"><a href="#11-分组校验" class="headerlink" title="11.分组校验"></a>11.分组校验</h2><p>参见<a href="https://docs.jboss.org/hibernate/validator/5.4/reference/en-US/pdf/hibernate_validator_reference.pdf" target="_blank" rel="noopener">hibernate-validation</a>官方文档</p>
+<p>参考<a href="http://jinnianshilongnian.iteye.com/blog/1990081" target="_blank" rel="noopener">Spring4新特性——集成Bean Validation 1.1(JSR-349)到SpringMVC</a>及<a href="https://docs.jboss.org/hibernate/validator/5.4/reference/en-US/pdf/hibernate_validator_reference.pdf" target="_blank" rel="noopener">hibernate-validation</a>官方文档</p>
 
       
 
@@ -384,6 +385,15 @@ var _hmt = _hmt || [];
 
   
 <nav id="article-nav">
+  
+    <a href="/2018/11/26/spring框架（七）校验（下）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          spring框架（七）校验（下）
+        
+      </div>
+    </a>
   
   
     <a href="/2018/11/23/spring框架（七）校验(上)/" id="article-nav-older" class="article-nav-link-wrap">
@@ -540,19 +550,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">spring校验</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">validation</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">spring</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">java框架</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">spring校验</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">validation</a>
               </li>
              
               <li class="article-tag-list-item">
