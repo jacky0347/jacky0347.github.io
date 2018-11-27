@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>静态工厂方法 | 历萧尘的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="​    静态工厂方法提供了另一种构建类的思路，1.5版jdk中的Collections类引入了诸多静态构建方法。相比构建函数，具有以下几点优势。  静态工厂具有名字，可以通过名字识别创建对象特点，如下构建不可修改的集合：  123public static &amp;lt;T&amp;gt; Set&amp;lt;T&amp;gt; unmodifiableSet(Set&amp;lt;? extends T&amp;gt; s) &amp;#123">
+  <meta name="description" content="​    静态工厂方法提供了另一种构建类的思路，1.5版jdk中的Collections类引入了诸多静态构建方法。相比构建函数，具有以下几点优势。  静态工厂具有名字，可以通过名字识别创建对象特点，如下构建不可修改的集合：">
 <meta name="keywords" content="java基础,effective java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="静态工厂方法">
 <meta property="og:url" content="http://yoursite.com/2018/11/27/静态工厂方法/index.html">
 <meta property="og:site_name" content="历萧尘的博客">
-<meta property="og:description" content="​    静态工厂方法提供了另一种构建类的思路，1.5版jdk中的Collections类引入了诸多静态构建方法。相比构建函数，具有以下几点优势。  静态工厂具有名字，可以通过名字识别创建对象特点，如下构建不可修改的集合：  123public static &amp;lt;T&amp;gt; Set&amp;lt;T&amp;gt; unmodifiableSet(Set&amp;lt;? extends T&amp;gt; s) &amp;#123">
+<meta property="og:description" content="​    静态工厂方法提供了另一种构建类的思路，1.5版jdk中的Collections类引入了诸多静态构建方法。相比构建函数，具有以下几点优势。  静态工厂具有名字，可以通过名字识别创建对象特点，如下构建不可修改的集合：">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-27T07:51:51.475Z">
+<meta property="og:updated_time" content="2018-11-27T11:17:24.996Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="静态工厂方法">
-<meta name="twitter:description" content="​    静态工厂方法提供了另一种构建类的思路，1.5版jdk中的Collections类引入了诸多静态构建方法。相比构建函数，具有以下几点优势。  静态工厂具有名字，可以通过名字识别创建对象特点，如下构建不可修改的集合：  123public static &amp;lt;T&amp;gt; Set&amp;lt;T&amp;gt; unmodifiableSet(Set&amp;lt;? extends T&amp;gt; s) &amp;#123">
+<meta name="twitter:description" content="​    静态工厂方法提供了另一种构建类的思路，1.5版jdk中的Collections类引入了诸多静态构建方法。相比构建函数，具有以下几点优势。  静态工厂具有名字，可以通过名字识别创建对象特点，如下构建不可修改的集合：">
   
     <link rel="alternative" href="/atom.xml" title="历萧尘的博客" type="application/atom+xml">
   
@@ -195,6 +195,7 @@ var _hmt = _hmt || [];
 <ul>
 <li>静态工厂具有名字，可以通过名字识别创建对象特点，如下构建不可修改的集合：</li>
 </ul>
+<a id="more"></a>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">Set&lt;T&gt; <span class="title">unmodifiableSet</span><span class="params">(Set&lt;? extends T&gt; s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> UnmodifiableSet&lt;&gt;(s);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>静态工厂构建的实例可以是返回类型的任意子类。上面方法返回的就是私有的Set子类。</li>
@@ -322,18 +323,18 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2018/11/27/设计模式/设计模式一——概览/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/11/27/spring framwork/spring框架（八）国际化/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          设计模式一————概览
+          spring框架（八）国际化
         
       </div>
     </a>
   
   
-    <a href="/2018/11/26/spring framwork/spring框架（七）校验（下）/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">spring框架（七）校验（下）</div>
+    <a href="/2018/11/27/设计模式/设计模式一——概览/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">设计模式一————概览</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -486,6 +487,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">effective java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">spring</a>
               </li>
              
@@ -503,18 +516,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hibernate</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">effective java</a>
               </li>
             
             <div class="clearfix"></div>

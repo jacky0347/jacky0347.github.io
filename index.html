@@ -194,8 +194,9 @@ var _hmt = _hmt || [];
       
         <h2 id="builder模式"><a href="#builder模式" class="headerlink" title="builder模式"></a>builder模式</h2><p>一般复杂对象（5个以上参数）构建才会用到build模式，否则一般构造函数重载即可</p>
 <p>builder一般设置为需要创建内的静态内部类。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> objectbuild.builder;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Created by jacky on 2018/8/28.</span></span><br><span class="line"><span class="comment"> * 一般比较复杂的对象，超过5个参数的建议过build模式，否则一般建议用</span></span><br><span class="line"><span class="comment"> * 构建函数的方法重载模式</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Computor</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String CPU;</span><br><span class="line">    <span class="keyword">private</span> String memory;</span><br><span class="line">    <span class="keyword">private</span> String mainbord;</span><br><span class="line">    <span class="keyword">private</span> String hardDisk;</span><br><span class="line">    <span class="keyword">private</span> String displayCard;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getCPU</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> CPU;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCPU</span><span class="params">(String CPU)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.CPU = CPU;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getMemory</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> memory;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setMemory</span><span class="params">(String memory)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.memory = memory;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getMainbord</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> mainbord;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setMainbord</span><span class="params">(String mainbord)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.mainbord = mainbord;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getHardDisk</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> hardDisk;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setHardDisk</span><span class="params">(String hardDisk)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.hardDisk = hardDisk;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getDisplayCard</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> displayCard;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setDisplayCard</span><span class="params">(String displayCard)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.displayCard = displayCard;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Computor</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//builder 类</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">ComputorBuilder</span></span>&#123;</span><br><span class="line">        <span class="keyword">private</span> String CPU;</span><br><span class="line">        <span class="keyword">private</span> String memory;</span><br><span class="line">        <span class="keyword">private</span> String mainbord;</span><br><span class="line">        <span class="keyword">private</span> String hardDisk;</span><br><span class="line">        <span class="keyword">private</span> String displayCard;</span><br><span class="line">        </span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">ComputorBuilder</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span>  ComputorBuilder <span class="title">setCPU</span><span class="params">(String CPU)</span></span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.CPU =CPU;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> ComputorBuilder <span class="title">setMemory</span><span class="params">(String memory)</span></span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.memory=memory;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> ComputorBuilder <span class="title">setMainBord</span><span class="params">(String mainBord)</span></span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.mainbord =mainBord;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> ComputorBuilder <span class="title">setHardDisk</span><span class="params">(String hardDisk)</span></span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.hardDisk=hardDisk;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> ComputorBuilder <span class="title">setDisplayCard</span><span class="params">(String displayCard)</span></span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.displayCard=displayCard;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> Computor <span class="title">build</span><span class="params">()</span></span>&#123;</span><br><span class="line">            Computor computor=<span class="keyword">new</span> Computor();</span><br><span class="line">            computor.setCPU(<span class="keyword">this</span>.CPU);</span><br><span class="line">            computor.setDisplayCard(<span class="keyword">this</span>.displayCard);</span><br><span class="line">            computor.setHardDisk(<span class="keyword">this</span>.hardDisk);</span><br><span class="line">            computor.setMemory(<span class="keyword">this</span>.memory);</span><br><span class="line">            computor.setMainbord(<span class="keyword">this</span>.mainbord);</span><br><span class="line">            <span class="keyword">return</span> computor;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</span><br><span class="line">        ComputorBuilder builder = <span class="keyword">new</span> Computor.ComputorBuilder();</span><br><span class="line">        Computor computor= builder.setCPU(<span class="string">"core 2.18"</span>).setDisplayCard(<span class="string">"rainBord"</span>)</span><br><span class="line">                .setHardDisk(<span class="string">"sisc"</span>).setMainBord(<span class="string">"jijia"</span>).setMemory(<span class="string">"ddr3"</span>)</span><br><span class="line">                .build();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+        
+          <a class="article-more-a" href="/2018/12/01/设计模式/设计模式四——builder模式/#more">more >></a>
+        
       
 
       
@@ -576,49 +577,9 @@ var _hmt = _hmt || [];
       
         <h2 id="一、国际化定义及jre类库对i8n的支持"><a href="#一、国际化定义及jre类库对i8n的支持" class="headerlink" title="一、国际化定义及jre类库对i8n的支持"></a>一、国际化定义及jre类库对i8n的支持</h2><p>国际化定义：In <a href="https://en.wikipedia.org/wiki/Computing" target="_blank" rel="noopener">computing</a>, <strong>internationalization and localization</strong> are means of adapting <a href="https://en.wikipedia.org/wiki/Computer_software" target="_blank" rel="noopener">computer software</a> to different languages, regional differences and technical requirements of a target locale</p>
 <p>java本身实现了对国际化的支持，具体可参照<a href="https://www.jianshu.com/p/09edb0a1c96b" target="_blank" rel="noopener">https://www.jianshu.com/p/09edb0a1c96b</a></p>
-<h2 id="二、spring对国际化的支持"><a href="#二、spring对国际化的支持" class="headerlink" title="二、spring对国际化的支持"></a>二、spring对国际化的支持</h2><p>​    spring 通过MessageSource接口实现国际化。ApplicationContext接口继承MessageSource提供国际化方法。<code>HierarchicalMessageSource</code>接口的实现类提供具体的国际化功能。</p>
-<p>HierarchicalMessageSource实现类如下：</p>
-<table>
-<thead>
-<tr>
-<th>类名</th>
-<th>功能说明</th>
-<th>使用频率</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>DelegatingMessageSource</td>
-<td>默认代理其它messageSource，如果没有则不解析</td>
-<td>spring 默认</td>
-</tr>
-<tr>
-<td>StaticMessageSource</td>
-<td>支持消息的动态注入</td>
-<td>很少使用</td>
-</tr>
-<tr>
-<td>ResourceBundleMessageSource</td>
-<td>基于java的ResourceBundle实现</td>
-<td>推荐使用</td>
-</tr>
-</tbody>
-</table>
-<p> 具体应用如下：</p>
-<ul>
-<li>配置ResourceBundleMessageSource，bean名称必须为<strong>messageSource</strong></li>
-</ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">beans</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"messageSource"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">class</span>=<span class="string">"org.springframework.context.support.ResourceBundleMessageSource"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"basenames"</span>&gt;</span></span><br><span class="line">            //ResourceBundleq清单</span><br><span class="line">            <span class="tag">&lt;<span class="name">list</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">value</span>&gt;</span>format<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">value</span>&gt;</span>exceptions<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">value</span>&gt;</span>message<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">list</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> MessageSource <span class="title">messageSource</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ReloadableResourceBundleMessageSource messageSource =<span class="keyword">new</span> ReloadableResourceBundleMessageSource();</span><br><span class="line">    <span class="comment">//设置ResourceBundleq清单</span></span><br><span class="line">    messageSource.setBasenames(<span class="string">"message"</span>);</span><br><span class="line">    <span class="keyword">return</span> messageSource;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>配置ResourceBundle。不清楚的参见<a href="https://www.jianshu.com/p/09edb0a1c96b" target="_blank" rel="noopener">https://www.jianshu.com/p/09edb0a1c96b</a></li>
-<li>使用messageSource</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Created by jacky</span></span><br><span class="line"><span class="comment"> * on 2018/11/27.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@RunWith</span>(SpringJUnit4ClassRunner.class)</span><br><span class="line"><span class="meta">@SpringJUnitConfig</span>(ValidateConfig.class)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MessageSourceTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> ApplicationContext applicationContex;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testMessage</span><span class="params">()</span></span>&#123;</span><br><span class="line">        Object[] args=&#123;<span class="string">"jacky"</span>&#125;;</span><br><span class="line">        <span class="comment">//取本地</span></span><br><span class="line">        String defaultName=applicationContex.getMessage(<span class="string">"name"</span>,args, Locale.getDefault());</span><br><span class="line">        <span class="comment">//取英文</span></span><br><span class="line">        String enName=applicationContex.getMessage(<span class="string">"name"</span>,args,Locale.ENGLISH);</span><br><span class="line">        <span class="comment">//取汉语</span></span><br><span class="line">        String cnName=applicationContex.getMessage(<span class="string">"name"</span>,args,Locale.SIMPLIFIED_CHINESE);</span><br><span class="line">        System.out.println(defaultName);</span><br><span class="line">        System.out.println(enName);</span><br><span class="line">        System.out.println(cnName);</span><br><span class="line">        Assert.assertTrue(<span class="string">"姓名：jacky"</span>.equals(defaultName));</span><br><span class="line">        Assert.assertTrue(<span class="string">"name:jacky"</span>.equals(enName));</span><br><span class="line">        Assert.assertTrue(<span class="string">"姓名：jacky"</span>.equals(cnName));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="三、原理分析"><a href="#三、原理分析" class="headerlink" title="三、原理分析"></a>三、原理分析</h2><h3 id="1-查看applicationContex-getMessage-方法"><a href="#1-查看applicationContex-getMessage-方法" class="headerlink" title="1. 查看applicationContex.getMessage()方法"></a>1. 查看applicationContex.getMessage()方法</h3><p>​    如下源代码所示applicationContex的getMessage方法实际是通过静态代理自身的messageSource属性的getMessage方法实现的。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getMessage</span><span class="params">(String code, @Nullable Object[] args, Locale locale)</span> <span class="keyword">throws</span> NoSuchMessageException </span>&#123;</span><br><span class="line">   <span class="keyword">return</span> getMessageSource().getMessage(code, args, locale);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="2-查看applicationContex的messageSource的实现逻辑"><a href="#2-查看applicationContex的messageSource的实现逻辑" class="headerlink" title="2. 查看applicationContex的messageSource的实现逻辑"></a>2. 查看applicationContex的messageSource的实现逻辑</h3><p>​    参见spring框架（二）可发现Application初始化时会调用refresh()=&gt;initMessageSource()，进行初始化。逻辑如下：如果容器中有名为messageSource且类型为MessageSource的则设置为容器的messageSource属性，否则则设置空的MessageSource（DelegatingMessageSource）</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Initialize the MessageSource.</span></span><br><span class="line"><span class="comment"> * Use parent's if none defined in this context.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">initMessageSource</span><span class="params">()</span> </span>&#123;</span><br><span class="line">   ConfigurableListableBeanFactory beanFactory = getBeanFactory();</span><br><span class="line">    <span class="comment">//MESSAGE_SOURCE_BEAN_NAME常量值为messageSource</span></span><br><span class="line">   <span class="keyword">if</span> (beanFactory.containsLocalBean(MESSAGE_SOURCE_BEAN_NAME)) &#123;</span><br><span class="line">      <span class="keyword">this</span>.messageSource = beanFactory.getBean(MESSAGE_SOURCE_BEAN_NAME, MessageSource.class);</span><br><span class="line">      <span class="comment">// Make MessageSource aware of parent MessageSource.</span></span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">this</span>.parent != <span class="keyword">null</span> &amp;&amp; <span class="keyword">this</span>.messageSource <span class="keyword">instanceof</span> HierarchicalMessageSource) &#123;</span><br><span class="line">         HierarchicalMessageSource hms = (HierarchicalMessageSource) <span class="keyword">this</span>.messageSource;</span><br><span class="line">         <span class="keyword">if</span> (hms.getParentMessageSource() == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="comment">// Only set parent context as parent MessageSource if no parent MessageSource</span></span><br><span class="line">            <span class="comment">// registered already.</span></span><br><span class="line">            hms.setParentMessageSource(getInternalParentMessageSource());</span><br><span class="line">         &#125;</span><br><span class="line">      &#125;</span><br><span class="line">     ......</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="comment">// Use empty MessageSource to be able to accept getMessage calls.</span></span><br><span class="line">      DelegatingMessageSource dms = <span class="keyword">new</span> DelegatingMessageSource();</span><br><span class="line">      dms.setParentMessageSource(getInternalParentMessageSource());</span><br><span class="line">      <span class="keyword">this</span>.messageSource = dms;</span><br><span class="line">      beanFactory.registerSingleton(MESSAGE_SOURCE_BEAN_NAME, <span class="keyword">this</span>.messageSource);</span><br><span class="line">   ......</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2018/11/27/spring framwork/spring框架（八）国际化/#more">more >></a>
+        
       
 
       
@@ -647,6 +608,90 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/11/27/spring framwork/spring框架（八）国际化/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-静态工厂方法" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/27/静态工厂方法/">静态工厂方法</a>
+    </h1>
+  
+
+        
+        <a href="/2018/11/27/静态工厂方法/" class="archive-article-date">
+  	<time datetime="2018-11-27T12:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>​    静态工厂方法提供了另一种构建类的思路，1.5版jdk中的Collections类引入了诸多静态构建方法。相比构建函数，具有以下几点优势。</p>
+<ul>
+<li>静态工厂具有名字，可以通过名字识别创建对象特点，如下构建不可修改的集合：</li>
+</ul>
+        
+          <a class="article-more-a" href="/2018/11/27/静态工厂方法/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">effective java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/11/27/静态工厂方法/">展开全文 >></a>
         </p>
       
 
@@ -742,106 +787,6 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/11/27/设计模式/设计模式一——概览/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-静态工厂方法" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/27/静态工厂方法/">静态工厂方法</a>
-    </h1>
-  
-
-        
-        <a href="/2018/11/27/静态工厂方法/" class="archive-article-date">
-  	<time datetime="2018-11-27T12:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>​    静态工厂方法提供了另一种构建类的思路，1.5版jdk中的Collections类引入了诸多静态构建方法。相比构建函数，具有以下几点优势。</p>
-<ul>
-<li>静态工厂具有名字，可以通过名字识别创建对象特点，如下构建不可修改的集合：</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">Set&lt;T&gt; <span class="title">unmodifiableSet</span><span class="params">(Set&lt;? extends T&gt; s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> UnmodifiableSet&lt;&gt;(s);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>静态工厂构建的实例可以是返回类型的任意子类。上面方法返回的就是私有的Set子类。</li>
-<li>可以控制类的实现，重复调用返回相同的类，如单例模式</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span></span>&#123;</span><br><span class="line">    <span class="comment">//限制实例创建</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span>  Singleton singleton;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(singleton=<span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">synchronized</span>(Singleton.class)&#123;</span><br><span class="line">                <span class="keyword">if</span>(singleton=<span class="keyword">null</span>)&#123;singleton=<span class="keyword">new</span> Singleton();&#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> singleton;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>缺点：</p>
-<ul>
-<li>本质是静态方法，很难与其他静态方法区分。</li>
-<li>类不包含公有或者受保护的构造方法，无法被子类化，如上诉Singleton无法被子类化</li>
-</ul>
-<p>常用的静态方法名：</p>
-<ul>
-<li><strong>valueOf</strong> Boolean</li>
-<li>of</li>
-<li>newInstance</li>
-<li>getInstance</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java基础</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">effective java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/11/27/静态工厂方法/">展开全文 >></a>
         </p>
       
 
@@ -1247,6 +1192,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">effective java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">spring</a>
               </li>
              
@@ -1264,18 +1221,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hibernate</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">effective java</a>
               </li>
             
             <div class="clearfix"></div>
