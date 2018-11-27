@@ -6,19 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018 | 历萧尘的博客</title>
+  <title>设计模式五——原型模式 | 历萧尘的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="天高任鸟飞，海阔凭鱼跃">
-<meta name="keywords" content="java 程序猿">
-<meta property="og:type" content="website">
-<meta property="og:title" content="历萧尘的博客">
-<meta property="og:url" content="http://yoursite.com/archives/2018/index.html">
+  <meta name="description" content="4.原型模式​      下图是原型模式的UML结构图：  ​       原型模式主要包含如下三个角色： ​       Prototype：抽象原型类。声明克隆自身的接口。​       ConcretePrototype：具体原型类。实现克隆的具体操作。​       Client：客户类。让一个原型克隆自身，从而获得一个新的对象。 4.1、模式优缺点优点​      1、如果创建新的对象比">
+<meta name="keywords" content="设计模式,java基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计模式五——原型模式">
+<meta property="og:url" content="http://yoursite.com/2018/11/30/设计模式/设计模式五——原型模式/index.html">
 <meta property="og:site_name" content="历萧尘的博客">
-<meta property="og:description" content="天高任鸟飞，海阔凭鱼跃">
+<meta property="og:description" content="4.原型模式​      下图是原型模式的UML结构图：  ​       原型模式主要包含如下三个角色： ​       Prototype：抽象原型类。声明克隆自身的接口。​       ConcretePrototype：具体原型类。实现克隆的具体操作。​       Client：客户类。让一个原型克隆自身，从而获得一个新的对象。 4.1、模式优缺点优点​      1、如果创建新的对象比">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://images0.cnblogs.com/blog/381060/201309/10205054-1f8dffae0d90438095508079d491e39f.png">
+<meta property="og:updated_time" content="2018-11-27T01:30:37.959Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="历萧尘的博客">
-<meta name="twitter:description" content="天高任鸟飞，海阔凭鱼跃">
+<meta name="twitter:title" content="设计模式五——原型模式">
+<meta name="twitter:description" content="4.原型模式​      下图是原型模式的UML结构图：  ​       原型模式主要包含如下三个角色： ​       Prototype：抽象原型类。声明克隆自身的接口。​       ConcretePrototype：具体原型类。实现克隆的具体操作。​       Client：客户类。让一个原型克隆自身，从而获得一个新的对象。 4.1、模式优缺点优点​      1、如果创建新的对象比">
+<meta name="twitter:image" content="https://images0.cnblogs.com/blog/381060/201309/10205054-1f8dffae0d90438095508079d491e39f.png">
   
     <link rel="alternative" href="/atom.xml" title="历萧尘的博客" type="application/atom+xml">
   
@@ -170,78 +173,70 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-设计模式/设计模式五——原型模式" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/12/01/设计模式/设计模式四——builder模式/" class="archive-article-date">
-  	<time datetime="2018-12-01T12:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-01</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/12/01/设计模式/设计模式四——builder模式/">设计模式四——builder模式</a>
+    <h1 class="article-title" itemprop="name">
+      设计模式五——原型模式
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/30/设计模式/设计模式五——原型模式/" class="archive-article-date">
+        
+        <a href="/2018/11/30/设计模式/设计模式五——原型模式/" class="archive-article-date">
   	<time datetime="2018-11-30T12:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-30</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/30/设计模式/设计模式五——原型模式/">设计模式五——原型模式</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="4-原型模式"><a href="#4-原型模式" class="headerlink" title="4.原型模式"></a>4.原型模式</h2><p>​      下图是原型模式的UML结构图：</p>
+<p><a href="https://images0.cnblogs.com/blog/381060/201309/10205054-e9c63be0c38f4b709689238c3dfa35b9.png" target="_blank" rel="noopener"><img src="https://images0.cnblogs.com/blog/381060/201309/10205054-1f8dffae0d90438095508079d491e39f.png" alt="2222"></a></p>
+<p>​       原型模式主要包含如下三个角色：</p>
+<p>​       Prototype：抽象原型类。声明克隆自身的接口。<br>​       ConcretePrototype：具体原型类。实现克隆的具体操作。<br>​       Client：客户类。让一个原型克隆自身，从而获得一个新的对象。</p>
+<h3 id="4-1、模式优缺点"><a href="#4-1、模式优缺点" class="headerlink" title="4.1、模式优缺点"></a>4.1、模式优缺点</h3><h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><p>​      1、如果创建新的对象比较复杂时，可以利用原型模式简化对象的创建过程，同时也能够提高效率。</p>
+<p>​      2、可以使用深克隆保持对象的状态。</p>
+<p>​      3、原型模式提供了简化的创建结构。</p>
+<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><p>​      1、在实现深克隆的时候可能需要比较复杂的代码。</p>
+<p>​      2、需要为每一个类配备一个克隆方法，而且这个克隆方法需要对类的功能进行通盘考虑，这对全新的类来说不是很难，但对已有的类进行改造时，不一定是件容易的事，必须修改其源代码，违背了“开闭原则”。</p>
+<h3 id="4-3、模式使用场景"><a href="#4-3、模式使用场景" class="headerlink" title="4.3、模式使用场景"></a>4.3、模式使用场景</h3><p>​      1、如果创建新对象成本较大，我们可以利用已有的对象进行复制来获得。</p>
+<p>​      2、如果系统要保存对象的状态，而对象的状态变化很小，或者对象本身占内存不大的时候，也可以使用原型模式配合备忘录模式来应用。相反，如果对象的状态变化很大，或者对象占用的内存很大，那么采用状态模式会比原型模式更好。<br>​      3、需要避免使用分层次的工厂类来创建分层次的对象，并且类的实例对象只有一个或很少的几个组合状态，通过复制原型对象得到新实例可能比使用构造函数创建一个新实例更加方便。</p>
+<h3 id="4-4、模式总结"><a href="#4-4、模式总结" class="headerlink" title="4.4、模式总结"></a>4.4、模式总结</h3><p>​      1、原型模式向客户隐藏了创建对象的复杂性。客户只需要知道要创建对象的类型，然后通过请求就可以获得和该对象一模一样的新对象，无须知道具体的创建过程。</p>
+<p>​      2、克隆分为浅克隆和深克隆两种。</p>
+<p>​      3、我们虽然可以利用原型模式来获得一个新对象，但有时对象的复制可能会相当的复杂，比如深克隆</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> objectbuild.prototype;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Created by jacky on 2018/8/29.</span></span><br><span class="line"><span class="comment"> *   所谓原型模式就是用原型实例指定创建对象的种类，并且通过复制这些原型创建新的对象。</span></span><br><span class="line"><span class="comment"> *   讲到原型模式了，我们就不得不区分两个概念：深拷贝、浅拷贝。</span></span><br><span class="line"><span class="comment"> *      浅拷贝：使用一个已知实例对新创建实例的成员变量逐个赋值，这个方式被称为浅拷贝。</span></span><br><span class="line"><span class="comment"> *  深拷贝：当一个类的拷贝构造方法，不仅要复制对象的所有非引用成员变量值，</span></span><br><span class="line"><span class="comment"> *  还要为引用类型的成员变量创建新的实例，并且初始化为形式参数实例值。</span></span><br><span class="line"><span class="comment"> *  本示例主要为浅拷贝</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Resume</span> <span class="keyword">implements</span> <span class="title">Cloneable</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> String birthday;</span><br><span class="line">    <span class="keyword">private</span> String sex;</span><br><span class="line">    <span class="keyword">private</span> String school;</span><br><span class="line">    <span class="keyword">private</span> String timeArea;</span><br><span class="line">    <span class="keyword">private</span> String company;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 构造函数：初始化简历赋值姓名</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Resume</span><span class="params">(String name)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@desc</span> 设定个人基本信息</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> birthday 生日</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> sex 性别</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> school 毕业学校</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> void</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPersonInfo</span><span class="params">(String birthday,String sex,String school)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.birthday = birthday;</span><br><span class="line">        <span class="keyword">this</span>.sex = sex;</span><br><span class="line">        <span class="keyword">this</span>.school = school;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@desc</span> 设定工作经历</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> timeArea 工作年限</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> company 所在公司</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> void</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setWorkExperience</span><span class="params">(String timeArea,String company)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.timeArea = timeArea;</span><br><span class="line">        <span class="keyword">this</span>.company = company;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">clone</span><span class="params">()</span></span>&#123;</span><br><span class="line">        Resume resume=<span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            resume= (Resume) <span class="keyword">super</span>.clone();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (CloneNotSupportedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> resume;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">display</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"姓名："</span> + name);</span><br><span class="line">        System.out.println(<span class="string">"生日:"</span> + birthday + <span class="string">",性别:"</span> + sex + <span class="string">",毕业学校："</span> + school);</span><br><span class="line">        System.out.println(<span class="string">"工作年限:"</span> + timeArea + <span class="string">",公司:"</span> + company);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</span><br><span class="line">        Resume resume=<span class="keyword">new</span> Resume(<span class="string">"张三"</span>);</span><br><span class="line">        resume.setPersonInfo(<span class="string">"2018-01-01"</span>,<span class="string">"male"</span>,<span class="string">"none"</span>);</span><br><span class="line">        resume.setWorkExperience(<span class="string">"2018-2018"</span>,<span class="string">"home"</span>);</span><br><span class="line">        Resume resume1 = (Resume) resume.clone();</span><br><span class="line">        resume.display();</span><br><span class="line">        resume1.display();</span><br><span class="line">        System.out.println(<span class="string">"resume equals resume1?:"</span>+(resume==resume1));</span><br><span class="line">        System.out.println(<span class="string">"resume.class== resume1.class?:"</span>+(resume.getClass()==resume1.getClass()));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -257,366 +252,128 @@ var _hmt = _hmt || [];
 		</ul>
 	</div>
 
-          
 
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACwklEQVR42u3aQXLbQAwEQP//0845FZOeAbiMDq2TS6JX23QVFx7g6yt+fV+8kk//Xedq5fv3r9Z84IWHh4f30Nbvl062ldyIp96/vK14eHh4x3j3D/H7x/3smvtNJ/tJDh48PDy8T+C1G7raVn4g5eU1Hh4e3qfx2k+T+OB+5VcPBjw8PLySN3tAJwHrO+s8kLXg4eHhxby8i/Q5Px/p7+Hh4eGtu+rtQEDeNksK8by1drlPPDw8vAO89qHcxqn7WKEt939YEw8PD+8V3uyddouzG9qGwnh4eHgneE+lGnkhPotxk7GtOk3Bw8PDK3n5P/wtb/Nwbxtgl1fi4eHhHeDlpLykng0HJIX76njAw8PDe5Q3a2K1Q1ptkd3eRDw8PLx3eG1YMLtmkwwkR8XlO3h4eHjHeLOyeBMxbFYufgsPDw/vGG82GjUcgQrWn5XRP/yMh4eHd4yXl7lt2Dp73M+uv2x94eHh4R3gzbbbxhObbxnGInh4eHgHePUAU1xMz4rs9qbUQ1d4eHh4a95sKKodC9gMXbVxxl/r4OHh4b3Cm4UIeWDRxrJJpHt5C/Dw8PBe4SXtpfzKtq21GWIYptR4eHh4JS8PI9rH9L6dlh8hdVaNh4eHt+DlDbDZwzq5Mi/f6wMJDw8P7xivjWs3JXV7VOShSfQBHh4e3prXFsezErzd3Owgif6GeHh4eGvepnhtw4V8gGA2jFWfGHh4eHgj3ixoSL5gVhbnvGGXDw8PD2/N+y5fm7J71gxrh8Dw8PDwTvNmD9/ZtvJienYs5Xg8PDy8PW92GLSbTorgWcvtl/3g4eHhHeOtotI4hmjbXcn3FlkLHh4e3uu82fGQb2UWgvxyi/Hw8PD+Ky8pf/djAe2BUYwO4OHh4T3Ka4OAHJNfnzfVigYYHh4e3gFeGzHMDoZZ9JDflNnAFh4eHl7J+wM6AiIWjnYv4wAAAABJRU5ErkJggg==" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/29/设计模式/设计模式二——工厂模式/" class="archive-article-date">
-  	<time datetime="2018-11-29T12:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-29</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2018/12/01/设计模式/设计模式四——builder模式/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          设计模式四——builder模式
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/11/29/设计模式/设计模式二——工厂模式/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">设计模式三——工厂模式</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/29/设计模式/设计模式二——工厂模式/">设计模式三——工厂模式</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-原型模式"><span class="toc-number">1.</span> <span class="toc-text">4.原型模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1、模式优缺点"><span class="toc-number">1.1.</span> <span class="toc-text">4.1、模式优缺点</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#优点"><span class="toc-number">1.1.1.</span> <span class="toc-text">优点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#缺点"><span class="toc-number">1.1.2.</span> <span class="toc-text">缺点</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3、模式使用场景"><span class="toc-number">1.2.</span> <span class="toc-text">4.3、模式使用场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4、模式总结"><span class="toc-number">1.3.</span> <span class="toc-text">4.4、模式总结</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/28/设计模式/设计模式三——单例模式/" class="archive-article-date">
-  	<time datetime="2018-11-28T12:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-28</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/28/设计模式/设计模式三——单例模式/">设计模式三——单例模式</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/27/设计模式/设计模式一——概览/" class="archive-article-date">
-  	<time datetime="2018-11-27T12:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/27/设计模式/设计模式一——概览/">设计模式一————概览</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/26/spring framwork/spring框架（七）校验（下）/" class="archive-article-date">
-  	<time datetime="2018-11-26T05:47:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/26/spring framwork/spring框架（七）校验（下）/">spring框架（七）校验（下）</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">spring校验</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">validation</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hibernate</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/25/spring framwork/spring框架（七）校验（中）/" class="archive-article-date">
-  	<time datetime="2018-11-25T07:56:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/25/spring framwork/spring框架（七）校验（中）/">spring框架（七）校验（中）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">spring校验</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">validation</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hibernate</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/23/spring framwork/spring框架（七）校验(上)/" class="archive-article-date">
-  	<time datetime="2018-11-23T03:14:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/23/spring framwork/spring框架（七）校验(上)/">spring框架（七）校验（上）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">spring校验</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">validation</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/22/spring framwork/spring框架（四）依赖注入与自动装配/" class="archive-article-date">
-  	<time datetime="2018-11-22T12:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/22/spring framwork/spring框架（四）依赖注入与自动装配/">spring框架（四）依赖注入与自动封装</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/22/spring framwork/spring框架（一）简介/" class="archive-article-date">
-  	<time datetime="2018-11-22T12:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/22/spring framwork/spring框架（一）简介/">spring框架（一）简介</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2018/page/2/">2</a><a class="extend next" rel="next" href="/archives/2018/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -654,8 +411,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

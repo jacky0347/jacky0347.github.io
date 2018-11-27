@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018 | 历萧尘的博客</title>
+  <title>设计模式四——builder模式 | 历萧尘的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="天高任鸟飞，海阔凭鱼跃">
-<meta name="keywords" content="java 程序猿">
-<meta property="og:type" content="website">
-<meta property="og:title" content="历萧尘的博客">
-<meta property="og:url" content="http://yoursite.com/archives/2018/index.html">
+  <meta name="description" content="builder模式一般复杂对象（5个以上参数）构建才会用到build模式，否则一般构造函数重载即可 builder一般设置为需要创建内的静态内部类。 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667">
+<meta name="keywords" content="设计模式,java基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计模式四——builder模式">
+<meta property="og:url" content="http://yoursite.com/2018/12/01/设计模式/设计模式四——builder模式/index.html">
 <meta property="og:site_name" content="历萧尘的博客">
-<meta property="og:description" content="天高任鸟飞，海阔凭鱼跃">
+<meta property="og:description" content="builder模式一般复杂对象（5个以上参数）构建才会用到build模式，否则一般构造函数重载即可 builder一般设置为需要创建内的静态内部类。 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-11-27T01:30:42.922Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="历萧尘的博客">
-<meta name="twitter:description" content="天高任鸟飞，海阔凭鱼跃">
+<meta name="twitter:title" content="设计模式四——builder模式">
+<meta name="twitter:description" content="builder模式一般复杂对象（5个以上参数）构建才会用到build模式，否则一般构造函数重载即可 builder一般设置为需要创建内的静态内部类。 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667">
   
     <link rel="alternative" href="/atom.xml" title="历萧尘的博客" type="application/atom+xml">
   
@@ -170,36 +171,58 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-设计模式/设计模式四——builder模式" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      设计模式四——builder模式
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/12/01/设计模式/设计模式四——builder模式/" class="archive-article-date">
+
+        
+        <a href="/2018/12/01/设计模式/设计模式四——builder模式/" class="archive-article-date">
   	<time datetime="2018-12-01T12:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-01</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/12/01/设计模式/设计模式四——builder模式/">设计模式四——builder模式</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="builder模式"><a href="#builder模式" class="headerlink" title="builder模式"></a>builder模式</h2><p>一般复杂对象（5个以上参数）构建才会用到build模式，否则一般构造函数重载即可</p>
+<p>builder一般设置为需要创建内的静态内部类。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> objectbuild.builder;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Created by jacky on 2018/8/28.</span></span><br><span class="line"><span class="comment"> * 一般比较复杂的对象，超过5个参数的建议过build模式，否则一般建议用</span></span><br><span class="line"><span class="comment"> * 构建函数的方法重载模式</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Computor</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String CPU;</span><br><span class="line">    <span class="keyword">private</span> String memory;</span><br><span class="line">    <span class="keyword">private</span> String mainbord;</span><br><span class="line">    <span class="keyword">private</span> String hardDisk;</span><br><span class="line">    <span class="keyword">private</span> String displayCard;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getCPU</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> CPU;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCPU</span><span class="params">(String CPU)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.CPU = CPU;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getMemory</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> memory;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setMemory</span><span class="params">(String memory)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.memory = memory;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getMainbord</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> mainbord;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setMainbord</span><span class="params">(String mainbord)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.mainbord = mainbord;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getHardDisk</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> hardDisk;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setHardDisk</span><span class="params">(String hardDisk)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.hardDisk = hardDisk;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getDisplayCard</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> displayCard;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setDisplayCard</span><span class="params">(String displayCard)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.displayCard = displayCard;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Computor</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//builder 类</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">ComputorBuilder</span></span>&#123;</span><br><span class="line">        <span class="keyword">private</span> String CPU;</span><br><span class="line">        <span class="keyword">private</span> String memory;</span><br><span class="line">        <span class="keyword">private</span> String mainbord;</span><br><span class="line">        <span class="keyword">private</span> String hardDisk;</span><br><span class="line">        <span class="keyword">private</span> String displayCard;</span><br><span class="line">        </span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">ComputorBuilder</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span>  ComputorBuilder <span class="title">setCPU</span><span class="params">(String CPU)</span></span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.CPU =CPU;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> ComputorBuilder <span class="title">setMemory</span><span class="params">(String memory)</span></span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.memory=memory;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> ComputorBuilder <span class="title">setMainBord</span><span class="params">(String mainBord)</span></span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.mainbord =mainBord;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> ComputorBuilder <span class="title">setHardDisk</span><span class="params">(String hardDisk)</span></span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.hardDisk=hardDisk;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> ComputorBuilder <span class="title">setDisplayCard</span><span class="params">(String displayCard)</span></span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.displayCard=displayCard;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> Computor <span class="title">build</span><span class="params">()</span></span>&#123;</span><br><span class="line">            Computor computor=<span class="keyword">new</span> Computor();</span><br><span class="line">            computor.setCPU(<span class="keyword">this</span>.CPU);</span><br><span class="line">            computor.setDisplayCard(<span class="keyword">this</span>.displayCard);</span><br><span class="line">            computor.setHardDisk(<span class="keyword">this</span>.hardDisk);</span><br><span class="line">            computor.setMemory(<span class="keyword">this</span>.memory);</span><br><span class="line">            computor.setMainbord(<span class="keyword">this</span>.mainbord);</span><br><span class="line">            <span class="keyword">return</span> computor;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</span><br><span class="line">        ComputorBuilder builder = <span class="keyword">new</span> Computor.ComputorBuilder();</span><br><span class="line">        Computor computor= builder.setCPU(<span class="string">"core 2.18"</span>).setDisplayCard(<span class="string">"rainBord"</span>)</span><br><span class="line">                .setHardDisk(<span class="string">"sisc"</span>).setMainBord(<span class="string">"jijia"</span>).setMemory(<span class="string">"ddr3"</span>)</span><br><span class="line">                .build();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -215,408 +238,119 @@ var _hmt = _hmt || [];
 		</ul>
 	</div>
 
-          
 
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACu0lEQVR42u3aQW7jQAwEQP//015gTwGylrs5orMBSqdAjqSpOYgUyccjPp5/j1fnv//69czz25H8z/U9bz7w8PDwRku/fkDCe7Wsa+SMl6wZDw8Pb5t3HQyuX8rFw2J2EkiiAIaHh4f3o7z88XlinVyLh4eH93t5e0tpE3E8PDy8/4GXFCPyRDnZoFmavlhrwcPDw5vXBx6zIPHJvxf7e3h4eHgHXfW8JdaGinaMYLZaPDw8vA1enuC2w0+z4ap2aCBaDx4eHt4yr31ke1V+z3xr3oDx8PDwFnizEat21OD8WScbioeHh3cXb/iSjVPbWeNqRjrq7OHh4eGVvFnKOyvFJqNaSUkiCkV4eHh4C7wTZP7ItgSct9CircHDw8Nb4yVFgSQM5Ml0nmQnYenlJuLh4eEt8M6XmPfrrzeoHdLCw8PD+zwv/+xvG/nt3WZFhzdsPDw8vAVe/lpvX/cnjbHrsNGGEDw8PLwNXptMJ1vQNszOBxqi+Qg8PDy8Y15eKs0b+ecFi7ZV9vIqPDw8vA/y8iGqdll5st6OL/zjDnh4eHgLvJZ0sogouz8e5MLDw8Pb5rWl0lkbbBY8jpLpWSUYDw8Pr1tzU/ctW1b5mfz+RdzDw8PDu5V3V1khf6HPhgzyJhweHh7eNq8ttu4FjJMiSL42PDw8vL3Rq3yJbelhNl5wQwkDDw8P71ZeEgBa8Ky1dhIY3oxe4eHh4S3wTgLArEzQFiPylhgeHh7eHu9ZHve2vvKtyc9HXwl4eHh4B7z2hdt+48+243wTayoeHh5eyTtvNc36bNewvC33piiMh4eHt8Y7aT7Nyq/5Vrah62WtBQ8PD++HeG1IaIsRbUJ/c2DAw8PDu5U3CyHJtUlxYZjE4+Hh4a3x2qbXXYWMvQ3Cw8PD2+PNGmBtkWLWPGubakMkHh4eXnrmD9kV0HXfkoAgAAAAAElFTkSuQmCC" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/30/设计模式/设计模式五——原型模式/" class="archive-article-date">
-  	<time datetime="2018-11-30T12:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-30</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/11/30/设计模式/设计模式五——原型模式/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">设计模式五——原型模式</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/30/设计模式/设计模式五——原型模式/">设计模式五——原型模式</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#builder模式"><span class="toc-number">1.</span> <span class="toc-text">builder模式</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/29/设计模式/设计模式二——工厂模式/" class="archive-article-date">
-  	<time datetime="2018-11-29T12:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-29</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/29/设计模式/设计模式二——工厂模式/">设计模式三——工厂模式</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/28/设计模式/设计模式三——单例模式/" class="archive-article-date">
-  	<time datetime="2018-11-28T12:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/28/设计模式/设计模式三——单例模式/">设计模式三——单例模式</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/27/设计模式/设计模式一——概览/" class="archive-article-date">
-  	<time datetime="2018-11-27T12:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/27/设计模式/设计模式一——概览/">设计模式一————概览</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/26/spring framwork/spring框架（七）校验（下）/" class="archive-article-date">
-  	<time datetime="2018-11-26T05:47:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/26/spring framwork/spring框架（七）校验（下）/">spring框架（七）校验（下）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">spring校验</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">validation</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hibernate</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/25/spring framwork/spring框架（七）校验（中）/" class="archive-article-date">
-  	<time datetime="2018-11-25T07:56:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/25/spring framwork/spring框架（七）校验（中）/">spring框架（七）校验（中）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">spring校验</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">validation</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hibernate</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/23/spring framwork/spring框架（七）校验(上)/" class="archive-article-date">
-  	<time datetime="2018-11-23T03:14:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/23/spring framwork/spring框架（七）校验(上)/">spring框架（七）校验（上）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">spring校验</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">validation</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/22/spring framwork/spring框架（四）依赖注入与自动装配/" class="archive-article-date">
-  	<time datetime="2018-11-22T12:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/22/spring framwork/spring框架（四）依赖注入与自动装配/">spring框架（四）依赖注入与自动封装</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/22/spring framwork/spring框架（一）简介/" class="archive-article-date">
-  	<time datetime="2018-11-22T12:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/22/spring framwork/spring框架（一）简介/">spring框架（一）简介</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2018/page/2/">2</a><a class="extend next" rel="next" href="/archives/2018/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -654,8 +388,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018 | 历萧尘的博客</title>
+  <title>设计模式三——单例模式 | 历萧尘的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="天高任鸟飞，海阔凭鱼跃">
-<meta name="keywords" content="java 程序猿">
-<meta property="og:type" content="website">
-<meta property="og:title" content="历萧尘的博客">
-<meta property="og:url" content="http://yoursite.com/archives/2018/index.html">
+  <meta name="description" content="12345678910111213141516171819202122应用场景（来源：《大话设计模式》）：　　　　需求：在前端创建工具箱窗口，工具箱要么不出现，出现也只出现一个　　　　遇到问题：每次点击菜单都会重复创建“工具箱”窗口。　　　　解决方案一：使用if语句，在每次创建对象的时候首先进行判断是否为null，如果为null再创建对象。　　　　需求：如果在5个地方需要实例出工具箱窗体　　　　遇">
+<meta name="keywords" content="设计模式,java基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计模式三——单例模式">
+<meta property="og:url" content="http://yoursite.com/2018/11/28/设计模式/设计模式三——单例模式/index.html">
 <meta property="og:site_name" content="历萧尘的博客">
-<meta property="og:description" content="天高任鸟飞，海阔凭鱼跃">
+<meta property="og:description" content="12345678910111213141516171819202122应用场景（来源：《大话设计模式》）：　　　　需求：在前端创建工具箱窗口，工具箱要么不出现，出现也只出现一个　　　　遇到问题：每次点击菜单都会重复创建“工具箱”窗口。　　　　解决方案一：使用if语句，在每次创建对象的时候首先进行判断是否为null，如果为null再创建对象。　　　　需求：如果在5个地方需要实例出工具箱窗体　　　　遇">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-11-27T01:30:29.350Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="历萧尘的博客">
-<meta name="twitter:description" content="天高任鸟飞，海阔凭鱼跃">
+<meta name="twitter:title" content="设计模式三——单例模式">
+<meta name="twitter:description" content="12345678910111213141516171819202122应用场景（来源：《大话设计模式》）：　　　　需求：在前端创建工具箱窗口，工具箱要么不出现，出现也只出现一个　　　　遇到问题：每次点击菜单都会重复创建“工具箱”窗口。　　　　解决方案一：使用if语句，在每次创建对象的时候首先进行判断是否为null，如果为null再创建对象。　　　　需求：如果在5个地方需要实例出工具箱窗体　　　　遇">
   
     <link rel="alternative" href="/atom.xml" title="历萧尘的博客" type="application/atom+xml">
   
@@ -170,162 +171,64 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-设计模式/设计模式三——单例模式" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/12/01/设计模式/设计模式四——builder模式/" class="archive-article-date">
-  	<time datetime="2018-12-01T12:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-01</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/12/01/设计模式/设计模式四——builder模式/">设计模式四——builder模式</a>
+    <h1 class="article-title" itemprop="name">
+      设计模式三——单例模式
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/30/设计模式/设计模式五——原型模式/" class="archive-article-date">
-  	<time datetime="2018-11-30T12:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/30/设计模式/设计模式五——原型模式/">设计模式五——原型模式</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/29/设计模式/设计模式二——工厂模式/" class="archive-article-date">
-  	<time datetime="2018-11-29T12:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/29/设计模式/设计模式二——工厂模式/">设计模式三——工厂模式</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/28/设计模式/设计模式三——单例模式/" class="archive-article-date">
+        
+        <a href="/2018/11/28/设计模式/设计模式三——单例模式/" class="archive-article-date">
   	<time datetime="2018-11-28T12:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-28</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/28/设计模式/设计模式三——单例模式/">设计模式三——单例模式</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">应用场景（来源：《大话设计模式》）：</span><br><span class="line"></span><br><span class="line">　　　　需求：在前端创建工具箱窗口，工具箱要么不出现，出现也只出现一个</span><br><span class="line"></span><br><span class="line">　　　　遇到问题：每次点击菜单都会重复创建“工具箱”窗口。</span><br><span class="line"></span><br><span class="line">　　　　解决方案一：使用if语句，在每次创建对象的时候首先进行判断是否为null，如果为null再创建对象。</span><br><span class="line"></span><br><span class="line">　　　　需求：如果在5个地方需要实例出工具箱窗体</span><br><span class="line"></span><br><span class="line">　　　　遇到问题：这个小bug需要改动5个地方，并且代码重复，代码利用率低</span><br><span class="line"></span><br><span class="line">　　　　解决方案二：利用单例模式，保证一个类只有一个实例，并提供一个访问它的全局访问点。</span><br><span class="line"></span><br><span class="line">　　通过以下几种方式，我们会发现，所有的单例模式都是使用静态方法进行创建的，所以单例对象在内存中静态共享区中存储。</span><br><span class="line">（可参考：https://zhidao.baidu.com/question/2206072272164938188.html）</span><br><span class="line"></span><br><span class="line">　　 单例模式可以分为懒汉式和饿汉式：</span><br><span class="line"></span><br><span class="line">　　　　懒汉式单例模式：在类加载时不初始化。</span><br><span class="line"></span><br><span class="line">　　　　饿汉式单例模式：在类加载时就完成了初始化，所以类加载比较慢，但获取对象的速度快。</span><br></pre></td></tr></table></figure>
+<p>饿汉式单例模式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Created by jacky on 2018/8/22.</span></span><br><span class="line"><span class="comment"> * 静态域加载</span></span><br><span class="line"><span class="comment"> * 优点：线性安全</span></span><br><span class="line"><span class="comment"> * 缺点：资源消耗大的对象，优先加载浪费</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PreLoadSingleton</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> A a = <span class="keyword">new</span> A();</span><br><span class="line">    <span class="function"><span class="keyword">public</span> A <span class="title">getA</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>饱汗式单例模式</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Created by jacky on 2018/8/22.</span></span><br><span class="line"><span class="comment"> * lazy load</span></span><br><span class="line"><span class="comment"> * 非线性安全</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SimpleLazySingleton</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> A a;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> A <span class="title">getA</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(a==<span class="keyword">null</span>)&#123;</span><br><span class="line">            a=<span class="keyword">new</span> A();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>线性安全</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Created by jacky on 2018/8/22.</span></span><br><span class="line"><span class="comment"> * 线性安全避免了竞态竞争</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConcurentLazySingleton</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> A a;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> A <span class="title">getA</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">synchronized</span> (ConcurentLazySingleton.class) &#123;</span><br><span class="line">            <span class="keyword">if</span> (a == <span class="keyword">null</span>) &#123;</span><br><span class="line">                a = <span class="keyword">new</span> A();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>double check提高性能</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Created by jacky on 2018/8/22.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DoubleCheckSingleTon</span> </span>&#123;</span><br><span class="line"><span class="comment">//   使A具有线程可见性</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">volatile</span> A a;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> A <span class="title">getA</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">//其它线程修改后执行判断可减少加锁开销</span></span><br><span class="line">        <span class="keyword">if</span>(a==<span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="comment">//加锁避免竞态条件</span></span><br><span class="line">            <span class="keyword">synchronized</span> (DoubleCheckSingleTon.class)&#123;</span><br><span class="line">                <span class="keyword">if</span>(a==<span class="keyword">null</span>)&#123;</span><br><span class="line">                    a=<span class="keyword">new</span> A();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -341,282 +244,128 @@ var _hmt = _hmt || [];
 		</ul>
 	</div>
 
-          
 
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACv0lEQVR42u3aQW7jQAwEQP//01lgb4uFnG5yJgmC0ilwLHlKBkS6Oa9XfHz8Pd6/8nTW0zuf/vv+/a8bBx4eHt5o6U/H/5dOFt2e9bSSp3OTNePh4eHd5uULzUtIWzzen5tcGQ8PD++n8ZIm+NTNwsPDw/sdvNktmGFm18TDw8P7Sl4SRuRxQHvuZj3HshY8PDy8mLeJGL7r74vzPTw8PLzFVD0fiSXtdRtnzErRP2fh4eHhXeDlQ/12W1XLaAPcomDg4eHhXeC1Q/02At606W2HXIDx8PDwRrzkMZ23y5toYxbpfrJ+PDw8vAu8HLYfVuXNcX4ro1uMh4eHd5R3Kg7YvzO/lcVn4eHh4V3gzQZO7WM9CSDOBseP3yEeHh7eIV57iXajwGZDQNK+1yEyHh4e3oLXXuLUpqt2kFaEtnh4eHiXebOSkEQJSf3Zhw4tGw8PD2/PSx70G1g7WsvHZlEJwcPDw7vGmwWymxhi345HXwYeHh7eBd7ZjQLtWGt2Q5Pr4OHh4d3j5bFsO85vY4g2O4kKDx4eHt413qlmuh1rJQ/6zeANDw8P7yt57dgpf+ivBv+z3wp4eHh4R3ntQ3y2iSpf7qxNj24cHh4e3iFe3ry+Hzi1pWXTTBejMjw8PLwLvLwwzBro2cj/IzgObCDAw8PDW/M2P/vzYpA35W1rPmvc8fDw8Ga89+P5ZJtpPuxvtwvkheFxnXh4eHjXeO1gbLYdqg1q22qGh4eHd5v3UR77oHbWduevv5LKhoeHh7fg3Qgj8gd6Ei60A7lh7oKHh4dX8majps0YbMZuCwYeHh7ebd6sGCQNbrtNatYcf1IY8PDw8H4Mr402Tm0LyD8FDw8P73t5s40C+XvyT0/GaXh4eHi3eUmbm4OT0VQb0SYhxSvJMPDw8PDWvNlP/Rk4Lyd5THwAiYeHh5e+8gche7tgNqjqEAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/27/设计模式/设计模式一——概览/" class="archive-article-date">
-  	<time datetime="2018-11-27T12:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-27</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2018/11/29/设计模式/设计模式二——工厂模式/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          设计模式三——工厂模式
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/11/27/设计模式/设计模式一——概览/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">设计模式一————概览</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/27/设计模式/设计模式一——概览/">设计模式一————概览</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    目录，不存在的…
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/26/spring framwork/spring框架（七）校验（下）/" class="archive-article-date">
-  	<time datetime="2018-11-26T05:47:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-26</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/26/spring framwork/spring框架（七）校验（下）/">spring框架（七）校验（下）</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">spring校验</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">validation</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hibernate</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/25/spring framwork/spring框架（七）校验（中）/" class="archive-article-date">
-  	<time datetime="2018-11-25T07:56:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/25/spring framwork/spring框架（七）校验（中）/">spring框架（七）校验（中）</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">spring校验</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">validation</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hibernate</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/23/spring framwork/spring框架（七）校验(上)/" class="archive-article-date">
-  	<time datetime="2018-11-23T03:14:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/23/spring framwork/spring框架（七）校验(上)/">spring框架（七）校验（上）</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">spring校验</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">validation</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/22/spring framwork/spring框架（四）依赖注入与自动装配/" class="archive-article-date">
-  	<time datetime="2018-11-22T12:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/22/spring framwork/spring框架（四）依赖注入与自动装配/">spring框架（四）依赖注入与自动封装</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/22/spring framwork/spring框架（一）简介/" class="archive-article-date">
-  	<time datetime="2018-11-22T12:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/22/spring framwork/spring框架（一）简介/">spring框架（一）简介</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2018/page/2/">2</a><a class="extend next" rel="next" href="/archives/2018/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -654,8 +403,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

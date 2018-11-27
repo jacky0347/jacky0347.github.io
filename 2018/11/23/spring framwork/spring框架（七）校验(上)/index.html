@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018 | 历萧尘的博客</title>
+  <title>spring框架（七）校验（上） | 历萧尘的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="天高任鸟飞，海阔凭鱼跃">
-<meta name="keywords" content="java 程序猿">
-<meta property="og:type" content="website">
-<meta property="og:title" content="历萧尘的博客">
-<meta property="og:url" content="http://yoursite.com/archives/2018/index.html">
+  <meta name="description" content="一、为什么要进行校验？参考Wikipedia对数据校验的说明，数据校验主要用于以下几个目的：  确保数据准确性：如用户的生日信息，如果输入的是“sss”一串无效字符，对程序是无意义的。提前识别，降低风险。 确保数据可用性：如注册时输入用户的生日信息为“1099-09-03”这样的信息，虽然是日期格式，但是在做分析时为无效数据。 确保数据安全性：如用户注册时填写密码，出于安全考虑一般都需要对密码的复">
+<meta name="keywords" content="spring校验,validation">
+<meta property="og:type" content="article">
+<meta property="og:title" content="spring框架（七）校验（上）">
+<meta property="og:url" content="http://yoursite.com/2018/11/23/spring framwork/spring框架（七）校验(上)/index.html">
 <meta property="og:site_name" content="历萧尘的博客">
-<meta property="og:description" content="天高任鸟飞，海阔凭鱼跃">
+<meta property="og:description" content="一、为什么要进行校验？参考Wikipedia对数据校验的说明，数据校验主要用于以下几个目的：  确保数据准确性：如用户的生日信息，如果输入的是“sss”一串无效字符，对程序是无意义的。提前识别，降低风险。 确保数据可用性：如注册时输入用户的生日信息为“1099-09-03”这样的信息，虽然是日期格式，但是在做分析时为无效数据。 确保数据安全性：如用户注册时填写密码，出于安全考虑一般都需要对密码的复">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-11-25T14:09:55.690Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="历萧尘的博客">
-<meta name="twitter:description" content="天高任鸟飞，海阔凭鱼跃">
+<meta name="twitter:title" content="spring框架（七）校验（上）">
+<meta name="twitter:description" content="一、为什么要进行校验？参考Wikipedia对数据校验的说明，数据校验主要用于以下几个目的：  确保数据准确性：如用户的生日信息，如果输入的是“sss”一串无效字符，对程序是无意义的。提前识别，降低风险。 确保数据可用性：如注册时输入用户的生日信息为“1099-09-03”这样的信息，虽然是日期格式，但是在做分析时为无效数据。 确保数据安全性：如用户注册时填写密码，出于安全考虑一般都需要对密码的复">
   
     <link rel="alternative" href="/atom.xml" title="历萧尘的博客" type="application/atom+xml">
   
@@ -170,338 +171,223 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-spring framwork/spring框架（七）校验(上)" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/12/01/设计模式/设计模式四——builder模式/" class="archive-article-date">
-  	<time datetime="2018-12-01T12:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-01</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/12/01/设计模式/设计模式四——builder模式/">设计模式四——builder模式</a>
+    <h1 class="article-title" itemprop="name">
+      spring框架（七）校验（上）
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/30/设计模式/设计模式五——原型模式/" class="archive-article-date">
-  	<time datetime="2018-11-30T12:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/30/设计模式/设计模式五——原型模式/">设计模式五——原型模式</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/29/设计模式/设计模式二——工厂模式/" class="archive-article-date">
-  	<time datetime="2018-11-29T12:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/29/设计模式/设计模式二——工厂模式/">设计模式三——工厂模式</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/28/设计模式/设计模式三——单例模式/" class="archive-article-date">
-  	<time datetime="2018-11-28T12:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/28/设计模式/设计模式三——单例模式/">设计模式三——单例模式</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/27/设计模式/设计模式一——概览/" class="archive-article-date">
-  	<time datetime="2018-11-27T12:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/27/设计模式/设计模式一——概览/">设计模式一————概览</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/26/spring framwork/spring框架（七）校验（下）/" class="archive-article-date">
-  	<time datetime="2018-11-26T05:47:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/26/spring framwork/spring框架（七）校验（下）/">spring框架（七）校验（下）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">spring校验</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">validation</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hibernate</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/25/spring framwork/spring框架（七）校验（中）/" class="archive-article-date">
-  	<time datetime="2018-11-25T07:56:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/25/spring framwork/spring框架（七）校验（中）/">spring框架（七）校验（中）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">spring校验</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">validation</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hibernate</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/23/spring framwork/spring框架（七）校验(上)/" class="archive-article-date">
+        
+        <a href="/2018/11/23/spring framwork/spring框架（七）校验(上)/" class="archive-article-date">
   	<time datetime="2018-11-23T03:14:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-23</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/23/spring framwork/spring框架（七）校验(上)/">spring框架（七）校验（上）</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、为什么要进行校验？"><a href="#一、为什么要进行校验？" class="headerlink" title="一、为什么要进行校验？"></a>一、为什么要进行校验？</h2><p>参考<a href="https://en.wikipedia.org/wiki/Data_validation" target="_blank" rel="noopener">Wikipedia</a>对数据校验的说明，数据校验主要用于以下几个目的：</p>
+<ol>
+<li>确保数据准确性：如用户的生日信息，如果输入的是“sss”一串无效字符，对程序是无意义的。提前识别，降低风险。</li>
+<li>确保数据可用性：如注册时输入用户的生日信息为“1099-09-03”这样的信息，虽然是日期格式，但是在做分析时为无效数据。</li>
+<li>确保数据安全性：如用户注册时填写密码，出于安全考虑一般都需要对密码的复杂度进行校验。数据传输过程中的防窜改。</li>
+</ol>
+<a id="more"></a>
+<h2 id="二、数据校验的类型"><a href="#二、数据校验的类型" class="headerlink" title="二、数据校验的类型"></a>二、数据校验的类型</h2><ol>
+<li>数据类型的校验</li>
+<li>数据范围和约束的校验，如年龄：0~150</li>
+<li>结构化（组合）校验如：wsld对数据的校验，spring的配置文件的xsd对声明格式的校验</li>
+<li>数据格式的校验，如日期格式、会计数字等。</li>
+<li>数据安全校验：如md5值</li>
+<li>一致性校验：如city和zipcode的一致性。</li>
+</ol>
+<h2 id="三、如何进行校验"><a href="#三、如何进行校验" class="headerlink" title="三、如何进行校验"></a>三、如何进行校验</h2><p>​    JAVA EE对数据校验定义了相应标准，目前常用的为：JSR303（Bean Validation 1.0）<a href="\asserts\bean_validation-1_0-final-spec.pdf"> 参考文件</a> 和<a href="\asserts\bean-validation-specification.pdf">JSR349（Bean Validation 1.1）</a>标准，目前最新标准为JSR360(Bean Validation 2.0 )。hibernate-validator5实现了JSR349标准。</p>
+<p>​    Bean Validation标准采用通过领域模型（Model对象）进行注解的方式对领域对象进行校验。这样model可以在应用的各层（展示层、持久化层）都能被校验。详细的参见规范文档。</p>
+<h3 id="3-1-SR303标准简介"><a href="#3-1-SR303标准简介" class="headerlink" title="3.1 SR303标准简介:"></a>3.1 SR303标准简介:</h3><p><strong>约束注解注释的对象：</strong></p>
+<ul>
+<li>属性或字段：</li>
+<li>静态属性方法：将被校验器忽略</li>
+<li>接口或者父类：注释接口，实现类将被校验。校验的注释将被继承。</li>
+</ul>
+<p><strong>约束定义的属性</strong>，一般主要关注点在message属性：</p>
+<ul>
+<li>message：校验不通过时产生的异常信息</li>
+<li>groups：定于约束所属的组（决定执行顺序），实际开发一般用默认组（空数组）</li>
+<li>payload：约定约束所关联的payload(例如用于区分严重程度)</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//zipcode和city的数据严重级别不一样。</span></span><br><span class="line"><span class="keyword">package</span> com.acme.severity;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Severity</span> </span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Info</span> <span class="keyword">implements</span> <span class="title">Payload</span> </span>&#123;&#125;;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Error</span> <span class="keyword">implements</span> <span class="title">Payload</span> </span>&#123;&#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Address</span> </span>&#123;</span><br><span class="line">    <span class="meta">@NotNull</span>(message=<span class="string">"would be nice if we had one"</span>, payload=Severity.Info.class)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getZipCode</span><span class="params">()</span> </span>&#123;...&#125;</span><br><span class="line">    <span class="meta">@NotNull</span>(message=<span class="string">"the city is mandatory"</span>, payload=Severity.Error.class)</span><br><span class="line">    <span class="function">String <span class="title">getCity</span><span class="params">()</span> </span>&#123;...&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>校验的启动流程</strong>，摘自<a href="\asserts\bean_validation-1_0-final-spec.pdf">JSR303 参考文件</a> The main artifacts involved in the bootstrap process are:</p>
+<ul>
+<li>Validation: API entry point. Lets you optionally define the Bean Validation provider targeted as well as a provider resolution strategy. Validation generates Configuration objects and can bootstrap any provider implementation.</li>
+<li>ValidationProvider: contract between the bootstrap procedure and a Bean Validation provider implementation.</li>
+<li>ValidationProviderResolver: returns a list of all Bean Validation providers available in the execution context<br>(generally the classpath).</li>
+<li>Configuration: collects the configuration details that will be used to build ValidatorFactory. A specific sub<br>interface of Configuration must be provided by Bean Validation providers. This sub interface typically hosts<br>provider specific configurations.</li>
+<li>ValidatorFactory: result of the bootstrap process. Build Validator instances from a given Bean Validation<br>provider.</li>
+<li>META-INF/validation.xml: a configuration file, Bean Validation users can use to customize the configuration<br>of the default ValidatorFactory.</li>
+</ul>
+<p><strong>示例</strong>：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@NotNull</span>(message = <span class="string">"姓名不能为空"</span>)</span><br><span class="line">    <span class="meta">@Size</span>(max = <span class="number">10</span>,message = <span class="string">"姓名长度不能超过10个字符"</span>)</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@NotNull</span>(message = <span class="string">"年龄不能为空"</span>)</span><br><span class="line">    <span class="meta">@Max</span>(value = <span class="number">120</span>,message = <span class="string">"年龄最大不能超过120"</span>)</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line"></span><br><span class="line">	 <span class="meta">@PastOrPresent</span></span><br><span class="line">    <span class="keyword">private</span> Date birthday;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">User</span><span class="params">()</span> </span>&#123;  &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">User</span><span class="params">(@NotNull(message = <span class="string">"姓名不能为空"</span>)</span> @<span class="title">Size</span><span class="params">(max = <span class="number">10</span>)</span> String name,</span></span><br><span class="line"><span class="function">                @<span class="title">NotNull</span><span class="params">(message = <span class="string">"年龄不能为空"</span>)</span> @<span class="title">Max</span><span class="params">(value = <span class="number">120</span>, message = <span class="string">"年龄最大不能超过120"</span>)</span> <span class="keyword">int</span> age,</span></span><br><span class="line"><span class="function">                @PastOrPresent Date date) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">        <span class="keyword">this</span>.birthday=date;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</span><br><span class="line">      User user = <span class="keyword">new</span> User(<span class="string">"namemorethanlimitlength"</span>,<span class="number">150</span>,</span><br><span class="line">                           <span class="keyword">new</span> GregorianCalendar(<span class="number">1989</span>,<span class="number">3</span>,<span class="number">11</span>).getTime());</span><br><span class="line">        <span class="comment">//构建校验默认工厂</span></span><br><span class="line">        ValidatorFactory validatorFactory= Validation.buildDefaultValidatorFactory();</span><br><span class="line">        <span class="comment">//获取校验器，一般一个应用一个</span></span><br><span class="line">        Validator validator = validatorFactory.getValidator();</span><br><span class="line">        <span class="comment">//获取校验结果</span></span><br><span class="line">        Set&lt;ConstraintViolation&lt;User&gt;&gt; constraintViolations= validator.validate(user);</span><br><span class="line">        <span class="comment">//打印校验结果</span></span><br><span class="line">        <span class="keyword">for</span>(ConstraintViolation constraintViolation:constraintViolations)&#123;</span><br><span class="line">            <span class="comment">//校验的失败信息+失效的值</span></span><br><span class="line">            System.out.println(constraintViolation.getMessage()+<span class="string">":"</span></span><br><span class="line">                               +constraintViolation.getInvalidValue());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;~~~</span><br><span class="line">年龄最大不能超过<span class="number">120</span>:<span class="number">150</span></span><br><span class="line">姓名长度不能超过<span class="number">10</span>个字符:namemorethanlimitlength</span><br></pre></td></tr></table></figure>
+<p>自定义消息解析器、校验工厂类、转换解析器</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//some customization from a container</span></span><br><span class="line">ValidatorFactory factory = Validation</span><br><span class="line">			.byDefaultProvider().configure()</span><br><span class="line">    <span class="comment">//消息拦截器</span></span><br><span class="line">				.messageInterpolator( <span class="keyword">new</span> ContainerMessageInterpolator() )</span><br><span class="line">				.constraintValidatorFactory( </span><br><span class="line">    <span class="comment">//约束校验工厂</span></span><br><span class="line">    			<span class="keyword">new</span> ContainerComponentConstraintValidatorFactory() )</span><br><span class="line">    <span class="comment">//持久化对象转化器</span></span><br><span class="line">				.traversableResolver( <span class="keyword">new</span> JPAAwareTraversableResolver() )</span><br><span class="line">				.buildValidatorFactory();</span><br><span class="line"><span class="comment">//cache the factory somewhere</span></span><br><span class="line">Validator validator = factory.getValidator();</span><br></pre></td></tr></table></figure>
+<h3 id="3-2-内置的校验注解"><a href="#3-2-内置的校验注解" class="headerlink" title="3.2 内置的校验注解"></a>3.2 内置的校验注解</h3><table>
+<thead>
+<tr>
+<th style="text-align:left">注解名称</th>
+<th style="text-align:left">修饰类型</th>
+<th style="text-align:left">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">AssertFalse/AssertTrue</td>
+<td style="text-align:left">boolean/Boolean</td>
+<td style="text-align:left">被修饰对象值为false/true</td>
+</tr>
+<tr>
+<td style="text-align:left">DecimalMax</td>
+<td style="text-align:left">BigDecimal/BigInteger/CharSequence；byte/short/int/long/double 及其包装类型</td>
+<td style="text-align:left">不超过注释的最大值</td>
+</tr>
+<tr>
+<td style="text-align:left">DecimalMin</td>
+<td style="text-align:left">BigDecimal/BigInteger/CharSequence；byte/short/int/long/double 及其包装类型</td>
+<td style="text-align:left">不超过注释的最小值</td>
+</tr>
+<tr>
+<td style="text-align:left">Digits</td>
+<td style="text-align:left">BigDecimal/BigInteger/CharSequence；byte/short/int/long/double 及其包装类型</td>
+<td style="text-align:left">不超过注释的整数位和小数位</td>
+</tr>
+<tr>
+<td style="text-align:left">Email</td>
+<td style="text-align:left">CharSequence</td>
+<td style="text-align:left">指定格式的邮件地址</td>
+</tr>
+<tr>
+<td style="text-align:left">Future</td>
+<td style="text-align:left">Date、Calendar、Instant、LocalDate、LocalDateTime、LocalTime、MonthDay、OffsetDateTime、OffsetTime、Year、YearMonth、ZonedDate、TimeHijrahDate等</td>
+<td style="text-align:left">必须是未来的日期、时间Instant</td>
+</tr>
+<tr>
+<td style="text-align:left">FutureOrPresent</td>
+<td style="text-align:left">Date、Calendar、Instant、LocalDate、LocalDateTime、LocalTime、MonthDay、OffsetDateTime、OffsetTime、Year、YearMonth、ZonedDate、TimeHijrahDate等</td>
+<td style="text-align:left">必须是未来或当前的日期、时间Instant</td>
+</tr>
+<tr>
+<td style="text-align:left">Max</td>
+<td style="text-align:left">BigDecimal/BigInteger；byte/short/int/long/double 及其包装类型</td>
+<td style="text-align:left">不超过注释的最大值</td>
+</tr>
+<tr>
+<td style="text-align:left">Min</td>
+<td style="text-align:left">BigDecimal/BigInteger；byte/short/int/long/double 及其包装类型</td>
+<td style="text-align:left">不超过注释的最小值</td>
+</tr>
+<tr>
+<td style="text-align:left">Negative</td>
+<td style="text-align:left">BigDecimal/BigInteger；byte/short/int/long/double 及其包装类型</td>
+<td style="text-align:left">负数</td>
+</tr>
+<tr>
+<td style="text-align:left">NegativeOrZero</td>
+<td style="text-align:left">BigDecimal/BigInteger；byte/short/int/long/double 及其包装类型</td>
+<td style="text-align:left">非正数</td>
+</tr>
+<tr>
+<td style="text-align:left">NotBlank</td>
+<td style="text-align:left">CharSequence</td>
+<td style="text-align:left">非空且包含至少一个non-whitespace Char</td>
+</tr>
+<tr>
+<td style="text-align:left">NotEmpty</td>
+<td style="text-align:left">CharSequence、Collection、Map、Array</td>
+<td style="text-align:left">非空串；集合（Map、数组）至少要包含一个元素</td>
+</tr>
+<tr>
+<td style="text-align:left">NotNull</td>
+<td style="text-align:left">any</td>
+<td style="text-align:left">非空</td>
+</tr>
+<tr>
+<td style="text-align:left">Null</td>
+<td style="text-align:left">any</td>
+<td style="text-align:left">空</td>
+</tr>
+<tr>
+<td style="text-align:left">Past</td>
+<td style="text-align:left">Date、Calendar、Instant、LocalDate、LocalDateTime、LocalTime、MonthDay、OffsetDateTime、OffsetTime、Year、YearMonth、ZonedDate、TimeHijrahDate等</td>
+<td style="text-align:left">必须是过去的日期、时间Instant</td>
+</tr>
+<tr>
+<td style="text-align:left">PastOrPresent</td>
+<td style="text-align:left">Date、Calendar、Instant、LocalDate、LocalDateTime、LocalTime、MonthDay、OffsetDateTime、OffsetTime、Year、YearMonth、ZonedDate、TimeHijrahDate等</td>
+<td style="text-align:left">必须是过去或者当前的日期、时间Instant</td>
+</tr>
+<tr>
+<td style="text-align:left">Pattern</td>
+<td style="text-align:left">CharSequence</td>
+<td style="text-align:left">满足正则表达式</td>
+</tr>
+<tr>
+<td style="text-align:left">Positive</td>
+<td style="text-align:left">BigDecimal/BigInteger；byte/short/int/long/double 及其包装类型</td>
+<td style="text-align:left">正数</td>
+</tr>
+<tr>
+<td style="text-align:left">PositiveOrZero</td>
+<td style="text-align:left">BigDecimal/BigInteger；byte/short/int/long/double 及其包装类型</td>
+<td style="text-align:left">非负数</td>
+</tr>
+<tr>
+<td style="text-align:left">Size</td>
+<td style="text-align:left">CharSequence、Collection、Map、Array</td>
+<td style="text-align:left">字符串、集合、Map、数组的大小大于1</td>
+</tr>
+</tbody>
+</table>
+<p>注：hibernate-validation也内置了部分校验注释详细可参见包：org.hibernate.validator.constrains</p>
+<h3 id="3-3-JSR349-新特性"><a href="#3-3-JSR349-新特性" class="headerlink" title="3.3 JSR349 新特性"></a>3.3 JSR349 新特性</h3><ul>
+<li>依赖注入</li>
+<li>方法参数和返回值的校验</li>
+<li>CDI 上下文和依赖注入</li>
+<li>组别转换</li>
+<li>EL支持</li>
+</ul>
+<h2 id="4-结束语"><a href="#4-结束语" class="headerlink" title="4 结束语"></a>4 结束语</h2><p>下篇spring框架（七）校验（中）介绍hibernate-validation对JSR 349的实现</p>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -517,106 +403,128 @@ var _hmt = _hmt || [];
 		</ul>
 	</div>
 
-          
 
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACtUlEQVR42u3aQY7jMAwEwPz/01lgTwtk4nSLkicLlE9BxmOzdJAYko9HfD3/XmvfP/+5Xr95/evrc67v2XDh4eHhLYV+/co2uGvedQyTBfrhLXh4eHjHePnmnr8mWYK1BSoOKjw8PLxf5U1S7eulyfNhPDw8vP+L12LybT0/QvDw8PC+h5cUI9rUOfm+TdkP1lrw8PDwYl7bAPuGzwf7e3h4eHiDrnpeZk3S3Lz0kJeSP0SLh4eHd4A3CbRtmOXb/SQpr9cMDw8Pr+TlTf21ckCSBLetsiL5xsPDwzvMy7fd+RDVWqpdN+rw8PDwDvDmY1Jrx0PbssoLuHh4eHh38k68OEe2o1SjEQE8PDy8Aa99/WQJ8gNmspRvW194eHh4m3j5tpuPFKxt+u2gVVH4wMPDw9vKywNdS8TbBtuut+Dh4eGd4639lk8aY/lB0hZ82zYbHh4e3gle/oi1O9vDYG0Mq2h64eHh4Y1511t825rKA5qXkkcJNB4eHt4Sry2StodBXoDI0+W61oKHh4d3gJds3+2uO/mvdsjgbcx4eHh4h3mTwyAafloC58n0DxHi4eHh3cJLyql7f+lPUvYPz8TDw8M7zJs3w/YuSt4kizp7eHh4eAd4e8NqB0/nSTweHh7e/bxJi6s9SNbGVR/thYeHh3eMNxmiyhcuec5agePtZzw8PLwDvF2hnC5YPMtr80rj4eHhvdkz8wbYWpm1HRFIjp8PuTQeHh7eLbxJWaE9PCalkCgePDw8vAO8SUW0LVi0ifta2QIPDw/vHl6+Zc+HBtqyb17MLUoSeHh4eJt484JCstHn908OpOhMw8PDw7uFl7e+8tmnXeVdPDw8vO/nTQah1sYOFhcFDw8P7xhv3vSatKzycOtBBDw8PLwDvLYB1pZc1wrBSatsW68PDw8PL+X9AZ7Fp6zgDBDqAAAAAElFTkSuQmCC" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/22/spring framwork/spring框架（四）依赖注入与自动装配/" class="archive-article-date">
-  	<time datetime="2018-11-22T12:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-22</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2018/11/25/spring framwork/spring框架（七）校验（中）/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          spring框架（七）校验（中）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/11/22/spring framwork/spring框架（四）依赖注入与自动装配/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">spring框架（四）依赖注入与自动封装</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/22/spring framwork/spring框架（四）依赖注入与自动装配/">spring框架（四）依赖注入与自动封装</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、为什么要进行校验？"><span class="toc-number">1.</span> <span class="toc-text">一、为什么要进行校验？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、数据校验的类型"><span class="toc-number">2.</span> <span class="toc-text">二、数据校验的类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、如何进行校验"><span class="toc-number">3.</span> <span class="toc-text">三、如何进行校验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-SR303标准简介"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 SR303标准简介:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-内置的校验注解"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 内置的校验注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-JSR349-新特性"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 JSR349 新特性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-结束语"><span class="toc-number">4.</span> <span class="toc-text">4 结束语</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/22/spring framwork/spring框架（一）简介/" class="archive-article-date">
-  	<time datetime="2018-11-22T12:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-22</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/22/spring framwork/spring框架（一）简介/">spring框架（一）简介</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2018/page/2/">2</a><a class="extend next" rel="next" href="/archives/2018/page/2/">Next &raquo;</a>
-    </nav>
+  
+
   
 
 
@@ -654,8 +562,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
