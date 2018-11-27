@@ -6,21 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>设计模式三——工厂模式 | 历萧尘的博客</title>
+  <title>设计模式二——工厂模式 | 历萧尘的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="简单工厂方法: 优点：封装了对象的创建逻辑。假设A、B、C、D都用到了“PropertyConfigFileReader”，当对象的创建逻辑有修改时集中修改这一个地方即可。 缺点：违背了开闭原则 UML如下：  示例代码如下： 123456789101112131415161718192021222324252627282930313233package factory;import except">
-<meta name="keywords" content="设计模式,java基础">
+<meta name="keywords" content="java基础,设计模式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="设计模式三——工厂模式">
+<meta property="og:title" content="设计模式二——工厂模式">
 <meta property="og:url" content="http://yoursite.com/2018/11/29/设计模式/设计模式二——工厂模式/index.html">
 <meta property="og:site_name" content="历萧尘的博客">
 <meta property="og:description" content="简单工厂方法: 优点：封装了对象的创建逻辑。假设A、B、C、D都用到了“PropertyConfigFileReader”，当对象的创建逻辑有修改时集中修改这一个地方即可。 缺点：违背了开闭原则 UML如下：  示例代码如下： 123456789101112131415161718192021222324252627282930313233package factory;import except">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/images/SimpleFactory.jpg">
 <meta property="og:image" content="http://yoursite.com/images/FactoryMethod.jpg">
-<meta property="og:updated_time" content="2018-11-27T01:30:33.853Z">
+<meta property="og:image" content="http://yoursite.com/images/抽象工厂.jpg">
+<meta property="og:updated_time" content="2018-11-27T05:50:22.918Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="设计模式三——工厂模式">
+<meta name="twitter:title" content="设计模式二——工厂模式">
 <meta name="twitter:description" content="简单工厂方法: 优点：封装了对象的创建逻辑。假设A、B、C、D都用到了“PropertyConfigFileReader”，当对象的创建逻辑有修改时集中修改这一个地方即可。 缺点：违背了开闭原则 UML如下：  示例代码如下： 123456789101112131415161718192021222324252627282930313233package factory;import except">
 <meta name="twitter:image" content="http://yoursite.com/images/SimpleFactory.jpg">
   
@@ -181,7 +182,7 @@ var _hmt = _hmt || [];
         
   
     <h1 class="article-title" itemprop="name">
-      设计模式三——工厂模式
+      设计模式二——工厂模式
     </h1>
   
 
@@ -208,6 +209,25 @@ var _hmt = _hmt || [];
 <p><img src="/images/FactoryMethod.jpg"></p>
 <p>抽象工厂</p>
 <p>抽象工厂模式是工厂方法模式的升级版本，他用来创建一组相关或者相互依赖的对象。他与工厂方法模式的区别就在于，工厂方法模式针对的是一个产品等级结构；而抽象工厂模式则是针对的多个产品等级结构。在编程中，通常一个产品结构，表现为一个接口或者抽象类，也就是说，工厂方法模式提供的所有产品都是衍生自同一个接口或抽象类，而抽象工厂模式所提供的产品则是衍生自不同的接口或抽象类。</p>
+<p><img src="/images/抽象工厂.jpg" alt="抽象工厂"></p>
+<p>代码示例：</p>
+<ul>
+<li>shoe</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Shoe</span> </span>&#123;&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AdidasShoe</span> <span class="keyword">implements</span> <span class="title">Shoe</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">AdidasShoe</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Shoe created By Adidas"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NikeShoe</span> <span class="keyword">implements</span> <span class="title">Shoe</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">NikeShoe</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"shoe created by Nike"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>clothes</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Clothes</span> </span>&#123;&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AdidasClothes</span> <span class="keyword">implements</span> <span class="title">Clothes</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">AdidasClothes</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"clothes create by Adidas"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NikeClothes</span> <span class="keyword">implements</span> <span class="title">Clothes</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">NikeClothes</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"clothes create by Nike"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Factory</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">SportSuitFactory</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Clothes <span class="title">produceClothes</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Shoe <span class="title">produceShoe</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AdidasFactory</span> <span class="keyword">implements</span> <span class="title">SportSuitFactory</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Clothes <span class="title">produceClothes</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> AdidasClothes();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Shoe <span class="title">produceShoe</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> AdidasShoe();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NikeFactory</span> <span class="keyword">implements</span> <span class="title">SportSuitFactory</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Clothes <span class="title">produceClothes</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> NikeClothes();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Shoe <span class="title">produceShoe</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> NikeShoe();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SportSuitFactoryProvider</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> SportSuitFactory <span class="title">getSportSuitFactory</span><span class="params">(String factoryName)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(factoryName.toLowerCase().equals(<span class="string">"nike"</span>))&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> NikeFactory();</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(factoryName.toLowerCase().equals(<span class="string">"adidas"</span>))&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> AdidasFactory();</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"没有这种类型的工厂："</span>+factoryName);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>client</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        SportSuitFactory sportSuitFactory=SportSuitFactoryProvider.getSportSuitFactory(<span class="string">"nike"</span>);</span><br><span class="line">        sportSuitFactory.produceClothes();</span><br><span class="line">        sportSuitFactory.produceShoe();</span><br><span class="line">        SportSuitFactory sportSuitFactory1=SportSuitFactoryProvider.getSportSuitFactory(<span class="string">"ll"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;~~~</span><br><span class="line">clothes create by Nike</span><br><span class="line">shoe created by Nike</span><br><span class="line">Exception in thread <span class="string">"main"</span> java.lang.IllegalArgumentException: 没有这种类型的工厂：ll</span><br></pre></td></tr></table></figure>
+<p>注：本文参考<a href="https://en.wikipedia.org/wiki/Abstract_factory_pattern" target="_blank" rel="noopener">wiki</a></p>
 
       
 
@@ -242,11 +262,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java基础</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java基础</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
         		</li>
       		
 		</ul>
@@ -501,7 +521,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -509,7 +529,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
+                <a href="javascript:void(0)" class="js-tag color5">effective java</a>
               </li>
             
             <div class="clearfix"></div>

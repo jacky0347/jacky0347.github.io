@@ -172,6 +172,172 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-spring framwork/spring框架（五）bean生命周期控制" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/22/spring framwork/spring框架（五）bean生命周期控制/">spring框架（五）Bean的生命周期</a>
+    </h1>
+  
+
+        
+        <a href="/2018/11/22/spring framwork/spring框架（五）bean生命周期控制/" class="archive-article-date">
+  	<time datetime="2018-11-22T12:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-bean的生命周期"><a href="#1-bean的生命周期" class="headerlink" title="1. bean的生命周期"></a>1. bean的生命周期</h2><p><img src="\images\Bean_lifecircle.jpg"></p>
+        
+          <a class="article-more-a" href="/2018/11/22/spring framwork/spring框架（五）bean生命周期控制/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java框架</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/11/22/spring framwork/spring框架（五）bean生命周期控制/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-spring framwork/spring框架（六）@Profile与@PropertySource" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/22/spring framwork/spring框架（六）@Profile与@PropertySource/">spring框架（六）@Profile与@PropertySource</a>
+    </h1>
+  
+
+        
+        <a href="/2018/11/22/spring framwork/spring框架（六）@Profile与@PropertySource/" class="archive-article-date">
+  	<time datetime="2018-11-22T12:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>[TOC]</p>
+<h2 id="一、-Profile注解"><a href="#一、-Profile注解" class="headerlink" title="一、@Profile注解"></a>一、@Profile注解</h2><ul>
+<li>设置@profile注解</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target</span>(&#123;ElementType.TYPE, ElementType.METHOD&#125;)</span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="meta">@Profile</span>(<span class="string">"develop"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> Develop &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Target</span>(&#123;ElementType.TYPE, ElementType.METHOD&#125;)</span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="meta">@Profile</span>(<span class="string">"product"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> Product &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2018/11/22/spring framwork/spring框架（六）@Profile与@PropertySource/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java框架</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/11/22/spring framwork/spring框架（六）@Profile与@PropertySource/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-spring framwork/spring框架（二）IOC容器" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -232,6 +398,91 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/11/22/spring framwork/spring框架（二）IOC容器/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-spring framwork/spring框架（一）简介" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/22/spring framwork/spring框架（一）简介/">spring框架（一）简介</a>
+    </h1>
+  
+
+        
+        <a href="/2018/11/22/spring framwork/spring框架（一）简介/" class="archive-article-date">
+  	<time datetime="2018-11-22T12:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-为什么要用spring框架？（why？）"><a href="#1-为什么要用spring框架？（why？）" class="headerlink" title="1. 为什么要用spring框架？（why？）"></a>1. 为什么要用spring框架？（why？）</h2><pre><code>-轻量级：可以按需引用依赖（spring-jdbc、spring-tx等等），spring的核心包大小不大，加载耗费资源不多。
+-简化开发：
+    简化创建，解耦。
+    IOC容器：Bean的全生命周期管理，低耦合、bean的创建、依赖关系管理等交于spring控制。
+</code></pre>
+        
+          <a class="article-more-a" href="/2018/11/22/spring framwork/spring框架（一）简介/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java框架</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/11/22/spring framwork/spring框架（一）简介/">展开全文 >></a>
         </p>
       
 
@@ -387,19 +638,19 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-spring framwork/spring框架（五）bean生命周期控制" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+    <article id="post-spring framwork/spring框架（四）依赖注入与自动装配" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/22/spring framwork/spring框架（五）bean生命周期控制/">spring框架（五）Bean的生命周期</a>
+      <a class="article-title" href="/2018/11/22/spring framwork/spring框架（四）依赖注入与自动装配/">spring框架（四）依赖注入与自动封装</a>
     </h1>
   
 
         
-        <a href="/2018/11/22/spring framwork/spring框架（五）bean生命周期控制/" class="archive-article-date">
+        <a href="/2018/11/22/spring framwork/spring框架（四）依赖注入与自动装配/" class="archive-article-date">
   	<time datetime="2018-11-22T12:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-22</time>
 </a>
         
@@ -407,9 +658,9 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-bean的生命周期"><a href="#1-bean的生命周期" class="headerlink" title="1. bean的生命周期"></a>1. bean的生命周期</h2><p><img src="\images\Bean_lifecircle.jpg"></p>
+        <h1 id="一、依赖注入"><a href="#一、依赖注入" class="headerlink" title="一、依赖注入"></a>一、依赖注入</h1><h2 id="1-通过xml配置的依赖注入"><a href="#1-通过xml配置的依赖注入" class="headerlink" title="1. 通过xml配置的依赖注入"></a>1. 通过xml配置的依赖注入</h2>
         
-          <a class="article-more-a" href="/2018/11/22/spring framwork/spring框架（五）bean生命周期控制/#more">more >></a>
+          <a class="article-more-a" href="/2018/11/22/spring framwork/spring框架（四）依赖注入与自动装配/#more">more >></a>
         
       
 
@@ -438,92 +689,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/11/22/spring framwork/spring框架（五）bean生命周期控制/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-spring framwork/spring框架（六）@Profile与@PropertySource" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/22/spring framwork/spring框架（六）@Profile与@PropertySource/">spring框架（六）@Profile与@PropertySource</a>
-    </h1>
-  
-
-        
-        <a href="/2018/11/22/spring framwork/spring框架（六）@Profile与@PropertySource/" class="archive-article-date">
-  	<time datetime="2018-11-22T12:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>[TOC]</p>
-<h2 id="一、-Profile注解"><a href="#一、-Profile注解" class="headerlink" title="一、@Profile注解"></a>一、@Profile注解</h2><ul>
-<li>设置@profile注解</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target</span>(&#123;ElementType.TYPE, ElementType.METHOD&#125;)</span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="meta">@Profile</span>(<span class="string">"develop"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> Develop &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Target</span>(&#123;ElementType.TYPE, ElementType.METHOD&#125;)</span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="meta">@Profile</span>(<span class="string">"product"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> Product &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2018/11/22/spring framwork/spring框架（六）@Profile与@PropertySource/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/11/22/spring framwork/spring框架（六）@Profile与@PropertySource/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/11/22/spring framwork/spring框架（四）依赖注入与自动装配/">展开全文 >></a>
         </p>
       
 
@@ -751,7 +917,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -759,7 +925,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
+                <a href="javascript:void(0)" class="js-tag color5">effective java</a>
               </li>
             
             <div class="clearfix"></div>

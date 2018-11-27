@@ -9,14 +9,14 @@
   <title>设计模式三——单例模式 | 历萧尘的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="12345678910111213141516171819202122应用场景（来源：《大话设计模式》）：　　　　需求：在前端创建工具箱窗口，工具箱要么不出现，出现也只出现一个　　　　遇到问题：每次点击菜单都会重复创建“工具箱”窗口。　　　　解决方案一：使用if语句，在每次创建对象的时候首先进行判断是否为null，如果为null再创建对象。　　　　需求：如果在5个地方需要实例出工具箱窗体　　　　遇">
-<meta name="keywords" content="设计模式,java基础">
+<meta name="keywords" content="java基础,设计模式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="设计模式三——单例模式">
 <meta property="og:url" content="http://yoursite.com/2018/11/28/设计模式/设计模式三——单例模式/index.html">
 <meta property="og:site_name" content="历萧尘的博客">
 <meta property="og:description" content="12345678910111213141516171819202122应用场景（来源：《大话设计模式》）：　　　　需求：在前端创建工具箱窗口，工具箱要么不出现，出现也只出现一个　　　　遇到问题：每次点击菜单都会重复创建“工具箱”窗口。　　　　解决方案一：使用if语句，在每次创建对象的时候首先进行判断是否为null，如果为null再创建对象。　　　　需求：如果在5个地方需要实例出工具箱窗体　　　　遇">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-27T01:30:29.350Z">
+<meta property="og:updated_time" content="2018-11-27T07:31:42.639Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式三——单例模式">
 <meta name="twitter:description" content="12345678910111213141516171819202122应用场景（来源：《大话设计模式》）：　　　　需求：在前端创建工具箱窗口，工具箱要么不出现，出现也只出现一个　　　　遇到问题：每次点击菜单都会重复创建“工具箱”窗口。　　　　解决方案一：使用if语句，在每次创建对象的时候首先进行判断是否为null，如果为null再创建对象。　　　　需求：如果在5个地方需要实例出工具箱窗体　　　　遇">
@@ -194,12 +194,22 @@ var _hmt = _hmt || [];
         <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">应用场景（来源：《大话设计模式》）：</span><br><span class="line"></span><br><span class="line">　　　　需求：在前端创建工具箱窗口，工具箱要么不出现，出现也只出现一个</span><br><span class="line"></span><br><span class="line">　　　　遇到问题：每次点击菜单都会重复创建“工具箱”窗口。</span><br><span class="line"></span><br><span class="line">　　　　解决方案一：使用if语句，在每次创建对象的时候首先进行判断是否为null，如果为null再创建对象。</span><br><span class="line"></span><br><span class="line">　　　　需求：如果在5个地方需要实例出工具箱窗体</span><br><span class="line"></span><br><span class="line">　　　　遇到问题：这个小bug需要改动5个地方，并且代码重复，代码利用率低</span><br><span class="line"></span><br><span class="line">　　　　解决方案二：利用单例模式，保证一个类只有一个实例，并提供一个访问它的全局访问点。</span><br><span class="line"></span><br><span class="line">　　通过以下几种方式，我们会发现，所有的单例模式都是使用静态方法进行创建的，所以单例对象在内存中静态共享区中存储。</span><br><span class="line">（可参考：https://zhidao.baidu.com/question/2206072272164938188.html）</span><br><span class="line"></span><br><span class="line">　　 单例模式可以分为懒汉式和饿汉式：</span><br><span class="line"></span><br><span class="line">　　　　懒汉式单例模式：在类加载时不初始化。</span><br><span class="line"></span><br><span class="line">　　　　饿汉式单例模式：在类加载时就完成了初始化，所以类加载比较慢，但获取对象的速度快。</span><br></pre></td></tr></table></figure>
 <p>饿汉式单例模式：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Created by jacky on 2018/8/22.</span></span><br><span class="line"><span class="comment"> * 静态域加载</span></span><br><span class="line"><span class="comment"> * 优点：线性安全</span></span><br><span class="line"><span class="comment"> * 缺点：资源消耗大的对象，优先加载浪费</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PreLoadSingleton</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> A a = <span class="keyword">new</span> A();</span><br><span class="line">    <span class="function"><span class="keyword">public</span> A <span class="title">getA</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>饱汗式单例模式</p>
+<ul>
+<li>饱汉式单例模式</li>
+</ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Created by jacky on 2018/8/22.</span></span><br><span class="line"><span class="comment"> * lazy load</span></span><br><span class="line"><span class="comment"> * 非线性安全</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SimpleLazySingleton</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> A a;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> A <span class="title">getA</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(a==<span class="keyword">null</span>)&#123;</span><br><span class="line">            a=<span class="keyword">new</span> A();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>线性安全</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Created by jacky on 2018/8/22.</span></span><br><span class="line"><span class="comment"> * 线性安全避免了竞态竞争</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConcurentLazySingleton</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> A a;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> A <span class="title">getA</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">synchronized</span> (ConcurentLazySingleton.class) &#123;</span><br><span class="line">            <span class="keyword">if</span> (a == <span class="keyword">null</span>) &#123;</span><br><span class="line">                a = <span class="keyword">new</span> A();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>double check提高性能</p>
+<ul>
+<li>线性安全</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Created by jacky on 2018/8/22.</span></span><br><span class="line"><span class="comment"> * 线性安全避免了竞态竞争</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConcurentLazySingleton</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">static</span> A a;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> A <span class="title">getA</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">synchronized</span> (ConcurentLazySingleton.class) &#123;</span><br><span class="line">            <span class="keyword">if</span> (a == <span class="keyword">null</span>) &#123;</span><br><span class="line">                a = <span class="keyword">new</span> A();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>double check提高性能</li>
+</ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Created by jacky on 2018/8/22.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DoubleCheckSingleTon</span> </span>&#123;</span><br><span class="line"><span class="comment">//   使A具有线程可见性</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">volatile</span> A a;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> A <span class="title">getA</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">//其它线程修改后执行判断可减少加锁开销</span></span><br><span class="line">        <span class="keyword">if</span>(a==<span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="comment">//加锁避免竞态条件</span></span><br><span class="line">            <span class="keyword">synchronized</span> (DoubleCheckSingleTon.class)&#123;</span><br><span class="line">                <span class="keyword">if</span>(a==<span class="keyword">null</span>)&#123;</span><br><span class="line">                    a=<span class="keyword">new</span> A();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>枚举</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> EnumSingleton &#123;</span><br><span class="line">    XmlReader(<span class="string">"xml"</span>),YmlReader(<span class="string">"yml"</span>);</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    EnumSingleton(String name)&#123;</span><br><span class="line">        <span class="keyword">this</span>.name=name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
 
@@ -234,11 +244,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java基础</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java基础</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
         		</li>
       		
 		</ul>
@@ -313,14 +323,14 @@ var _hmt = _hmt || [];
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          设计模式三——工厂模式
+          设计模式二——工厂模式
         
       </div>
     </a>
   
   
-    <a href="/2018/11/27/设计模式/设计模式一——概览/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">设计模式一————概览</div>
+    <a href="/2018/11/27/spring framwork/spring框架（八）国际化/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">spring框架（八）国际化</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -493,7 +503,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -501,7 +511,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
+                <a href="javascript:void(0)" class="js-tag color5">effective java</a>
               </li>
             
             <div class="clearfix"></div>

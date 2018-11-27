@@ -208,11 +208,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java基础</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java基础</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
         		</li>
       		
 		</ul>
@@ -274,7 +274,7 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="4-原型模式"><a href="#4-原型模式" class="headerlink" title="4.原型模式"></a>4.原型模式</h2><p>​      下图是原型模式的UML结构图：</p>
-<p><a href="https://images0.cnblogs.com/blog/381060/201309/10205054-e9c63be0c38f4b709689238c3dfa35b9.png" target="_blank" rel="noopener"><img src="https://images0.cnblogs.com/blog/381060/201309/10205054-1f8dffae0d90438095508079d491e39f.png" alt="2222"></a></p>
+<p><img src="https://images0.cnblogs.com/blog/381060/201309/10205054-e9c63be0c38f4b709689238c3dfa35b9.png" alt="原型模式UML"></p>
 <p>​       原型模式主要包含如下三个角色：</p>
 <p>​       Prototype：抽象原型类。声明克隆自身的接口。<br>​       ConcretePrototype：具体原型类。实现克隆的具体操作。<br>​       Client：客户类。让一个原型克隆自身，从而获得一个新的对象。</p>
 <h3 id="4-1、模式优缺点"><a href="#4-1、模式优缺点" class="headerlink" title="4.1、模式优缺点"></a>4.1、模式优缺点</h3><h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><p>​      1、如果创建新的对象比较复杂时，可以利用原型模式简化对象的创建过程，同时也能够提高效率。</p>
@@ -287,7 +287,7 @@ var _hmt = _hmt || [];
 <h3 id="4-4、模式总结"><a href="#4-4、模式总结" class="headerlink" title="4.4、模式总结"></a>4.4、模式总结</h3><p>​      1、原型模式向客户隐藏了创建对象的复杂性。客户只需要知道要创建对象的类型，然后通过请求就可以获得和该对象一模一样的新对象，无须知道具体的创建过程。</p>
 <p>​      2、克隆分为浅克隆和深克隆两种。</p>
 <p>​      3、我们虽然可以利用原型模式来获得一个新对象，但有时对象的复制可能会相当的复杂，比如深克隆</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> objectbuild.prototype;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Created by jacky on 2018/8/29.</span></span><br><span class="line"><span class="comment"> *   所谓原型模式就是用原型实例指定创建对象的种类，并且通过复制这些原型创建新的对象。</span></span><br><span class="line"><span class="comment"> *   讲到原型模式了，我们就不得不区分两个概念：深拷贝、浅拷贝。</span></span><br><span class="line"><span class="comment"> *      浅拷贝：使用一个已知实例对新创建实例的成员变量逐个赋值，这个方式被称为浅拷贝。</span></span><br><span class="line"><span class="comment"> *  深拷贝：当一个类的拷贝构造方法，不仅要复制对象的所有非引用成员变量值，</span></span><br><span class="line"><span class="comment"> *  还要为引用类型的成员变量创建新的实例，并且初始化为形式参数实例值。</span></span><br><span class="line"><span class="comment"> *  本示例主要为浅拷贝</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Resume</span> <span class="keyword">implements</span> <span class="title">Cloneable</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> String birthday;</span><br><span class="line">    <span class="keyword">private</span> String sex;</span><br><span class="line">    <span class="keyword">private</span> String school;</span><br><span class="line">    <span class="keyword">private</span> String timeArea;</span><br><span class="line">    <span class="keyword">private</span> String company;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 构造函数：初始化简历赋值姓名</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Resume</span><span class="params">(String name)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@desc</span> 设定个人基本信息</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> birthday 生日</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> sex 性别</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> school 毕业学校</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> void</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPersonInfo</span><span class="params">(String birthday,String sex,String school)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.birthday = birthday;</span><br><span class="line">        <span class="keyword">this</span>.sex = sex;</span><br><span class="line">        <span class="keyword">this</span>.school = school;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@desc</span> 设定工作经历</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> timeArea 工作年限</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> company 所在公司</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> void</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setWorkExperience</span><span class="params">(String timeArea,String company)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.timeArea = timeArea;</span><br><span class="line">        <span class="keyword">this</span>.company = company;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">clone</span><span class="params">()</span></span>&#123;</span><br><span class="line">        Resume resume=<span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            resume= (Resume) <span class="keyword">super</span>.clone();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (CloneNotSupportedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> resume;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">display</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"姓名："</span> + name);</span><br><span class="line">        System.out.println(<span class="string">"生日:"</span> + birthday + <span class="string">",性别:"</span> + sex + <span class="string">",毕业学校："</span> + school);</span><br><span class="line">        System.out.println(<span class="string">"工作年限:"</span> + timeArea + <span class="string">",公司:"</span> + company);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</span><br><span class="line">        Resume resume=<span class="keyword">new</span> Resume(<span class="string">"张三"</span>);</span><br><span class="line">        resume.setPersonInfo(<span class="string">"2018-01-01"</span>,<span class="string">"male"</span>,<span class="string">"none"</span>);</span><br><span class="line">        resume.setWorkExperience(<span class="string">"2018-2018"</span>,<span class="string">"home"</span>);</span><br><span class="line">        Resume resume1 = (Resume) resume.clone();</span><br><span class="line">        resume.display();</span><br><span class="line">        resume1.display();</span><br><span class="line">        System.out.println(<span class="string">"resume equals resume1?:"</span>+(resume==resume1));</span><br><span class="line">        System.out.println(<span class="string">"resume.class== resume1.class?:"</span>+(resume.getClass()==resume1.getClass()));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> objectbuild.prototype;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Created by jacky on 2018/8/29.</span></span><br><span class="line"><span class="comment"> *   所谓原型模式就是用原型实例指定创建对象的种类，并且通过复制这些原型创建新的对象。</span></span><br><span class="line"><span class="comment"> *   讲到原型模式了，我们就不得不区分两个概念：深拷贝、浅拷贝。</span></span><br><span class="line"><span class="comment"> *      浅拷贝：使用一个已知实例对新创建实例的成员变量逐个赋值，这个方式被称为浅拷贝。</span></span><br><span class="line"><span class="comment"> *  深拷贝：当一个类的拷贝构造方法，不仅要复制对象的所有非引用成员变量值，</span></span><br><span class="line"><span class="comment"> *  还要为引用类型的成员变量创建新的实例，并且初始化为形式参数实例值。</span></span><br><span class="line"><span class="comment"> *  本示例主要为浅拷贝</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Resume</span> <span class="keyword">implements</span> <span class="title">Cloneable</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> String birthday;</span><br><span class="line">    <span class="keyword">private</span> String sex;</span><br><span class="line">    <span class="keyword">private</span> String school;</span><br><span class="line">    <span class="keyword">private</span> String timeArea;</span><br><span class="line">    <span class="keyword">private</span> String company;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 构造函数：初始化简历赋值姓名</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Resume</span><span class="params">(String name)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@desc</span> 设定个人基本信息</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> birthday 生日</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> sex 性别</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> school 毕业学校</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> void</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPersonInfo</span><span class="params">(String birthday,String sex,String school)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.birthday = birthday;</span><br><span class="line">        <span class="keyword">this</span>.sex = sex;</span><br><span class="line">        <span class="keyword">this</span>.school = school;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@desc</span> 设定工作经历</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> timeArea 工作年限</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> company 所在公司</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> void</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setWorkExperience</span><span class="params">(String timeArea,String company)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.timeArea = timeArea;</span><br><span class="line">        <span class="keyword">this</span>.company = company;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="comment">//不要调用非final的公有方法，否则会有可能被子类覆盖实现不可控的影响</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">clone</span><span class="params">()</span></span>&#123;</span><br><span class="line">        Resume resume=<span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            resume= (Resume) <span class="keyword">super</span>.clone();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (CloneNotSupportedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> resume;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">display</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"姓名："</span> + name);</span><br><span class="line">        System.out.println(<span class="string">"生日:"</span> + birthday + <span class="string">",性别:"</span> + sex + <span class="string">",毕业学校："</span> + school);</span><br><span class="line">        System.out.println(<span class="string">"工作年限:"</span> + timeArea + <span class="string">",公司:"</span> + company);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</span><br><span class="line">        Resume resume=<span class="keyword">new</span> Resume(<span class="string">"张三"</span>);</span><br><span class="line">        resume.setPersonInfo(<span class="string">"2018-01-01"</span>,<span class="string">"male"</span>,<span class="string">"none"</span>);</span><br><span class="line">        resume.setWorkExperience(<span class="string">"2018-2018"</span>,<span class="string">"home"</span>);</span><br><span class="line">        Resume resume1 = (Resume) resume.clone();</span><br><span class="line">        resume.display();</span><br><span class="line">        resume1.display();</span><br><span class="line">        System.out.println(<span class="string">"resume equals resume1?:"</span>+(resume==resume1));</span><br><span class="line">        System.out.println(<span class="string">"resume.class== resume1.class?:"</span>+(resume.getClass()==resume1.getClass()));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
 
@@ -301,11 +301,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java基础</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java基础</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
         		</li>
       		
 		</ul>
@@ -353,7 +353,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/29/设计模式/设计模式二——工厂模式/">设计模式三——工厂模式</a>
+      <a class="article-title" href="/2018/11/29/设计模式/设计模式二——工厂模式/">设计模式二——工厂模式</a>
     </h1>
   
 
@@ -380,6 +380,25 @@ var _hmt = _hmt || [];
 <p><img src="/images/FactoryMethod.jpg"></p>
 <p>抽象工厂</p>
 <p>抽象工厂模式是工厂方法模式的升级版本，他用来创建一组相关或者相互依赖的对象。他与工厂方法模式的区别就在于，工厂方法模式针对的是一个产品等级结构；而抽象工厂模式则是针对的多个产品等级结构。在编程中，通常一个产品结构，表现为一个接口或者抽象类，也就是说，工厂方法模式提供的所有产品都是衍生自同一个接口或抽象类，而抽象工厂模式所提供的产品则是衍生自不同的接口或抽象类。</p>
+<p><img src="/images/抽象工厂.jpg" alt="抽象工厂"></p>
+<p>代码示例：</p>
+<ul>
+<li>shoe</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Shoe</span> </span>&#123;&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AdidasShoe</span> <span class="keyword">implements</span> <span class="title">Shoe</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">AdidasShoe</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Shoe created By Adidas"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NikeShoe</span> <span class="keyword">implements</span> <span class="title">Shoe</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">NikeShoe</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"shoe created by Nike"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>clothes</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Clothes</span> </span>&#123;&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AdidasClothes</span> <span class="keyword">implements</span> <span class="title">Clothes</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">AdidasClothes</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"clothes create by Adidas"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NikeClothes</span> <span class="keyword">implements</span> <span class="title">Clothes</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">NikeClothes</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"clothes create by Nike"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Factory</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">SportSuitFactory</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Clothes <span class="title">produceClothes</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Shoe <span class="title">produceShoe</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AdidasFactory</span> <span class="keyword">implements</span> <span class="title">SportSuitFactory</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Clothes <span class="title">produceClothes</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> AdidasClothes();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Shoe <span class="title">produceShoe</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> AdidasShoe();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NikeFactory</span> <span class="keyword">implements</span> <span class="title">SportSuitFactory</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Clothes <span class="title">produceClothes</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> NikeClothes();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Shoe <span class="title">produceShoe</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> NikeShoe();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SportSuitFactoryProvider</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> SportSuitFactory <span class="title">getSportSuitFactory</span><span class="params">(String factoryName)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(factoryName.toLowerCase().equals(<span class="string">"nike"</span>))&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> NikeFactory();</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(factoryName.toLowerCase().equals(<span class="string">"adidas"</span>))&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> AdidasFactory();</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"没有这种类型的工厂："</span>+factoryName);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>client</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        SportSuitFactory sportSuitFactory=SportSuitFactoryProvider.getSportSuitFactory(<span class="string">"nike"</span>);</span><br><span class="line">        sportSuitFactory.produceClothes();</span><br><span class="line">        sportSuitFactory.produceShoe();</span><br><span class="line">        SportSuitFactory sportSuitFactory1=SportSuitFactoryProvider.getSportSuitFactory(<span class="string">"ll"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;~~~</span><br><span class="line">clothes create by Nike</span><br><span class="line">shoe created by Nike</span><br><span class="line">Exception in thread <span class="string">"main"</span> java.lang.IllegalArgumentException: 没有这种类型的工厂：ll</span><br></pre></td></tr></table></figure>
+<p>注：本文参考<a href="https://en.wikipedia.org/wiki/Abstract_factory_pattern" target="_blank" rel="noopener">wiki</a></p>
 
       
 
@@ -393,11 +412,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java基础</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java基础</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
         		</li>
       		
 		</ul>
@@ -461,12 +480,22 @@ var _hmt = _hmt || [];
         <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">应用场景（来源：《大话设计模式》）：</span><br><span class="line"></span><br><span class="line">　　　　需求：在前端创建工具箱窗口，工具箱要么不出现，出现也只出现一个</span><br><span class="line"></span><br><span class="line">　　　　遇到问题：每次点击菜单都会重复创建“工具箱”窗口。</span><br><span class="line"></span><br><span class="line">　　　　解决方案一：使用if语句，在每次创建对象的时候首先进行判断是否为null，如果为null再创建对象。</span><br><span class="line"></span><br><span class="line">　　　　需求：如果在5个地方需要实例出工具箱窗体</span><br><span class="line"></span><br><span class="line">　　　　遇到问题：这个小bug需要改动5个地方，并且代码重复，代码利用率低</span><br><span class="line"></span><br><span class="line">　　　　解决方案二：利用单例模式，保证一个类只有一个实例，并提供一个访问它的全局访问点。</span><br><span class="line"></span><br><span class="line">　　通过以下几种方式，我们会发现，所有的单例模式都是使用静态方法进行创建的，所以单例对象在内存中静态共享区中存储。</span><br><span class="line">（可参考：https://zhidao.baidu.com/question/2206072272164938188.html）</span><br><span class="line"></span><br><span class="line">　　 单例模式可以分为懒汉式和饿汉式：</span><br><span class="line"></span><br><span class="line">　　　　懒汉式单例模式：在类加载时不初始化。</span><br><span class="line"></span><br><span class="line">　　　　饿汉式单例模式：在类加载时就完成了初始化，所以类加载比较慢，但获取对象的速度快。</span><br></pre></td></tr></table></figure>
 <p>饿汉式单例模式：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Created by jacky on 2018/8/22.</span></span><br><span class="line"><span class="comment"> * 静态域加载</span></span><br><span class="line"><span class="comment"> * 优点：线性安全</span></span><br><span class="line"><span class="comment"> * 缺点：资源消耗大的对象，优先加载浪费</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PreLoadSingleton</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> A a = <span class="keyword">new</span> A();</span><br><span class="line">    <span class="function"><span class="keyword">public</span> A <span class="title">getA</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>饱汗式单例模式</p>
+<ul>
+<li>饱汉式单例模式</li>
+</ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Created by jacky on 2018/8/22.</span></span><br><span class="line"><span class="comment"> * lazy load</span></span><br><span class="line"><span class="comment"> * 非线性安全</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SimpleLazySingleton</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> A a;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> A <span class="title">getA</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(a==<span class="keyword">null</span>)&#123;</span><br><span class="line">            a=<span class="keyword">new</span> A();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>线性安全</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Created by jacky on 2018/8/22.</span></span><br><span class="line"><span class="comment"> * 线性安全避免了竞态竞争</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConcurentLazySingleton</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> A a;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> A <span class="title">getA</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">synchronized</span> (ConcurentLazySingleton.class) &#123;</span><br><span class="line">            <span class="keyword">if</span> (a == <span class="keyword">null</span>) &#123;</span><br><span class="line">                a = <span class="keyword">new</span> A();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>double check提高性能</p>
+<ul>
+<li>线性安全</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Created by jacky on 2018/8/22.</span></span><br><span class="line"><span class="comment"> * 线性安全避免了竞态竞争</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConcurentLazySingleton</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">volatile</span> <span class="keyword">static</span> A a;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> A <span class="title">getA</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">synchronized</span> (ConcurentLazySingleton.class) &#123;</span><br><span class="line">            <span class="keyword">if</span> (a == <span class="keyword">null</span>) &#123;</span><br><span class="line">                a = <span class="keyword">new</span> A();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>double check提高性能</li>
+</ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Created by jacky on 2018/8/22.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DoubleCheckSingleTon</span> </span>&#123;</span><br><span class="line"><span class="comment">//   使A具有线程可见性</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">volatile</span> A a;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> A <span class="title">getA</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">//其它线程修改后执行判断可减少加锁开销</span></span><br><span class="line">        <span class="keyword">if</span>(a==<span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="comment">//加锁避免竞态条件</span></span><br><span class="line">            <span class="keyword">synchronized</span> (DoubleCheckSingleTon.class)&#123;</span><br><span class="line">                <span class="keyword">if</span>(a==<span class="keyword">null</span>)&#123;</span><br><span class="line">                    a=<span class="keyword">new</span> A();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>枚举</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> EnumSingleton &#123;</span><br><span class="line">    XmlReader(<span class="string">"xml"</span>),YmlReader(<span class="string">"yml"</span>);</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    EnumSingleton(String name)&#123;</span><br><span class="line">        <span class="keyword">this</span>.name=name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
 
@@ -480,11 +509,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java基础</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java基础</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
         		</li>
       		
 		</ul>
@@ -496,6 +525,128 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/11/28/设计模式/设计模式三——单例模式/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-spring framwork/spring框架（八）国际化" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/27/spring framwork/spring框架（八）国际化/">spring框架（八）国际化</a>
+    </h1>
+  
+
+        
+        <a href="/2018/11/27/spring framwork/spring框架（八）国际化/" class="archive-article-date">
+  	<time datetime="2018-11-27T12:39:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、国际化定义及jre类库对i8n的支持"><a href="#一、国际化定义及jre类库对i8n的支持" class="headerlink" title="一、国际化定义及jre类库对i8n的支持"></a>一、国际化定义及jre类库对i8n的支持</h2><p>国际化定义：In <a href="https://en.wikipedia.org/wiki/Computing" target="_blank" rel="noopener">computing</a>, <strong>internationalization and localization</strong> are means of adapting <a href="https://en.wikipedia.org/wiki/Computer_software" target="_blank" rel="noopener">computer software</a> to different languages, regional differences and technical requirements of a target locale</p>
+<p>java本身实现了对国际化的支持，具体可参照<a href="https://www.jianshu.com/p/09edb0a1c96b" target="_blank" rel="noopener">https://www.jianshu.com/p/09edb0a1c96b</a></p>
+<h2 id="二、spring对国际化的支持"><a href="#二、spring对国际化的支持" class="headerlink" title="二、spring对国际化的支持"></a>二、spring对国际化的支持</h2><p>​    spring 通过MessageSource接口实现国际化。ApplicationContext接口继承MessageSource提供国际化方法。<code>HierarchicalMessageSource</code>接口的实现类提供具体的国际化功能。</p>
+<p>HierarchicalMessageSource实现类如下：</p>
+<table>
+<thead>
+<tr>
+<th>类名</th>
+<th>功能说明</th>
+<th>使用频率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DelegatingMessageSource</td>
+<td>默认代理其它messageSource，如果没有则不解析</td>
+<td>spring 默认</td>
+</tr>
+<tr>
+<td>StaticMessageSource</td>
+<td>支持消息的动态注入</td>
+<td>很少使用</td>
+</tr>
+<tr>
+<td>ResourceBundleMessageSource</td>
+<td>基于java的ResourceBundle实现</td>
+<td>推荐使用</td>
+</tr>
+</tbody>
+</table>
+<p> 具体应用如下：</p>
+<ul>
+<li>配置ResourceBundleMessageSource，bean名称必须为<strong>messageSource</strong></li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">beans</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"messageSource"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">class</span>=<span class="string">"org.springframework.context.support.ResourceBundleMessageSource"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"basenames"</span>&gt;</span></span><br><span class="line">            //ResourceBundleq清单</span><br><span class="line">            <span class="tag">&lt;<span class="name">list</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">value</span>&gt;</span>format<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">value</span>&gt;</span>exceptions<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">value</span>&gt;</span>message<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">list</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> MessageSource <span class="title">messageSource</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ReloadableResourceBundleMessageSource messageSource =<span class="keyword">new</span> ReloadableResourceBundleMessageSource();</span><br><span class="line">    <span class="comment">//设置ResourceBundleq清单</span></span><br><span class="line">    messageSource.setBasenames(<span class="string">"message"</span>);</span><br><span class="line">    <span class="keyword">return</span> messageSource;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>配置ResourceBundle。不清楚的参见<a href="https://www.jianshu.com/p/09edb0a1c96b" target="_blank" rel="noopener">https://www.jianshu.com/p/09edb0a1c96b</a></li>
+<li>使用messageSource</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Created by jacky</span></span><br><span class="line"><span class="comment"> * on 2018/11/27.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@RunWith</span>(SpringJUnit4ClassRunner.class)</span><br><span class="line"><span class="meta">@SpringJUnitConfig</span>(ValidateConfig.class)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MessageSourceTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> ApplicationContext applicationContex;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testMessage</span><span class="params">()</span></span>&#123;</span><br><span class="line">        Object[] args=&#123;<span class="string">"jacky"</span>&#125;;</span><br><span class="line">        <span class="comment">//取本地</span></span><br><span class="line">        String defaultName=applicationContex.getMessage(<span class="string">"name"</span>,args, Locale.getDefault());</span><br><span class="line">        <span class="comment">//取英文</span></span><br><span class="line">        String enName=applicationContex.getMessage(<span class="string">"name"</span>,args,Locale.ENGLISH);</span><br><span class="line">        <span class="comment">//取汉语</span></span><br><span class="line">        String cnName=applicationContex.getMessage(<span class="string">"name"</span>,args,Locale.SIMPLIFIED_CHINESE);</span><br><span class="line">        System.out.println(defaultName);</span><br><span class="line">        System.out.println(enName);</span><br><span class="line">        System.out.println(cnName);</span><br><span class="line">        Assert.assertTrue(<span class="string">"姓名：jacky"</span>.equals(defaultName));</span><br><span class="line">        Assert.assertTrue(<span class="string">"name:jacky"</span>.equals(enName));</span><br><span class="line">        Assert.assertTrue(<span class="string">"姓名：jacky"</span>.equals(cnName));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="三、原理分析"><a href="#三、原理分析" class="headerlink" title="三、原理分析"></a>三、原理分析</h2><h3 id="1-查看applicationContex-getMessage-方法"><a href="#1-查看applicationContex-getMessage-方法" class="headerlink" title="1. 查看applicationContex.getMessage()方法"></a>1. 查看applicationContex.getMessage()方法</h3><p>​    如下源代码所示applicationContex的getMessage方法实际是通过静态代理自身的messageSource属性的getMessage方法实现的。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getMessage</span><span class="params">(String code, @Nullable Object[] args, Locale locale)</span> <span class="keyword">throws</span> NoSuchMessageException </span>&#123;</span><br><span class="line">   <span class="keyword">return</span> getMessageSource().getMessage(code, args, locale);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-查看applicationContex的messageSource的实现逻辑"><a href="#2-查看applicationContex的messageSource的实现逻辑" class="headerlink" title="2. 查看applicationContex的messageSource的实现逻辑"></a>2. 查看applicationContex的messageSource的实现逻辑</h3><p>​    参见spring框架（二）可发现Application初始化时会调用refresh()=&gt;initMessageSource()，进行初始化。逻辑如下：如果容器中有名为messageSource且类型为MessageSource的则设置为容器的messageSource属性，否则则设置空的MessageSource（DelegatingMessageSource）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Initialize the MessageSource.</span></span><br><span class="line"><span class="comment"> * Use parent's if none defined in this context.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">initMessageSource</span><span class="params">()</span> </span>&#123;</span><br><span class="line">   ConfigurableListableBeanFactory beanFactory = getBeanFactory();</span><br><span class="line">    <span class="comment">//MESSAGE_SOURCE_BEAN_NAME常量值为messageSource</span></span><br><span class="line">   <span class="keyword">if</span> (beanFactory.containsLocalBean(MESSAGE_SOURCE_BEAN_NAME)) &#123;</span><br><span class="line">      <span class="keyword">this</span>.messageSource = beanFactory.getBean(MESSAGE_SOURCE_BEAN_NAME, MessageSource.class);</span><br><span class="line">      <span class="comment">// Make MessageSource aware of parent MessageSource.</span></span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">this</span>.parent != <span class="keyword">null</span> &amp;&amp; <span class="keyword">this</span>.messageSource <span class="keyword">instanceof</span> HierarchicalMessageSource) &#123;</span><br><span class="line">         HierarchicalMessageSource hms = (HierarchicalMessageSource) <span class="keyword">this</span>.messageSource;</span><br><span class="line">         <span class="keyword">if</span> (hms.getParentMessageSource() == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="comment">// Only set parent context as parent MessageSource if no parent MessageSource</span></span><br><span class="line">            <span class="comment">// registered already.</span></span><br><span class="line">            hms.setParentMessageSource(getInternalParentMessageSource());</span><br><span class="line">         &#125;</span><br><span class="line">      &#125;</span><br><span class="line">     ......</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="comment">// Use empty MessageSource to be able to accept getMessage calls.</span></span><br><span class="line">      DelegatingMessageSource dms = <span class="keyword">new</span> DelegatingMessageSource();</span><br><span class="line">      dms.setParentMessageSource(getInternalParentMessageSource());</span><br><span class="line">      <span class="keyword">this</span>.messageSource = dms;</span><br><span class="line">      beanFactory.registerSingleton(MESSAGE_SOURCE_BEAN_NAME, <span class="keyword">this</span>.messageSource);</span><br><span class="line">   ......</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java框架</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/11/27/spring framwork/spring框架（八）国际化/">展开全文 >></a>
         </p>
       
 
@@ -575,11 +726,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java基础</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java基础</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">设计模式</a>
         		</li>
       		
 		</ul>
@@ -591,6 +742,106 @@ var _hmt = _hmt || [];
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/11/27/设计模式/设计模式一——概览/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-静态工厂方法" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/27/静态工厂方法/">静态工厂方法</a>
+    </h1>
+  
+
+        
+        <a href="/2018/11/27/静态工厂方法/" class="archive-article-date">
+  	<time datetime="2018-11-27T12:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>​    静态工厂方法提供了另一种构建类的思路，1.5版jdk中的Collections类引入了诸多静态构建方法。相比构建函数，具有以下几点优势。</p>
+<ul>
+<li>静态工厂具有名字，可以通过名字识别创建对象特点，如下构建不可修改的集合：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">Set&lt;T&gt; <span class="title">unmodifiableSet</span><span class="params">(Set&lt;? extends T&gt; s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> UnmodifiableSet&lt;&gt;(s);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>静态工厂构建的实例可以是返回类型的任意子类。上面方法返回的就是私有的Set子类。</li>
+<li>可以控制类的实现，重复调用返回相同的类，如单例模式</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span></span>&#123;</span><br><span class="line">    <span class="comment">//限制实例创建</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span>  Singleton singleton;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(singleton=<span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">synchronized</span>(Singleton.class)&#123;</span><br><span class="line">                <span class="keyword">if</span>(singleton=<span class="keyword">null</span>)&#123;singleton=<span class="keyword">new</span> Singleton();&#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> singleton;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>缺点：</p>
+<ul>
+<li>本质是静态方法，很难与其他静态方法区分。</li>
+<li>类不包含公有或者受保护的构造方法，无法被子类化，如上诉Singleton无法被子类化</li>
+</ul>
+<p>常用的静态方法名：</p>
+<ul>
+<li><strong>valueOf</strong> Boolean</li>
+<li>of</li>
+<li>newInstance</li>
+<li>getInstance</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">effective java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/11/27/静态工厂方法/">展开全文 >></a>
         </p>
       
 
@@ -885,172 +1136,6 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-spring framwork/spring框架（四）依赖注入与自动装配" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/22/spring framwork/spring框架（四）依赖注入与自动装配/">spring框架（四）依赖注入与自动封装</a>
-    </h1>
-  
-
-        
-        <a href="/2018/11/22/spring framwork/spring框架（四）依赖注入与自动装配/" class="archive-article-date">
-  	<time datetime="2018-11-22T12:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="一、依赖注入"><a href="#一、依赖注入" class="headerlink" title="一、依赖注入"></a>一、依赖注入</h1><h2 id="1-通过xml配置的依赖注入"><a href="#1-通过xml配置的依赖注入" class="headerlink" title="1. 通过xml配置的依赖注入"></a>1. 通过xml配置的依赖注入</h2>
-        
-          <a class="article-more-a" href="/2018/11/22/spring framwork/spring框架（四）依赖注入与自动装配/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/11/22/spring framwork/spring框架（四）依赖注入与自动装配/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-spring framwork/spring框架（一）简介" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/22/spring framwork/spring框架（一）简介/">spring框架（一）简介</a>
-    </h1>
-  
-
-        
-        <a href="/2018/11/22/spring framwork/spring框架（一）简介/" class="archive-article-date">
-  	<time datetime="2018-11-22T12:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-为什么要用spring框架？（why？）"><a href="#1-为什么要用spring框架？（why？）" class="headerlink" title="1. 为什么要用spring框架？（why？）"></a>1. 为什么要用spring框架？（why？）</h2><pre><code>-轻量级：可以按需引用依赖（spring-jdbc、spring-tx等等），spring的核心包大小不大，加载耗费资源不多。
--简化开发：
-    简化创建，解耦。
-    IOC容器：Bean的全生命周期管理，低耦合、bean的创建、依赖关系管理等交于spring控制。
-</code></pre>
-        
-          <a class="article-more-a" href="/2018/11/22/spring framwork/spring框架（一）简介/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/11/22/spring framwork/spring框架（一）简介/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1182,7 +1267,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
+                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1190,7 +1275,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
+                <a href="javascript:void(0)" class="js-tag color5">effective java</a>
               </li>
             
             <div class="clearfix"></div>

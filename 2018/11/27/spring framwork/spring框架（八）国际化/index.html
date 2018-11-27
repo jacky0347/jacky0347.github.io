@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018 | 历萧尘的博客</title>
+  <title>spring框架（八）国际化 | 历萧尘的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="天高任鸟飞，海阔凭鱼跃">
-<meta name="keywords" content="java 程序猿">
-<meta property="og:type" content="website">
-<meta property="og:title" content="历萧尘的博客">
-<meta property="og:url" content="http://yoursite.com/archives/2018/page/2/index.html">
+  <meta name="description" content="一、国际化定义及jre类库对i8n的支持国际化定义：In computing, internationalization and localization are means of adapting computer software to different languages, regional differences and technical requirements of a targe">
+<meta name="keywords" content="spring,java框架">
+<meta property="og:type" content="article">
+<meta property="og:title" content="spring框架（八）国际化">
+<meta property="og:url" content="http://yoursite.com/2018/11/27/spring framwork/spring框架（八）国际化/index.html">
 <meta property="og:site_name" content="历萧尘的博客">
-<meta property="og:description" content="天高任鸟飞，海阔凭鱼跃">
+<meta property="og:description" content="一、国际化定义及jre类库对i8n的支持国际化定义：In computing, internationalization and localization are means of adapting computer software to different languages, regional differences and technical requirements of a targe">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-11-27T10:28:19.697Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="历萧尘的博客">
-<meta name="twitter:description" content="天高任鸟飞，海阔凭鱼跃">
+<meta name="twitter:title" content="spring框架（八）国际化">
+<meta name="twitter:description" content="一、国际化定义及jre类库对i8n的支持国际化定义：In computing, internationalization and localization are means of adapting computer software to different languages, regional differences and technical requirements of a targe">
   
     <link rel="alternative" href="/atom.xml" title="历萧尘的博客" type="application/atom+xml">
   
@@ -170,36 +171,99 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-spring framwork/spring框架（八）国际化" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      spring框架（八）国际化
+    </h1>
+  
+
+        
+        <a href="/2018/11/27/spring framwork/spring框架（八）国际化/" class="archive-article-date">
+  	<time datetime="2018-11-27T12:39:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-27</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、国际化定义及jre类库对i8n的支持"><a href="#一、国际化定义及jre类库对i8n的支持" class="headerlink" title="一、国际化定义及jre类库对i8n的支持"></a>一、国际化定义及jre类库对i8n的支持</h2><p>国际化定义：In <a href="https://en.wikipedia.org/wiki/Computing" target="_blank" rel="noopener">computing</a>, <strong>internationalization and localization</strong> are means of adapting <a href="https://en.wikipedia.org/wiki/Computer_software" target="_blank" rel="noopener">computer software</a> to different languages, regional differences and technical requirements of a target locale</p>
+<p>java本身实现了对国际化的支持，具体可参照<a href="https://www.jianshu.com/p/09edb0a1c96b" target="_blank" rel="noopener">https://www.jianshu.com/p/09edb0a1c96b</a></p>
+<h2 id="二、spring对国际化的支持"><a href="#二、spring对国际化的支持" class="headerlink" title="二、spring对国际化的支持"></a>二、spring对国际化的支持</h2><p>​    spring 通过MessageSource接口实现国际化。ApplicationContext接口继承MessageSource提供国际化方法。<code>HierarchicalMessageSource</code>接口的实现类提供具体的国际化功能。</p>
+<p>HierarchicalMessageSource实现类如下：</p>
+<table>
+<thead>
+<tr>
+<th>类名</th>
+<th>功能说明</th>
+<th>使用频率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DelegatingMessageSource</td>
+<td>默认代理其它messageSource，如果没有则不解析</td>
+<td>spring 默认</td>
+</tr>
+<tr>
+<td>StaticMessageSource</td>
+<td>支持消息的动态注入</td>
+<td>很少使用</td>
+</tr>
+<tr>
+<td>ResourceBundleMessageSource</td>
+<td>基于java的ResourceBundle实现</td>
+<td>推荐使用</td>
+</tr>
+</tbody>
+</table>
+<p> 具体应用如下：</p>
+<ul>
+<li>配置ResourceBundleMessageSource，bean名称必须为<strong>messageSource</strong></li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">beans</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"messageSource"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">class</span>=<span class="string">"org.springframework.context.support.ResourceBundleMessageSource"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"basenames"</span>&gt;</span></span><br><span class="line">            //ResourceBundleq清单</span><br><span class="line">            <span class="tag">&lt;<span class="name">list</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">value</span>&gt;</span>format<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">value</span>&gt;</span>exceptions<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">value</span>&gt;</span>message<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">list</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> MessageSource <span class="title">messageSource</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ReloadableResourceBundleMessageSource messageSource =<span class="keyword">new</span> ReloadableResourceBundleMessageSource();</span><br><span class="line">    <span class="comment">//设置ResourceBundleq清单</span></span><br><span class="line">    messageSource.setBasenames(<span class="string">"message"</span>);</span><br><span class="line">    <span class="keyword">return</span> messageSource;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>配置ResourceBundle。不清楚的参见<a href="https://www.jianshu.com/p/09edb0a1c96b" target="_blank" rel="noopener">https://www.jianshu.com/p/09edb0a1c96b</a></li>
+<li>使用messageSource</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Created by jacky</span></span><br><span class="line"><span class="comment"> * on 2018/11/27.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@RunWith</span>(SpringJUnit4ClassRunner.class)</span><br><span class="line"><span class="meta">@SpringJUnitConfig</span>(ValidateConfig.class)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MessageSourceTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> ApplicationContext applicationContex;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testMessage</span><span class="params">()</span></span>&#123;</span><br><span class="line">        Object[] args=&#123;<span class="string">"jacky"</span>&#125;;</span><br><span class="line">        <span class="comment">//取本地</span></span><br><span class="line">        String defaultName=applicationContex.getMessage(<span class="string">"name"</span>,args, Locale.getDefault());</span><br><span class="line">        <span class="comment">//取英文</span></span><br><span class="line">        String enName=applicationContex.getMessage(<span class="string">"name"</span>,args,Locale.ENGLISH);</span><br><span class="line">        <span class="comment">//取汉语</span></span><br><span class="line">        String cnName=applicationContex.getMessage(<span class="string">"name"</span>,args,Locale.SIMPLIFIED_CHINESE);</span><br><span class="line">        System.out.println(defaultName);</span><br><span class="line">        System.out.println(enName);</span><br><span class="line">        System.out.println(cnName);</span><br><span class="line">        Assert.assertTrue(<span class="string">"姓名：jacky"</span>.equals(defaultName));</span><br><span class="line">        Assert.assertTrue(<span class="string">"name:jacky"</span>.equals(enName));</span><br><span class="line">        Assert.assertTrue(<span class="string">"姓名：jacky"</span>.equals(cnName));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="三、原理分析"><a href="#三、原理分析" class="headerlink" title="三、原理分析"></a>三、原理分析</h2><h3 id="1-查看applicationContex-getMessage-方法"><a href="#1-查看applicationContex-getMessage-方法" class="headerlink" title="1. 查看applicationContex.getMessage()方法"></a>1. 查看applicationContex.getMessage()方法</h3><p>​    如下源代码所示applicationContex的getMessage方法实际是通过静态代理自身的messageSource属性的getMessage方法实现的。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getMessage</span><span class="params">(String code, @Nullable Object[] args, Locale locale)</span> <span class="keyword">throws</span> NoSuchMessageException </span>&#123;</span><br><span class="line">   <span class="keyword">return</span> getMessageSource().getMessage(code, args, locale);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-查看applicationContex的messageSource的实现逻辑"><a href="#2-查看applicationContex的messageSource的实现逻辑" class="headerlink" title="2. 查看applicationContex的messageSource的实现逻辑"></a>2. 查看applicationContex的messageSource的实现逻辑</h3><p>​    参见spring框架（二）可发现Application初始化时会调用refresh()=&gt;initMessageSource()，进行初始化。逻辑如下：如果容器中有名为messageSource且类型为MessageSource的则设置为容器的messageSource属性，否则则设置空的MessageSource（DelegatingMessageSource）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Initialize the MessageSource.</span></span><br><span class="line"><span class="comment"> * Use parent's if none defined in this context.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">initMessageSource</span><span class="params">()</span> </span>&#123;</span><br><span class="line">   ConfigurableListableBeanFactory beanFactory = getBeanFactory();</span><br><span class="line">    <span class="comment">//MESSAGE_SOURCE_BEAN_NAME常量值为messageSource</span></span><br><span class="line">   <span class="keyword">if</span> (beanFactory.containsLocalBean(MESSAGE_SOURCE_BEAN_NAME)) &#123;</span><br><span class="line">      <span class="keyword">this</span>.messageSource = beanFactory.getBean(MESSAGE_SOURCE_BEAN_NAME, MessageSource.class);</span><br><span class="line">      <span class="comment">// Make MessageSource aware of parent MessageSource.</span></span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">this</span>.parent != <span class="keyword">null</span> &amp;&amp; <span class="keyword">this</span>.messageSource <span class="keyword">instanceof</span> HierarchicalMessageSource) &#123;</span><br><span class="line">         HierarchicalMessageSource hms = (HierarchicalMessageSource) <span class="keyword">this</span>.messageSource;</span><br><span class="line">         <span class="keyword">if</span> (hms.getParentMessageSource() == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="comment">// Only set parent context as parent MessageSource if no parent MessageSource</span></span><br><span class="line">            <span class="comment">// registered already.</span></span><br><span class="line">            hms.setParentMessageSource(getInternalParentMessageSource());</span><br><span class="line">         &#125;</span><br><span class="line">      &#125;</span><br><span class="line">     ......</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="comment">// Use empty MessageSource to be able to accept getMessage calls.</span></span><br><span class="line">      DelegatingMessageSource dms = <span class="keyword">new</span> DelegatingMessageSource();</span><br><span class="line">      dms.setParentMessageSource(getInternalParentMessageSource());</span><br><span class="line">      <span class="keyword">this</span>.messageSource = dms;</span><br><span class="line">      beanFactory.registerSingleton(MESSAGE_SOURCE_BEAN_NAME, <span class="keyword">this</span>.messageSource);</span><br><span class="line">   ......</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/22/spring framwork/spring框架（五）bean生命周期控制/" class="archive-article-date">
-  	<time datetime="2018-11-22T12:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/22/spring framwork/spring框架（五）bean生命周期控制/">spring框架（五）Bean的生命周期</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -215,259 +279,128 @@ var _hmt = _hmt || [];
 		</ul>
 	</div>
 
-          
 
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACr0lEQVR42u3awY7jIBAE0Pz/T89eV1o5W9UNmRyeT6PYg3lEAlL06xVfPw/X33ffP5lcyXtfNy48PDy8Q11POv1vO+0b277lfcbDw8O7zXtqOpn62//dzN55n/Hw8PC+mZcsEk+fvF8eEioeHh7e9/P2d88uEnh4eHi/xWuba4PX5PMkmLiYteDh4eF1J02vtunf/fvK+R4eHh7e+lQ9n3Bny0C78NS9xcPDw7vAyyfctphgVkSVDGJdlICHh4d3gdc+2gYTyTBtlpnh5hsPDw9vwUui1fbubLrfkIZrGh4eHl7Jm8UQbdHAPtSYLRt4eHh4N3ibrfPs+XyBmW3ij/0ywMPDw7tWEHCviiFflh57goeHh3eNl0/Z7XFXfjSV3K2TaTw8PLwLvPw4v90uz4YvH6CiNTw8PLyjvOTR5ERpFrm2w1ffxcPDw7vAayOGfaFAnrvO+oaHh4f3SV5bhDrbRudBw2bZGJ7v4eHh4a0TzryhfKudhw75Gx8HAg8PD+8jvHxDnJBOFV0NCw7w8PDwLvDa46VkOPJhmhUTJEVgeHh4ePd4+8Wg3Rwn4z1bHv7zjeHh4eEd4rWMn9E1Cx3aOGOYW+Ph4eGVvLPlpPkhVh5ktKUM9beEh4eHV/JmncvDhXwbnW/HZ8WveHh4eGd57VQ7m6aTJ/OygyIWwcPDw/sIL2liU4z1HpbcLUIQPDw8vGu8WahaJ8Qxex9/4OHh4d3gnTrKyrfFecDRLh54eHh4n+Hl1yyQzaf7thhrVpiFh4eHd4rXbnDb1ydxxn5Ai/oIPDw8vEO89qArDynyITi7jOHh4eF9Jy+JGPLi1DywKJ7Hw8PD+wJeG9TejipWRVd4eHh4C97Z6bsdmtlhWzSUeHh4eBd49c/79fFVvtVuh/JEeoGHh4f3pm9/AIEWP6ScUz8kAAAAAElFTkSuQmCC" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/22/spring framwork/spring框架（六）@Profile与@PropertySource/" class="archive-article-date">
-  	<time datetime="2018-11-22T12:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-22</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2018/11/28/设计模式/设计模式三——单例模式/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          设计模式三——单例模式
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/11/27/设计模式/设计模式一——概览/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">设计模式一————概览</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/22/spring framwork/spring框架（六）@Profile与@PropertySource/">spring框架（六）@Profile与@PropertySource</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、国际化定义及jre类库对i8n的支持"><span class="toc-number">1.</span> <span class="toc-text">一、国际化定义及jre类库对i8n的支持</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、spring对国际化的支持"><span class="toc-number">2.</span> <span class="toc-text">二、spring对国际化的支持</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、原理分析"><span class="toc-number">3.</span> <span class="toc-text">三、原理分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-查看applicationContex-getMessage-方法"><span class="toc-number">3.1.</span> <span class="toc-text">1. 查看applicationContex.getMessage()方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-查看applicationContex的messageSource的实现逻辑"><span class="toc-number">3.2.</span> <span class="toc-text">2. 查看applicationContex的messageSource的实现逻辑</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/22/spring framwork/spring框架（二）IOC容器/" class="archive-article-date">
-  	<time datetime="2018-11-22T12:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-22</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/22/spring framwork/spring框架（二）IOC容器/">spring框架（二）IOC容器</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/22/spring framwork/spring框架（一）简介/" class="archive-article-date">
-  	<time datetime="2018-11-22T12:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/22/spring framwork/spring框架（一）简介/">spring框架（一）简介</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/22/spring framwork/spring框架（三）Bean定义及创建/" class="archive-article-date">
-  	<time datetime="2018-11-22T12:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/22/spring framwork/spring框架（三）Bean定义及创建/">spring框架（三）Bean的定义及创建</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/22/spring framwork/spring框架（四）依赖注入与自动装配/" class="archive-article-date">
-  	<time datetime="2018-11-22T12:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/22/spring framwork/spring框架（四）依赖注入与自动装配/">spring框架（四）依赖注入与自动封装</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java框架</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/11/22/2017/hello-world/" class="archive-article-date">
-  	<time datetime="2018-11-22T10:04:38.040Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/11/22/2017/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2018/">&laquo; Prev</a><a class="page-number" href="/archives/2018/">1</a><span class="page-number current">2</span>
-    </nav>
   
 
 
@@ -505,8 +438,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
