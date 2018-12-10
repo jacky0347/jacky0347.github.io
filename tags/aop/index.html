@@ -6,20 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>spring框架（九）类型转换 | 历萧尘的博客</title>
+  <title>Tag: aop | 历萧尘的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、PropertyEditorspring可以通过PropertyEditor实现string和Object的相互转换。 1.使用场景 解析spring的xml配置文件的时候需要将String类型的属性值转化为对应的Object对象 spring mvc中解析http请求中的String类型的属性值。">
-<meta name="keywords" content="spring,PropertyEditor">
-<meta property="og:type" content="article">
-<meta property="og:title" content="spring框架（九）类型转换">
-<meta property="og:url" content="http://yoursite.com/2018/12/04/spring framwork/spring框架（九）类型转换/index.html">
+  <meta name="description" content="天高任鸟飞，海阔凭鱼跃">
+<meta name="keywords" content="java 程序猿">
+<meta property="og:type" content="website">
+<meta property="og:title" content="历萧尘的博客">
+<meta property="og:url" content="http://yoursite.com/tags/aop/index.html">
 <meta property="og:site_name" content="历萧尘的博客">
-<meta property="og:description" content="一、PropertyEditorspring可以通过PropertyEditor实现string和Object的相互转换。 1.使用场景 解析spring的xml配置文件的时候需要将String类型的属性值转化为对应的Object对象 spring mvc中解析http请求中的String类型的属性值。">
+<meta property="og:description" content="天高任鸟飞，海阔凭鱼跃">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-05T13:09:10.529Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="spring框架（九）类型转换">
-<meta name="twitter:description" content="一、PropertyEditorspring可以通过PropertyEditor实现string和Object的相互转换。 1.使用场景 解析spring的xml配置文件的时候需要将String类型的属性值转化为对应的Object对象 spring mvc中解析http请求中的String类型的属性值。">
+<meta name="twitter:title" content="历萧尘的博客">
+<meta name="twitter:description" content="天高任鸟飞，海阔凭鱼跃">
   
     <link rel="alternative" href="/atom.xml" title="历萧尘的博客" type="application/atom+xml">
   
@@ -171,180 +170,36 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-spring framwork/spring框架（九）类型转换" class="article article-type-post " itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      spring框架（九）类型转换
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/12/10/spring framwork/spring框架（十）AOP简介/" class="archive-article-date">
+  	<time datetime="2018-12-10T02:12:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-10</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/12/10/spring framwork/spring框架（十）AOP简介/">spring框架（十）AOP简介</a>
     </h1>
   
 
-        
-        <a href="/2018/12/04/spring framwork/spring框架（九）类型转换/" class="archive-article-date">
-  	<time datetime="2018-12-04T12:09:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一、PropertyEditor"><a href="#一、PropertyEditor" class="headerlink" title="一、PropertyEditor"></a>一、PropertyEditor</h2><p>spring可以通过PropertyEditor实现string和Object的相互转换。</p>
-<h3 id="1-使用场景"><a href="#1-使用场景" class="headerlink" title="1.使用场景"></a>1.使用场景</h3><ul>
-<li>解析spring的xml配置文件的时候需要将String类型的属性值转化为对应的Object对象</li>
-<li>spring mvc中解析http请求中的String类型的属性值。</li>
-</ul>
-<a id="more"></a>
-<h3 id="2-示例。"><a href="#2-示例。" class="headerlink" title="2. 示例。"></a>2. 示例。</h3><p>以下以Date类型的对象进行示例说明。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Created by jacky</span></span><br><span class="line"><span class="comment"> * on 2018/11/21.</span></span><br><span class="line"><span class="comment"> *  2018/11/21和2018-11-21转化为对应的Date类型数据</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyCustomDateEditor</span> <span class="keyword">extends</span> <span class="title">PropertyEditorSupport</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> DateFormat DATAFORMAT_ACROSS= <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd"</span>);</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> DateFormat DATAFORMAT_SLASH= <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy/MM/dd"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getAsText</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.getAsText();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAsText</span><span class="params">(String text)</span> <span class="keyword">throws</span> IllegalArgumentException </span>&#123;</span><br><span class="line">        Date date ;</span><br><span class="line">        <span class="keyword">if</span>(text.matches(<span class="string">"^\\d&#123;4&#125;-\\d&#123;2&#125;-\\d&#123;2&#125;&#125;"</span>))&#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                date= DATAFORMAT_ACROSS.parse(text);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (ParseException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(text);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(text.matches(<span class="string">"^\\d&#123;4&#125;/\\d&#123;2&#125;\\d&#123;2&#125;"</span>))&#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                date=  DATAFORMAT_SLASH.parse(text);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (ParseException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(text);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(text);</span><br><span class="line">        &#125;</span><br><span class="line">        setValue(date);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">    <span class="keyword">private</span> Date birthday;</span><br><span class="line">    <span class="comment">//省略其他属性</span></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="comment">//@ComponentScan(basePackageClasses = User.class)</span></span><br><span class="line"><span class="meta">@PropertySource</span>(<span class="string">"my.properties"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConverterConfig</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> CustomEditorConfigurer <span class="title">customEditorConfigurer</span><span class="params">()</span></span>&#123;</span><br><span class="line">        CustomEditorConfigurer customEditorConfigurer=<span class="keyword">new</span> CustomEditorConfigurer();</span><br><span class="line">        Map&lt;Class&lt;?&gt;, Class&lt;? extends PropertyEditor&gt;&gt; customEditors = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        customEditors.put(Date.class,MyCustomDateEditor.class);</span><br><span class="line">        customEditorConfigurer.setCustomEditors(customEditors);</span><br><span class="line"><span class="comment">//        customEditorConfigurer.setPropertyEditorRegistrars(new PropertyEditorRegistrar[]&#123;propertyEditorRegistrar()&#125;);</span></span><br><span class="line">        <span class="keyword">return</span> customEditorConfigurer;</span><br><span class="line">    &#125;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>xml 配置</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd "</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"jacky"</span> <span class="attr">class</span>=<span class="string">"com.jacky.springframework.bean.User"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">value</span>=<span class="string">"jacky"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"age"</span> <span class="attr">value</span>=<span class="string">"12"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"birthday"</span> <span class="attr">value</span>=<span class="string">"2010/11/01"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RunWith</span>(SpringJUnit4ClassRunner.class)</span><br><span class="line"><span class="meta">@SpringJUnitConfig</span>(ConverterConfig.class)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PropertyEditTest</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> ApplicationContext context;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">dateTypeConvertTest</span><span class="params">()</span> <span class="keyword">throws</span> ParseException </span>&#123;</span><br><span class="line">        Date date = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd"</span>).parse(<span class="string">"2010-11-01"</span>);</span><br><span class="line">        User user = (User) context.getBean(<span class="string">"jacky"</span>);</span><br><span class="line">        System.out.println(user);</span><br><span class="line">        Assert.assertEquals(date,user.getBirthday());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="3-原理"><a href="#3-原理" class="headerlink" title="3.原理"></a>3.原理</h3><p>1.看CustomEditorConfigurer类继承关系实现了BeanFactoryPostProcessor</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomEditorConfigurer</span> <span class="keyword">implements</span> <span class="title">BeanFactoryPostProcessor</span>, <span class="title">Ordered</span> </span>&#123;</span><br></pre></td></tr></table></figure>
-<p>2.CustomEditorConfigurer通过postProcessBeanFactory给容器注入propertyEditorRegistrars或者customEditors。上诉示例采用的是customEditors注入。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">postProcessBeanFactory</span><span class="params">(ConfigurableListableBeanFactory beanFactory)</span> <span class="keyword">throws</span> BeansException </span>&#123;</span><br><span class="line">   <span class="keyword">if</span> (<span class="keyword">this</span>.propertyEditorRegistrars != <span class="keyword">null</span>) &#123;</span><br><span class="line">      <span class="keyword">for</span> (PropertyEditorRegistrar propertyEditorRegistrar : <span class="keyword">this</span>.propertyEditorRegistrars) &#123;</span><br><span class="line">         beanFactory.addPropertyEditorRegistrar(propertyEditorRegistrar);</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">if</span> (<span class="keyword">this</span>.customEditors != <span class="keyword">null</span>) &#123;</span><br><span class="line">      <span class="keyword">this</span>.customEditors.forEach(beanFactory::registerCustomEditor);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>3.看user对象的创建过程，bean的创建过程参见<a href="https://jacky0347.github.io/2018/11/22/spring%20framwork/spring%E6%A1%86%E6%9E%B6%EF%BC%88%E4%B8%89%EF%BC%89Bean%E5%AE%9A%E4%B9%89%E5%8F%8A%E5%88%9B%E5%BB%BA/" target="_blank" rel="noopener">spring框架（三）bean定义及创建</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1.user实例创建完成调用populateBean方法给属性赋值</span><br><span class="line">	调用InstantiationAwareBeanPostProcessor</span><br><span class="line">	设置自动装配</span><br><span class="line">	如果属性不为空则调用applyPropertyValues设置属性</span><br><span class="line">		检查属性是否需要转换，则调用convertForProperty转换属性信息</span><br><span class="line">			依据需要的类型去获取CustomeEditor，这里有两个属性需要获取转换器（age属性：String2int，birthday熟悉：string2Date）</span><br><span class="line">			通过转换器的setText方法转换对象为对应类型</span><br><span class="line">		设置转换后的属性值。</span><br></pre></td></tr></table></figure>
-<h3 id="4-spring内置的PropertyEditor"><a href="#4-spring内置的PropertyEditor" class="headerlink" title="4.spring内置的PropertyEditor"></a>4.spring内置的PropertyEditor</h3><table>
-<thead>
-<tr>
-<th>Class</th>
-<th>Explanation</th>
-<th>是否装配</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>ByteArrayPropertyEditor</code></td>
-<td>Editor for byte arrays. Converts strings to their corresponding byte representations. Registered by default by <code>BeanWrapperImpl</code>.</td>
-<td>是</td>
-</tr>
-<tr>
-<td><code>ClassEditor</code></td>
-<td>Parses Strings that represent classes to actual classes and vice-versa. When a class is not found, an <code>IllegalArgumentException</code> is thrown. By default, registered by<code>BeanWrapperImpl</code>.</td>
-<td>是</td>
-</tr>
-<tr>
-<td><code>CustomBooleanEditor</code></td>
-<td>Customizable property editor for <code>Boolean</code> properties. By default, registered by<code>BeanWrapperImpl</code> but can be overridden by registering a custom instance of it as a custom editor.</td>
-<td>是</td>
-</tr>
-<tr>
-<td><code>CustomCollectionEditor</code></td>
-<td>Property editor for collections, converting any source <code>Collection</code> to a given target<code>Collection</code> type.</td>
-<td></td>
-</tr>
-<tr>
-<td><code>CustomDateEditor</code></td>
-<td>Customizable property editor for <code>java.util.Date</code>, supporting a custom <code>DateFormat</code>. NOT registered by default. Must be user-registered with the appropriate format as needed.</td>
-<td>否</td>
-</tr>
-<tr>
-<td><code>CustomNumberEditor</code></td>
-<td>Customizable property editor for any <code>Number</code> subclass, such as <code>Integer</code>, <code>Long</code>, <code>Float</code>, or <code>Double</code>. By default, registered by <code>BeanWrapperImpl</code> but can be overridden by registering a custom instance of it as a custom editor.</td>
-<td>是</td>
-</tr>
-<tr>
-<td><code>FileEditor</code></td>
-<td>Resolves strings to <code>java.io.File</code> objects. By default, registered by <code>BeanWrapperImpl</code>.</td>
-<td>是</td>
-</tr>
-<tr>
-<td><code>InputStreamEditor</code></td>
-<td>One-way property editor that can take a string and produce (through an intermediate <code>ResourceEditor</code> and <code>Resource</code>) an <code>InputStream</code> so that <code>InputStream</code> properties may be directly set as strings. Note that the default usage does not close the <code>InputStream</code>for you. By default, registered by <code>BeanWrapperImpl</code>.</td>
-<td>是</td>
-</tr>
-<tr>
-<td><code>LocaleEditor</code></td>
-<td>Can resolve strings to <code>Locale</code> objects and vice-versa (the string format is <code>*[country]*[variant]</code>, same as the <code>toString()</code> method of <code>Locale</code>). By default, registered by <code>BeanWrapperImpl</code>.</td>
-<td>是</td>
-</tr>
-</tbody>
-</table>
-<h2 id="二、Converter"><a href="#二、Converter" class="headerlink" title="二、Converter"></a>二、Converter</h2><p>spring3引入Converter接口等spi作为一种通过类型转换方案</p>
-<ul>
-<li><p>Converter接口</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Converter</span>&lt;<span class="title">S</span>, <span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">    <span class="function">T <span class="title">convert</span><span class="params">(S source)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>ConverterFactory</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ConverterFactory</span>&lt;<span class="title">S</span>, <span class="title">R</span>&gt; </span>&#123;</span><br><span class="line">    &lt;T extends R&gt; <span class="function">Converter&lt;S, T&gt; <span class="title">getConverter</span><span class="params">(Class&lt;T&gt; targetType)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>GenericConverter</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">GenericConverter</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Set&lt;ConvertiblePair&gt; <span class="title">getConvertibleTypes</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function">Object <span class="title">convert</span><span class="params">(Object source, TypeDescriptor sourceType, TypeDescriptor targetType)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>ConversionService配置类型转换</p>
-</li>
-</ul>
-<p>  ConversionService一般用来注入Converter供类型转换使用，通常通过ConversionServiceFactoryBean实例化。ConversionService在容器初始化时（“refresh()-&gt;finishBeanFactoryInitialization()”）给FactoryBean设置conversionService属性。bean创建时在populateBean()时会判定是否需要类型转换，如果需要会通过ConversionService获取Converter并转换。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ConversionService</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">canConvert</span><span class="params">(Class&lt;?&gt; sourceType, Class&lt;?&gt; targetType)</span></span>;</span><br><span class="line">    &lt;T&gt; <span class="function">T <span class="title">convert</span><span class="params">(Object source, Class&lt;T&gt; targetType)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">canConvert</span><span class="params">(TypeDescriptor sourceType, TypeDescriptor targetType)</span></span>;</span><br><span class="line">    <span class="function">Object <span class="title">convert</span><span class="params">(Object source, TypeDescriptor sourceType, TypeDescriptor targetType)</span></span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="1-使用场景-1"><a href="#1-使用场景-1" class="headerlink" title="1.使用场景"></a>1.使用场景</h3><ul>
-<li>解析spring的xml配置文件的时候需要将String类型的属性值转化为对应的Object对象</li>
-<li>spring mvc中解析http请求中的String类型的属性值。</li>
-<li>其它编程场景</li>
-</ul>
-<h3 id="2-示例"><a href="#2-示例" class="headerlink" title="2.示例"></a>2.示例</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThingThree</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> Date date;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ThingThree</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"===========通过无参构造器创建==========="</span>);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//省略setter和getter方法</span></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"ThingThree&#123;"</span> +</span><br><span class="line">                <span class="string">"name='"</span> + name + <span class="string">'\''</span> +</span><br><span class="line">                <span class="string">", date="</span> + date +</span><br><span class="line">                <span class="string">'&#125;'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyConverter</span> <span class="keyword">implements</span> <span class="title">Converter</span>&lt;<span class="title">String</span>,<span class="title">Date</span>&gt; </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Date <span class="title">convert</span><span class="params">(String source)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"进入了 converter"</span>);</span><br><span class="line">        <span class="comment">//创建类型转换器</span></span><br><span class="line">        <span class="meta">@SuppressWarnings</span>(<span class="string">"unused"</span>)</span><br><span class="line">        SimpleDateFormat simpleDateFormat = getSimpleDateFormat(source);</span><br><span class="line">        Date date = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            date = simpleDateFormat.parse(source);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (ParseException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> date;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> SimpleDateFormat <span class="title">getSimpleDateFormat</span><span class="params">(String source)</span> </span>&#123;</span><br><span class="line">        SimpleDateFormat simpleDateFormat;</span><br><span class="line">        <span class="keyword">if</span> (Pattern.matches(<span class="string">"^\\d&#123;4&#125;-\\d&#123;2&#125;-\\d&#123;2&#125;$"</span>, source)) &#123;</span><br><span class="line">            simpleDateFormat = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd"</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (Pattern.matches(<span class="string">"^\\d&#123;4&#125;/\\d&#123;2&#125;/\\d&#123;2&#125;$"</span>, source)) &#123;</span><br><span class="line">            simpleDateFormat = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy/MM/dd"</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (Pattern.matches(<span class="string">"^\\d&#123;4&#125;\\d&#123;2&#125;/\\d&#123;2&#125;$"</span>, source)) &#123;</span><br><span class="line">            simpleDateFormat = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyyMMdd"</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> TypeMismatchException(<span class="string">""</span>, Date.class);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> simpleDateFormat;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"thingThree"</span> <span class="attr">class</span>=<span class="string">"com.jacky.springframework.dependency.inject.ThingThree"</span> <span class="attr">lazy-init</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">value</span>=<span class="string">"thingThree"</span>/&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--"2018/11/19" 将通过MyConverter转换为对应的日期类型 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"date"</span> <span class="attr">value</span>=<span class="string">"2018/11/19"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--&lt;bean id="conv" class="com.jacky.springframework.dependency.inject.MyConverter" /&gt;--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"conversionService"</span></span></span><br><span class="line"><span class="tag">          <span class="attr">class</span>=<span class="string">"org.springframework.context.support.ConversionServiceFactoryBean"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"converters"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">set</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"com.jacky.springframework.dependency.inject.MyConverter"</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">set</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RunWith</span>(SpringJUnit4ClassRunner.class)</span><br><span class="line"><span class="meta">@SpringJUnitConfig</span>(locations = <span class="string">"classpath:dependency.xml"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConvertTest</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> ApplicationContext context;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">dateTypeConvertTest</span><span class="params">()</span> <span class="keyword">throws</span> ParseException </span>&#123;</span><br><span class="line">        Date date = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd"</span>).parse(<span class="string">"2018-11-19"</span>);</span><br><span class="line">        ThingThree thingThree = (ThingThree) context.getBean(<span class="string">"thingThree"</span>);</span><br><span class="line">        System.out.println(thingThree);</span><br><span class="line">        Assert.assertEquals(date,thingThree.getDate());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="3-原理-1"><a href="#3-原理-1" class="headerlink" title="3.原理"></a>3.原理</h3><p>ConversionServiceFactoryBean再初始化后会创建DefaultConversionService并注入converters属性中的Converter（这里为Myconverter).</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConversionServiceFactoryBean</span> <span class="keyword">implements</span> <span class="title">FactoryBean</span>&lt;<span class="title">ConversionService</span>&gt;, <span class="title">InitializingBean</span> </span>&#123;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterPropertiesSet</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.conversionService = createConversionService();</span><br><span class="line">		ConversionServiceFactory.registerConverters(<span class="keyword">this</span>.converters, <span class="keyword">this</span>.conversionService);</span><br><span class="line">	&#125;</span><br><span class="line">  <span class="comment">// 。。。。。。</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>DefaultConversionService 创建时默认会注入如下Converter</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">addDefaultConverters</span><span class="params">(ConverterRegistry converterRegistry)</span> </span>&#123;</span><br><span class="line">   addScalarConverters(converterRegistry);</span><br><span class="line">   addCollectionConverters(converterRegistry);</span><br><span class="line"></span><br><span class="line">   converterRegistry.addConverter(<span class="keyword">new</span> ByteBufferConverter((ConversionService) converterRegistry));</span><br><span class="line">   converterRegistry.addConverter(<span class="keyword">new</span> StringToTimeZoneConverter());</span><br><span class="line">   converterRegistry.addConverter(<span class="keyword">new</span> ZoneIdToTimeZoneConverter());</span><br><span class="line">   converterRegistry.addConverter(<span class="keyword">new</span> ZonedDateTimeToCalendarConverter());</span><br><span class="line"></span><br><span class="line">   converterRegistry.addConverter(<span class="keyword">new</span> ObjectToObjectConverter());</span><br><span class="line">   converterRegistry.addConverter(<span class="keyword">new</span> IdToEntityConverter((ConversionService) converterRegistry));</span><br><span class="line">   converterRegistry.addConverter(<span class="keyword">new</span> FallbackObjectToStringConverter());</span><br><span class="line">   converterRegistry.addConverter(<span class="keyword">new</span> ObjectToOptionalConverter((ConversionService) converterRegistry));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>bean创建时会依据类型查找PropertyEditor，如果没找到PropertyEditor则查找Converter。找到了Converter则通过Converter的convert方法进行转换。（这里通过MyConverter转换string至Date类型。）如果都没找到则报异常。</p>
-<h2 id="三、Fomatter转换字段。"><a href="#三、Fomatter转换字段。" class="headerlink" title="三、Fomatter转换字段。"></a>三、Fomatter转换字段。</h2><h3 id="1-使用场景-2"><a href="#1-使用场景-2" class="headerlink" title="1.使用场景"></a>1.使用场景</h3><ul>
-<li>解析spring的xml配置文件的时候需要将String类型的属性值转化为对应的Object对象</li>
-<li>spring mvc中解析http请求中的String类型的属性值。</li>
-<li>其它编程场景</li>
-</ul>
-<h3 id="2-示例-1"><a href="#2-示例-1" class="headerlink" title="2.示例"></a>2.示例</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JavaBean</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="meta">@DateTimeFormat</span>(pattern = <span class="string">"yyyy.MM.dd"</span>)</span><br><span class="line">    <span class="keyword">private</span> Date date;</span><br><span class="line">    <span class="meta">@NumberFormat</span>(style = NumberFormat.Style.CURRENCY)</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">float</span> money;</span><br><span class="line"><span class="comment">//省略getter和setter及构造器</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        ApplicationContext app= <span class="keyword">new</span> ClassPathXmlApplicationContext(<span class="string">"command.xml"</span>);</span><br><span class="line">        JavaBean javaBean = (JavaBean) app.getBean(<span class="string">"javaBean"</span>);</span><br><span class="line">        System.out.println(javaBean);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="3-配置"><a href="#3-配置" class="headerlink" title="3. 配置"></a>3. 配置</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">       <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"javaBean"</span> <span class="attr">class</span>=<span class="string">"com.jacky.springframework.bean.type.convert.JavaBean"</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--2018.10.01 通过Fomatter转换为date类型数据 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"date"</span> <span class="attr">value</span>=<span class="string">"2018.10.01"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">value</span>=<span class="string">"zhangsan"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"money"</span> <span class="attr">value</span>=<span class="string">"￥23.30"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"conversionService"</span> <span class="attr">class</span>=<span class="string">"org.springframework.format.support.FormattingConversionServiceFactoryBean"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"registerDefaultFormatters"</span> <span class="attr">value</span>=<span class="string">"false"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"formatters"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">set</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"org.springframework.format.number.NumberFormatAnnotationFormatterFactory"</span> /&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">set</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"formatterRegistrars"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">set</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--JodaTimeFormatterRegistrar初始化时会注入JodaDateTimeFormatAnnotationFormatterFactory对@@DateTimeFormat修饰的字段解析--&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"org.springframework.format.datetime.joda.JodaTimeFormatterRegistrar"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">set</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--@DateFomatter需要用到--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>joda-time<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>joda-time<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.9.9<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="4-原理"><a href="#4-原理" class="headerlink" title="4.原理"></a>4.原理</h3><p>FormattingConversionServiceFactoryBean是工厂bean会创建DefaultFormattingConversionService并注入定义的Formatter、Converter、AnnotationFormatterFactory等。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterPropertiesSet</span><span class="params">()</span> </span>&#123;</span><br><span class="line">   <span class="keyword">this</span>.conversionService = <span class="keyword">new</span> DefaultFormattingConversionService(<span class="keyword">this</span>.embeddedValueResolver, <span class="keyword">this</span>.registerDefaultFormatters);</span><br><span class="line">   ConversionServiceFactory.registerConverters(<span class="keyword">this</span>.converters, <span class="keyword">this</span>.conversionService);</span><br><span class="line">   registerFormatters(<span class="keyword">this</span>.conversionService);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>DefaultFormattingConversionService创建后会被容器使用初始化其FactoryBean的conversionService属性。bean创建时BeanWrapperImpl会使用conversionService判定是否能转换字段属性，如果能转换则直接转换。</p>
-<p>这里注入了NumberFormatAnnotationFormatterFactory和JodaTimeFormatterRegistrar。NumberFormatAnnotationFormatterFactory可以利用@NumberFormat注解及被注解的字段信息来生成对应的convert进行转换。JodaTimeFormatterRegistrar同理。JodaTimeFormatterRegistrar初始化时会注入JodaDateTimeFormatAnnotationFormatterFactory对@@DateTimeFormat修饰的字段解析</p>
-<h3 id="三、小结"><a href="#三、小结" class="headerlink" title="三、小结"></a>三、小结</h3><ul>
-<li>通过PropertyEditor和Converter均可实现类型转换，在spring中主要用于Bean创建（xml配置中的string2Object）和spring mvc中的controller类型转换</li>
-<li>PropertyEditor优先级高于Converter：如果通过转换类型查找到对应的PropertyEditor则直接通过其setText方法进行类型转换，否则查找Converter。</li>
-<li>PropertyEditor通过CustomEditorConfigurer（BeanFactoryPostProcessor）在容器创建完后注入。</li>
-<li>Converter通过ConversionServiceFactoryBean创建DefaultConversionService 并注入，同时DefaultConversionService 在其初始化时注入内置的Converter。</li>
-<li>容器会在初始化时查找名称为“conversionService”且类型为ConversionService的bean复制为beanFactory对象，供bean初始化时BeanWrapperImp使用来类型转换。</li>
-<li>Fommatter本质会转换为Converter对象进行转换。</li>
-</ul>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -354,135 +209,25 @@ var _hmt = _hmt || [];
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">PropertyEditor</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">aop</a>
         		</li>
       		
 		</ul>
 	</div>
 
+          
 
-      
-
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACrUlEQVR42u3ay07DMBAF0P7/T8MWhBLuPByKdLKqRLF9vIjdO/N6xc/Hlyf569Xnn9/PR776zsKDh4eHN1j61XBXE9wzknmra8vXjIeHh3eadz/9PTWZOJkr/99kzXh4eHjvw+tddu9H6B0MeHh4eP+R1wsvdg8JPDw8vL/iVYfLj4pezJFs93LWgoeHhxfzqpHrO3w+Ut/Dw8PDG1fV81d5HjTsHjy/rBYPDw/vAG9ewr8n9TZlq9UADw8P7xle9Qd/LwioHirVZgI8PDy8Z3i9VqryBbcYPfRar8rdB3h4eHgxL5l4HkPkZaqt8fHw8PDO8XoFsGTQyUKrb/jl+h4eHh7eEqBXqZ/sdH4dj2bEw8PDW+JVi1XV6/WkPDZp+Srk03h4eHgD3uTV3LsiVw+PchMYHh4e3gFeLz7oNULl7Qh5e0FhVXh4eHjHePllt5l5tLLWeeyLh4eHt8XL44D8gjupQOVRcrSJeHh4eAd4SUSb/zWJCfJLdi/OKPxWwMPDw1viJdP0DoNJ09Wo4QAPDw9vlZczktJ+b6H5mHlogoeHh3ea1wtMq9+5X+5We2szmcbDw8OrvYHLx0MPs9UcUG1pxcPDwzvHy8ta+cTJdTl/qrPg4eHhPc9LQtvedvSOjWRtlyk1Hh4e3gFecrFuxqlxCS1fQ6HlCw8PD+8wrxouVNuq5k0GybUbDw8P70leryRWmGxwFPW2Bg8PD2+XtxukVq/j+VFRvUZ/a7rCw8PDW+VVW5qqhajq5fjEsYGHh4d3glc9DPLrcq99KiluFRoI8PDw8I7xetFqPkJe0No6xvDw8PDen5eHFPnW9DbuyMGAh4eHN+BVlzuPXCfFNjw8PLxzvHMtVr2Gql7EHHVG4OHh4Y155Z/3xUXnsWyv4WAhwsDDw8NLeZ8e888ULmNpPQAAAABJRU5ErkJggg==" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2018/12/10/spring framwork/spring框架（十）AOP简介/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          spring框架（十）AOP简介
-        
-      </div>
-    </a>
   
   
-    <a href="/2018/12/01/设计模式/设计模式四——builder模式/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">设计模式四——builder模式</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、PropertyEditor"><span class="toc-number">1.</span> <span class="toc-text">一、PropertyEditor</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-使用场景"><span class="toc-number">1.1.</span> <span class="toc-text">1.使用场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-示例。"><span class="toc-number">1.2.</span> <span class="toc-text">2. 示例。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-原理"><span class="toc-number">1.3.</span> <span class="toc-text">3.原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-spring内置的PropertyEditor"><span class="toc-number">1.4.</span> <span class="toc-text">4.spring内置的PropertyEditor</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、Converter"><span class="toc-number">2.</span> <span class="toc-text">二、Converter</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-使用场景-1"><span class="toc-number">2.1.</span> <span class="toc-text">1.使用场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-示例"><span class="toc-number">2.2.</span> <span class="toc-text">2.示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-原理-1"><span class="toc-number">2.3.</span> <span class="toc-text">3.原理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、Fomatter转换字段。"><span class="toc-number">3.</span> <span class="toc-text">三、Fomatter转换字段。</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-使用场景-2"><span class="toc-number">3.1.</span> <span class="toc-text">1.使用场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-示例-1"><span class="toc-number">3.2.</span> <span class="toc-text">2.示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-配置"><span class="toc-number">3.3.</span> <span class="toc-text">3. 配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-原理"><span class="toc-number">3.4.</span> <span class="toc-text">4.原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、小结"><span class="toc-number">3.5.</span> <span class="toc-text">三、小结</span></a></li></ol></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -519,9 +264,9 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
